@@ -11,7 +11,8 @@
     }
     .login-form .head {
         padding: 15px 10px;
-        background: linear-gradient(110deg, #30c5d7, #4edca7) !important;
+        /* background: linear-gradient(110deg, #30c5d7, #4edca7) !important; */
+        background-color: #6200ee;
         text-align:center;
     }
     .login-form .head .form-title {
