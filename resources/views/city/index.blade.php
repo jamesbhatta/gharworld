@@ -4,9 +4,11 @@
 <div class="p-4">
     <div class="row">
         {{-- Alerts --}}
-        <div class="col-md-12">
+        <div class="col-md-6 mx-auto">
             @include('alerts.all')
         </div>
+        
+        <div class="col-md-12"></div>
         {{-- Add & Edit Form --}}
         <div class="col-md-6 mx-auto">
             <div class="card z-depth-0">
@@ -29,7 +31,7 @@
             </div>
         </div>
         {{-- Cities List --}}
-        <div class="col-md-12">
+        <div class="col-md-8 mx-auto">
             <div class="card z-depth-0">
                 <div class="card-body">
                     <table class="table">
@@ -49,10 +51,10 @@
                                     <a href="{{ route('cities.edit', $city) }}" class="text-muted"><i class="fa fa-edit"></i></a>
                                     <span class="mx-3">|</span>
                                     <form action="{{ route('cities.destroy', $city) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="border-0 my-0 p-0 text-danger bg-transparent"><i class="fa fa-trash-alt"></i></button>
-                                </form>
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="border-0 my-0 p-0 text-danger bg-transparent"><i class="fa fa-trash-alt"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                             @empty
