@@ -25,10 +25,7 @@ class RolesSeeder extends Seeder
         ]);
         $adminUser->assignRole($admin);
 
-        // Create Seller Role
-        $seller = Role::firstOrCreate(['name' => 'seller']);
-
-        // Create Customer Role
-        $customer = Role::firstOrCreate(['name' => 'customer']);
+        // Create User Role
+        $user = Role::firstOrCreate(['name' => 'user']);
     }
 }
