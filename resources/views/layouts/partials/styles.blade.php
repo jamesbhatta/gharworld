@@ -6,7 +6,7 @@
 <link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/mdb/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/adminlte/css/adminlte.min.css') }}" rel="stylesheet">
-
+@livewireStyles
 @stack('styles')
 <style>
     .bg-theme-color {

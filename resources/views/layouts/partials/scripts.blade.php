@@ -6,4 +6,5 @@
  <script type="text/javascript" src="{{ asset('assets/adminlte/js/adminlte.min.js') }}"></script>
  <!-- AdminLTE for demo purposes -->
  {{-- <script src="{{ asset('assets/adminlte/dist/js/demo.js') }}"></script> --}}
+ @livewireScripts
  @stack('scripts')
