@@ -7,27 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    @include('layouts.partials.styles')
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link href="{{ asset('assets/mdb/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/mdb/css/style.css') }}" rel="stylesheet">
-
-    @stack('styles')
-    <style>
-        .bg-theme-color {
-            background-color: #6200EE;
-        }
-        .text-theme-color {
-            color: #6200EE;
-        }
-    </style>
-
-{{--
-    Theme color Purple:#6200EE
-    --}}
 </head>
 <body class="grey lighten-5">
     <div id="app">
@@ -87,11 +68,6 @@
         </main>
     </div>
 
-    {{-- Scripts --}}
-    <script type="text/javascript" src="{{ asset('assets/mdb/js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/mdb/js/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/mdb/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/mdb/js/mdb.min.js') }}"></script>
-    @stack('scripts')
+    @include('layouts.partials.scripts')
 </body>
 </html>
