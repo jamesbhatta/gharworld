@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Facility;
 use App\Http\Requests\FacilityRequest;
-use Illuminate\Http\Request;
 
 class FacilityController extends Controller
 {
@@ -46,7 +45,7 @@ class FacilityController extends Controller
     {
         Facility::create($request->validated());
 
-        return redirect()->route('facility.index')->with('success', 'Facility has been added.');
+        return redirect()->route('facilities.index')->with('success', 'Facility has been added.');
     }
 
     /**
@@ -82,7 +81,7 @@ class FacilityController extends Controller
     {
         $facility->update($request->validated());
 
-        return redirect()->route('facility.index')->with('success', 'Facility has been updated.');
+        return redirect()->route('facilities.index')->with('success', 'Facility has been updated.');
     }
 
     /**
@@ -95,6 +94,6 @@ class FacilityController extends Controller
     {
         $facility->delete();
 
-        return redirect()->route('facility.index')->with('success', 'Facility has been deleted.');
+        return redirect()->route('facilities.index')->with('success', 'Facility has been deleted.');
     }
 }
