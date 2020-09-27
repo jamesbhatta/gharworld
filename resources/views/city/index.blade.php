@@ -7,7 +7,7 @@
         <div class="col-md-6 mx-auto">
             @include('alerts.all')
         </div>
-        
+
         <div class="col-md-12"></div>
         {{-- Add & Edit Form --}}
         <div class="col-md-6 mx-auto">
@@ -24,7 +24,7 @@
                             <input type="text" name="name" class="form-control" value="{{ old('name', $city->name) }}" placeholder="Enter city name">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">ADD</button>
+                            <button type="submit" class="btn btn-success">{{ $city->id ? 'Update' : 'ADD' }}</button>
                         </div>
                     </form>
                 </div>
