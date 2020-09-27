@@ -33,3 +33,6 @@ Route::resources(
         'facilities' => 'FacilityController'
     ]
 );
+
+
+Route::get('page/{page}', 'PageController@index');
