@@ -7,11 +7,11 @@
         <div class="col-md-6 mx-auto">
             @include('alerts.all')
         </div>
-
-        <div class="col-md-12"></div>
+    </div>
+    <div class="row">
         {{-- Add & Edit Form --}}
-        <div class="col-md-6 mx-auto">
-            <div class="card z-depth-0">
+        <div class="col-md-4 mx-auto">
+            <div class="card z-depth-0 sticky-top">
                 <div class="card-body">
                     <form action="{{ $city->id ? route('cities.update', $city) : route('cities.store') }}" method="POST" class="form">
                         @csrf

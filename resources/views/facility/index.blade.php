@@ -7,11 +7,12 @@
         <div class="col-md-6 mx-auto">
             @include('alerts.all')
         </div>
+    </div>
 
-        <div class="col-md-12"></div>
+    <div class="row">
         {{-- Add & Edit Form --}}
-        <div class="col-md-6 mx-auto">
-            <div class="card z-depth-0">
+        <div class="col-md-4 mx-auto">
+            <div class="card z-depth-0 sticky-top">
                 <div class="card-body">
                     <form action="{{ $facility->id ? route('facilities.update', $facility) : route('facilities.store') }}" method="POST" class="form">
                         @csrf
@@ -19,7 +20,7 @@
                         @method('put')
                         <input type="hidden" name="id" value="{{ $facility->id }}">
                         @endif
-                     
+
                         <div class="form-group">
                             <label for="" class="required">Facility Name</label>
                             <input type="text" name="name" class="form-control" value="{{ old('name', $facility->name) }}" placeholder="Enter facility name">
