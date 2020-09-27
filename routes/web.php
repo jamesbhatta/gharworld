@@ -29,6 +29,7 @@ Route::put('/profile/update/{user}', 'UserController@updateProfile')->name('user
 
 Route::resources(
     [
-        'cities' => 'CityController'
+        'cities' => 'CityController',
+        'facilities' => 'FacilityController'
     ]
 );
