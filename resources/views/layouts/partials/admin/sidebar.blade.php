@@ -32,6 +32,12 @@
                     <p>Cities</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('facilities.index') }}" class="nav-link">
+                    <i class="nav-icon fa fa-bookmark"></i>
+                    <p>Facilities</p>
+                </a>
+            </li>
               <li class="nav-item">
                   <a href="../widgets.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>

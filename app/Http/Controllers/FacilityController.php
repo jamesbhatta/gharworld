@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Facility;
+use App\Http\Requests\FacilityRequest;
 use Illuminate\Http\Request;
 
 class FacilityController extends Controller
@@ -12,9 +13,17 @@ class FacilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Facility $facility=null)
     {
-        //
+        if (!$facility) {
+            $facility = new Facility();
+        }
+
+        $facilities = Facility::latest()->get();
+
+        return view('facility.index', compact('facilities', 'facility'));
+
+        return $this->showCityForm($facility);
     }
 
     /**
@@ -33,9 +42,11 @@ class FacilityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FacilityRequest $request)
     {
-        //
+        Facility::create($request->validated());
+
+        return redirect()->route('facility.index')->with('success', 'Facility has been added.');
     }
 
     /**
@@ -57,7 +68,7 @@ class FacilityController extends Controller
      */
     public function edit(Facility $facility)
     {
-        //
+        return $this->index($facility);
     }
 
     /**
@@ -67,9 +78,11 @@ class FacilityController extends Controller
      * @param  \App\Facility  $facility
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Facility $facility)
+    public function update(FacilityRequest $request, Facility $facility)
     {
-        //
+        $facility->update($request->validated());
+
+        return redirect()->route('facility.index')->with('success', 'Facility has been updated.');
     }
 
     /**
@@ -80,6 +93,8 @@ class FacilityController extends Controller
      */
     public function destroy(Facility $facility)
     {
-        //
+        $facility->delete();
+
+        return redirect()->route('facility.index')->with('success', 'Facility has been deleted.');
     }
 }
