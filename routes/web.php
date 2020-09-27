@@ -30,6 +30,7 @@ Route::put('/profile/update/{user}', 'UserController@updateProfile')->name('user
 Route::resources(
     [
         'cities' => 'CityController',
-        'facilities' => 'FacilityController'
+        'facilities' => 'FacilityController',
+        'features' => 'FeatureController',
     ]
 );
