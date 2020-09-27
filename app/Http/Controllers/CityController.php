@@ -45,7 +45,7 @@ class CityController extends Controller
      */
     public function store(CityRequest $request)
     {
-        City::create($request->all());
+        City::create($request->validated());
 
         return redirect()->route('cities.index')->with('success', 'City has been added.');
     }
@@ -81,7 +81,7 @@ class CityController extends Controller
      */
     public function update(CityRequest $request, City $city)
     {
-        $city->update($request->all());
+        $city->update($request->validated());
 
         return redirect()->route('cities.index')->with('success', 'City has been updated.');
     }
