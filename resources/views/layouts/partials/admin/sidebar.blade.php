@@ -38,6 +38,12 @@
                     <p>Facilities</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('features.index') }}" class="nav-link">
+                    <i class="nav-icon fa fa-bookmark"></i>
+                    <p>Features</p>
+                </a>
+            </li>
               <li class="nav-item">
                   <a href="../widgets.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
