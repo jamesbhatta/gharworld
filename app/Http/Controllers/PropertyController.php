@@ -19,6 +19,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        $properties=Property::latest()->paginate();
+        return view('property.index', compact('properties'));
     }
 
     /**
@@ -95,6 +97,7 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        //
+        $property->delete();
+        return redirect()->route('properties.index')->with('success', 'Property has been deleted.');
     }
 }

@@ -12,4 +12,9 @@ class Property extends Model
     public const SOLD = 2;
     public const BOOKED = 3;
     public const HIDDEN = 4;
+
+    public function city()
+    {
+        return $this->belongsTo('App\City');
+    }
 }
