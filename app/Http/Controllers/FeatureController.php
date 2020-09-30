@@ -46,7 +46,7 @@ class FeatureController extends Controller
     {
         Feature::create($request->validated());
 
-        return redirect()->route('feature.index')->with('success', 'feature has been added.');
+        return redirect()->route('features.index')->with('success', 'feature has been added.');
     }
 
     /**

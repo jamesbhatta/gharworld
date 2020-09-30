@@ -32,6 +32,7 @@ Route::resources(
         'cities' => 'CityController',
         'facilities' => 'FacilityController',
         'features' => 'FeatureController',
+        'properties' => 'PropertyController',
     ]
 );
 
