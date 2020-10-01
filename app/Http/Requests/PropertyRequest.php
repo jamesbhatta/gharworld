@@ -27,18 +27,17 @@ class PropertyRequest extends FormRequest
             'type' => 'required|in:house,land,room',
             'for' => 'required|in:rent,sale',
             'title' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png,gif,svg,bmp',
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg,bmp',
             'city_id' => 'required|integer',
             'address_line' => 'required',
             'price' => 'required|integer|min:0',
-            'facilities' => 'required',
-            'features' => 'required',
+            'facilities' => 'nullable',
+            'features' => 'nullable',
             'location' => 'nullable',
             'area' => 'required',
             'price_per' => 'required|in:month,year',
             'description' => 'nullable',
             'status' => 'required',
-            
         ];
     }
 }

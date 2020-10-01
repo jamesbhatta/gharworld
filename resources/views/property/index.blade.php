@@ -14,9 +14,9 @@
             <div class="card z-depth-0 sticky-top">
                 <div class=" card-header">Property List</div>
                 <div class="card-body">
-                <a href="{{route('properties.create')}}" class=" btn-sm btn-info fa fa-plus mb-1"> New Property</a>
-                    <table class=" table  table-responsive">
-                        <thead class="  thead-light">
+                    <a href="{{ route('properties.create') }}" class="btn btn-info mb-1"> <span class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
+                    <table class="table">
+                        <thead class="thead-light">
                             <tr>
                                 <th>Title</th>
                                 <th>Type</th>
@@ -27,29 +27,29 @@
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
-                        
-                            @foreach ($properties as $property)
-                            <tr>
-                                <td class=" text-capitalize">{{$property->title}}</td>
-                                <td class=" text-capitalize">{{$property->type}}</td>
-                                <td class=" text-capitalize">{{$property->for}}</td>
-                                <td class=" text-capitalize">{{$property->city->name}}, {{ $property->address_line}}</td>
-                                <td>{{$property->price}} /{{ $property->price_per}}</td>
-                                <td>{{$property->area}}</td>
-                                <td>
-                                    <a href="{{asset('storage/'.$property->image) }}" target="_blank" class="text-muted"><i class="fa  fa-image text-info"></i></a>
-                                    <span class="mx-3">|</span>
-                                    <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
-                                    <span class="mx-3">|</span>
-                                    <form action="{{ route('properties.destroy', $property) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="border-0 my-0 p-0 text-danger bg-transparent"><i class="fa fa-trash-alt"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        
+
+                        @foreach ($properties as $property)
+                        <tr>
+                            <td class="text-capitalize">{{ $property->title }}</td>
+                            <td class="text-capitalize">{{ $property->type }}</td>
+                            <td class="text-capitalize">{{ $property->for }}</td>
+                            <td class="text-capitalize">{{ $property->city ->name}}, {{ $property->address_line }}</td>
+                            <td>{{ $property->price }} /{{ $property->price_per }}</td>
+                            <td>{{ $property->area }}</td>
+                            <td>
+                                <a href="{{ asset('storage/'.$property->image) }}" target="_blank" class="text-muted"><i class="fa fa-image text-info"></i></a>
+                                <span class="mx-3">|</span>
+                                <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
+                                <span class="mx-3">|</span>
+                                <form action="{{ route('properties.destroy', $property) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="border-0 my-0 p-0 text-danger bg-transparent"><i class="fa fa-trash-alt"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+
                     </table>
                 </div>
             </div>

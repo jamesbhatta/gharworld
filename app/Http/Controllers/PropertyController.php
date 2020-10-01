@@ -19,7 +19,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties=Property::latest()->paginate();
+        $properties = Property::latest()->paginate();
         return view('property.index', compact('properties'));
     }
 
@@ -28,7 +28,7 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Property $property=null)
+    public function create(Property $property)
     {
 
         $cities = City::get();
@@ -39,7 +39,7 @@ class PropertyController extends Controller
             $property = new Property();
         }
 
-        return view('property.create', compact('cities', 'facilities', 'features','property'));
+        return view('property.create', compact('cities', 'facilities', 'features', 'property'));
     }
 
     /**
@@ -51,11 +51,17 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $property = $request->validated();
-        $baseDir = 'property/cover/' . date('Y') . '/' . date('M');
-        $imgPath = Storage::putFile($baseDir, $request->file('image'));
-        $property['image'] = $imgPath;
-        $property['features'] = implode(',', $request->features);
-        $property['facilities'] = implode(',', $request->facilities);
+        if ($request->has('file')) {
+            $baseDir = 'property/cover/' . date('Y') . '/' . date('M');
+            $imgPath = Storage::putFile($baseDir, $request->file('image'));
+            $property['image'] = $imgPath;
+        }
+        if ($request->has('features')) {
+            $property['features'] = implode(',', $request->features);
+        }
+        if ($request->has('facilities')) {
+            $property['facilities'] = implode(',', $request->facilities);
+        }
         Property::create($property);
         return redirect()->route('properties.index')->with('success', 'Property has been added.');
     }
