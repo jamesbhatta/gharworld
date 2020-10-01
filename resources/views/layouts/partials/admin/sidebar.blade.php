@@ -26,47 +26,48 @@
                       <p>Documentation</p>
                   </a>
               </li>
+              {{-- Properties --}}
+              <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-copy"></i>
+                      <p>
+                          Properties
+                          <i class="fas fa-angle-left right"></i>
+                      </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a href="{{route('properties.index')}}" class="nav-link">
+                              <i class="fa fa-list nav-icon"></i>
+                              <p>List</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="{{route('properties.create')}}" class="nav-link">
+                              <i class="fa fa-plus nav-icon"></i>
+                              <p>Add New</p>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
               <li class="nav-item">
-                <a href="{{ route('cities.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-map-marker-alt"></i>
-                    <p>Cities</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('facilities.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-bookmark"></i>
-                    <p>Facilities</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('features.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-bookmark"></i>
-                    <p>Features</p>
-                </a>
-            </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-copy"></i>
-                    <p>
-                        Property
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                    <a href="{{route('properties.create')}}" class="nav-link">
-                            <i class="far  fa-circle nav-icon"></i>
-                            <p>Register</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('properties.index')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>List</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                  <a href="{{ route('cities.index') }}" class="nav-link">
+                      <i class="nav-icon fa fa-map-marker-alt"></i>
+                      <p>Cities</p>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="{{ route('facilities.index') }}" class="nav-link">
+                      <i class="nav-icon fa fa-bookmark"></i>
+                      <p>Facilities</p>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="{{ route('features.index') }}" class="nav-link">
+                      <i class="nav-icon fa fa-bookmark"></i>
+                      <p>Features</p>
+                  </a>
+              </li>
               <li class="nav-item">
                   <a href="../widgets.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>
