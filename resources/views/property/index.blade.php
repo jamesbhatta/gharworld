@@ -14,12 +14,13 @@
             <div class="card z-depth-0 sticky-top">
                 <div class=" card-header">Property List</div>
                 <div class="card-body">
+                <a href="{{route('properties.create')}}" class=" btn-sm btn-info fa fa-plus mb-1"> New Property</a>
                     <table class=" table  table-responsive">
                         <thead class="  thead-light">
                             <tr>
                                 <th>Title</th>
-                                <th>Property Type</th>
-                                <th>Property For</th>
+                                <th>Type</th>
+                                <th>For</th>
                                 <th>Address</th>
                                 <th>Price</th>
                                 <th>Area</th>
@@ -36,7 +37,9 @@
                                 <td>{{$property->price}} /{{ $property->price_per}}</td>
                                 <td>{{$property->area}}</td>
                                 <td>
-                                    <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit"></i></a>
+                                    <a href="{{asset('storage/'.$property->image) }}" target="_blank" class="text-muted"><i class="fa  fa-image text-info"></i></a>
+                                    <span class="mx-3">|</span>
+                                    <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
                                     <span class="mx-3">|</span>
                                     <form action="{{ route('properties.destroy', $property) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
                                         @csrf

@@ -28,13 +28,18 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Property $property=null)
     {
+
         $cities = City::get();
         $facilities = Facility::get();
         $features = Feature::get();
 
-        return view('property.create', compact('cities', 'facilities', 'features'));
+        if (!$property) {
+            $property = new Property();
+        }
+
+        return view('property.create', compact('cities', 'facilities', 'features','property'));
     }
 
     /**
@@ -74,7 +79,7 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        //
+        return $this->create($property);
     }
 
     /**

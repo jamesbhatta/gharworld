@@ -38,9 +38,9 @@
                                         <label for="type" class="required">Property Type</label>
                                         <select type="text" name="type" class="form-control" value="{{ old('type') }}"
                                             required>
-                                            <option value="house">House</option>
-                                            <option value="land">Land</option>
-                                            <option value="room">Room</option>
+                                            <option value="house" {{$property->type=="house" ? 'selected': ''}}>House</option>
+                                            <option value="land" {{$property->type=="land" ? 'selected': ''}}>Land</option>
+                                            <option value="room" {{$property->type=="room" ? 'selected': ''}}>Room</option>
                                         </select>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                     <select type="text" name="for" id="for" value="{{ old('for') }}" class="form-control"
                                         required>
                                         <option value="sale">Sale</option>
-                                        <option value="rent">Rent</option>
+                                        <option value="rent"{{$property->type=="rent" ? 'selected': ''}}>Rent</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -57,14 +57,14 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="title" class="required">Property Title</label>
-                                        <input class=" form-control" name="title" id="title" value="{{ old('title') }}"
+                                        <input class=" form-control" name="title" id="title" value="{{ old('title',$property->title) }}"
                                             type="text" placeholder=" Property Title" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4  form-group">
                                     <label for="price">Price <span class=" text-danger">*</span></label>
                                     <input type="number" min="0" class=" form-control" name="price" id="facilities"
-                                        value="{{ old('price') }}" placeholder=" Price Rs." required>
+                                        value="{{ old('price',$property->price) }}" placeholder=" Price Rs." required>
                                 </div>
                                 <div class="col-md-4  form-group">
                                     <label for="price_per"> Price Per <span class=" text-danger">*</span></label>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label for="area" class=" required">Size</label>
-                                    <input type="text" name="area" id="area" class=" form-control" value="{{ old('area') }}"
+                                    <input type="text" name="area" id="area" class=" form-control" value="{{ old('area',$property->area) }}"
                                         placeholder="Area size with unit" required>
                                 </div>
                                 <div class="col-md-4 form-group">
@@ -130,12 +130,11 @@
                                 <div class="col-md-12 form-group">
                                     <label for="description">Description <span class=" text-danger">*</span></label>
                                     <textarea name="description" id="description" class=" form-control"
-                                        value="{{ old('description') }} cols=" 30" rows="5"
-                                        placeholder="Description"></textarea>
+                                        value="{{ old('description') }} cols=" 30" rows="5">{!!$property->description!!}</textarea>
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label for="location">Location</label>
-                                    <input type="text" name="location" id="location" class=" form-control" value="{{ old('location') }}"
+                                    <input type="text" name="location" id="location" class=" form-control" value="{{ old('location',$property->location) }}"
                                         placeholder="Location">
                                 </div>
                                 <div class="col-md-4 form-group">
@@ -146,10 +145,11 @@
                                 <div class="col-md-4 form-group">
                                     <label for="city" class="required">Status</label>
                                     <select class=" form-control" name="status" id="status" value="{{ old('status') }}">
-                                        <option value="{{ \App\Property::AVAILABLE }}">Available</option>
-                                        <option value="{{ \App\Property::SOLD }}">Sold Out</option>
-                                        <option value="{{ \App\Property::BOOKED }}">Booked</option>
-                                        <option value="{{ \App\Property::HIDDEN }}">Hidden</option>
+                                       
+                                        <option value="{{ \App\Property::AVAILABLE }}" {{$property->status==1 ? 'selected': ''}}>Available</option>
+                                        <option value="{{ \App\Property::SOLD }}" {{$property->status==2 ? 'selected': ''}}>Sold Out</option>
+                                        <option value="{{ \App\Property::BOOKED }}" {{$property->status==3 ? 'selected': ''}}>Booked</option>
+                                        <option value="{{ \App\Property::HIDDEN }}" {{$property->status==4 ? 'selected': ''}}>Hidden</option>
                                     </select>
                                 </div>
                             </div>
