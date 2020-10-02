@@ -42,3 +42,4 @@ Route::get('images', function () {
 
 
 Route::get('page/{page}', 'PageController@index');
+I am test
