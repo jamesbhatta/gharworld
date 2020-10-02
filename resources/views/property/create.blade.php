@@ -95,7 +95,7 @@
                                     @foreach ($features as $feature)
                                     <div class="col-md-4">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="features[]" class="custom-control-input" id="feature-{{ $feature->name }}" value="{{ $feature->name }}"  @if(in_array($feature->name, old('features', $property->getFeaturesArray() ))) checked @endif />
+                                            <input type="checkbox" name="features[]" class="custom-control-input" id="feature-{{ $feature->name }}" value="{{ $feature->name }}" @if(in_array($feature->name, old('features', $property->getFeaturesArray() ))) checked @endif />
                                             <label class="custom-control-label" for="feature-{{ $feature->name }}">{{ ucfirst($feature->name) }}</label>
                                         </div>
                                     </div>
@@ -148,9 +148,11 @@
                 </div>
             </div>
         </div>
+        @if($property->exists)
         <div class="col-md-12">
             <x-property-dropzone :property="$property"></x-property-dropzone>
         </div>
+        @endif
     </div>
 </div>
 @endsection
