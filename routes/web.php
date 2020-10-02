@@ -41,6 +41,3 @@ return view('images.index');
 
 
 Route::get('page/{page}', 'PageController@index');
-Route::get('test', function() {
-return \App\Property::$AVAILABLE;
-});

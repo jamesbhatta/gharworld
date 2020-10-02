@@ -12,6 +12,16 @@ class Property extends Model
     public const SOLD = 2;
     public const BOOKED = 3;
     public const HIDDEN = 4;
+
+    public function setFeaturesAttribute($value)
+    {
+        $this->attributes['facilities'] = implode(',', $value);
+    }
+
+    public function setFacilitiesAttribute($value)
+    {
+        $this->attributes['facilities'] = implode(',', $value);
+    }
     
     /**
      * Get features as array
