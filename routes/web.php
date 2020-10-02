@@ -35,8 +35,9 @@ Route::resources(
         'properties' => 'PropertyController',
     ]
 );
-Route::get('images',function(){
-return view('images.index');
+
+Route::get('images', function () {
+    return view('images.index');
 });
 
 
