@@ -1,5 +1,10 @@
 <?php
 return [
+    /*
+    * The directory in disk where the cover image of property will be stored
+     */
+    'cover_image_directory' => 'property',
+
     'types' => [
         'house' => 'House',
         'land' => 'Land',
