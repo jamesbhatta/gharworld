@@ -7,11 +7,17 @@ use App\Facility;
 use App\Feature;
 use App\Http\Requests\PropertyRequest;
 use App\Property;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Service\PropertyService;
 
 class PropertyController extends Controller
 {
+    private $propertyService;
+
+    public function __construct(PropertyService $propertyService)
+    {
+        $this->propertyService = $propertyService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,13 +56,8 @@ class PropertyController extends Controller
      */
     public function store(PropertyRequest $request)
     {
-        // if ($request->has('image')) {
-        //     $baseDir = 'property/cover/' . date('Y') . '/' . date('M');
-        //     $imgPath = Storage::putFile($baseDir, $request->file('image'));
-        //     $property['image'] = $imgPath;
-        // }
+        $property = Property::create($request->validated());
 
-        Property::create($request->validated());
         return redirect()->route('properties.index')->with('success', 'Property has been added.');
     }
 
@@ -91,7 +92,10 @@ class PropertyController extends Controller
      */
     public function update(PropertyRequest $request, Property $property)
     {
-        $property->update($request->validated());
+        $this->validateImage();
+        $property['image'] = $this->propertyService->syncPropertyImage($property);
+        $property->fill($request->validated());
+        $property->save();
 
         return redirect()->back()->with('success', 'All Done, property have been successfully updated');
     }
@@ -104,7 +108,15 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        $this->propertyService->unlinkPropertyImage($property);
         $property->delete();
         return redirect()->route('properties.index')->with('success', 'Property has been deleted.');
+    }
+
+    private function validateImage()
+    {
+        return  request()->validate([
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg,bmp',
+        ]);
     }
 }

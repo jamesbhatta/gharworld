@@ -27,7 +27,6 @@ class PropertyRequest extends FormRequest
             'type' => 'required|in:house,land,room',
             'for' => 'required|in:rent,sale',
             'title' => 'required',
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg,bmp',
             'city_id' => 'required|integer',
             'address_line' => 'required',
             'price' => 'required|integer|min:0',
