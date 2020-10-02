@@ -57,6 +57,13 @@
                       <p>Cities</p>
                   </a>
               </li>
+              {{-- Logs --}}
+              <li class="nav-item">
+                  <a href="{{ route('system.logs') }}" class="nav-link" target="_blank">
+                      <i class="nav-icon fa fa-history"></i>
+                      <p>Logs</p>
+                  </a>
+              </li>
               <li class="nav-item">
                   <a href="../widgets.html" class="nav-link">
                       <i class="nav-icon fas fa-th"></i>

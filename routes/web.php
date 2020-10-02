@@ -41,3 +41,5 @@ Route::post('property-images', 'PropertyImageController@store')->name('property-
 Route::delete('property-images/{propertyImage}', 'PropertyImageController@destroy')->name('property-images.destroy');
 
 Route::get('page/{page}', 'PageController@index');
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('system.logs');
