@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     protected $guarded = [];
-    
+
     public const AVAILABLE = 1;
     public const SOLD = 2;
     public const BOOKED = 3;
@@ -22,7 +22,7 @@ class Property extends Model
     {
         $this->attributes['facilities'] = implode(',', $value);
     }
-    
+
     /**
      * Get features as array
      *
@@ -32,7 +32,7 @@ class Property extends Model
     {
         return explode(',', $this->features);
     }
-    
+
     /**
      * Get facilities as array
      *
@@ -42,7 +42,7 @@ class Property extends Model
     {
         return explode(',', $this->facilities);
     }
-    
+
     /**
      * Setup relationship with city
      *
@@ -51,5 +51,10 @@ class Property extends Model
     public function city()
     {
         return $this->belongsTo('App\City');
+    }
+
+    public function images()
+    {
+        return $this->hasMany('App\PropertyImage');
     }
 }

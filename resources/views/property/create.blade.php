@@ -148,6 +148,9 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-12">
+            <x-property-dropzone :property="$property"></x-property-dropzone>
+        </div>
     </div>
 </div>
 @endsection

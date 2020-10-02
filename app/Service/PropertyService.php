@@ -12,21 +12,26 @@ class PropertyService
     {
         if (request()->hasFile('image')) {
             if ($property->image) {
-                $this->unlinkPropertyImage($property);
+                $this->unlinkImage($property->image);
             }
-            $baseDir = config('property.cover_image_directory') . '/' . date('Y') . '/' . date('M');
-            $imagePath = Storage::putFile($baseDir, request()->file('image'));
-            Log::info('Saved New Image');
-            return $imagePath;
+            return $this->storeImage(request()->file('image'));
         }
         return $property->image;
     }
 
-    public function unlinkPropertyImage(Property $property)
+    public function storeImage($image)
     {
-        if (Storage::exists($property->image)) {
-            Log::info('Deleting older image ' . $property->image);
-            Storage::delete($property->image);
+        $baseDir = config('property.image_directory') . '/' . date('Y') . '/' . date('M');
+        $imagePath = Storage::putFile($baseDir, $image);
+        Log::info('Saved New Image');
+        return $imagePath;
+    }
+
+    public function unlinkImage($image)
+    {
+        if (Storage::exists($image)) {
+            Log::info('Deleting older image ' . $image);
+            Storage::delete($image);
         }
         return true;
     }

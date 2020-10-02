@@ -36,9 +36,8 @@ Route::resources(
     ]
 );
 
-Route::get('images', function () {
-    return view('images.index');
-});
-
+Route::get('property-images/{property_id}', 'PropertyImageController@index')->name('property-images.index');
+Route::post('property-images', 'PropertyImageController@store')->name('property-images.store');
+Route::delete('property-images/{propertyImage}', 'PropertyImageController@destroy')->name('property-images.destroy');
 
 Route::get('page/{page}', 'PageController@index');
