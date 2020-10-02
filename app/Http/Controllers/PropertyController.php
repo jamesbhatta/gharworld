@@ -50,19 +50,13 @@ class PropertyController extends Controller
      */
     public function store(PropertyRequest $request)
     {
-        $property = $request->validated();
-        if ($request->has('image')) {
-            $baseDir = 'property/cover/' . date('Y') . '/' . date('M');
-            $imgPath = Storage::putFile($baseDir, $request->file('image'));
-            $property['image'] = $imgPath;
-        }
-        if ($request->has('features')) {
-            $property['features'] = implode(',', $request->features);
-        }
-        if ($request->has('facilities')) {
-            $property['facilities'] = implode(',', $request->facilities);
-        }
-        Property::create($property);
+        // if ($request->has('image')) {
+        //     $baseDir = 'property/cover/' . date('Y') . '/' . date('M');
+        //     $imgPath = Storage::putFile($baseDir, $request->file('image'));
+        //     $property['image'] = $imgPath;
+        // }
+
+        Property::create($request->validated());
         return redirect()->route('properties.index')->with('success', 'Property has been added.');
     }
 
@@ -95,11 +89,11 @@ class PropertyController extends Controller
      * @param  \App\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Property $property)
+    public function update(PropertyRequest $request, Property $property)
     {
-        
-        // $property->update($request->validated());
-        // return redirect()->back();
+        $property->update($request->validated());
+
+        return redirect()->back()->with('success', 'All Done, property have been successfully updated');
     }
 
     /**
