@@ -120,7 +120,7 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="description">Description</label>
-                                <textarea name="description" id="description" class=" form-control" value="{{ old('description') }} cols=" 30" rows="5">{!!$property->description!!}</textarea>
+                                <textarea name="description" id="description" class=" form-control" cols=" 30" rows="5">{!! old('description', $property->description) !!}</textarea>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="location">Location</label>
@@ -128,13 +128,14 @@
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="image" class="required">Cover Image</label>
-                                <input type="file" name="image" id="image" class="form-control-file" accept="image/*">
+                                <input type="file" name="image" id="image" class="form-control-file" accept="image/*" hidden>
+                                <label class="d-block btn btn-primary z-depth-0 my-0" for="image">Choose Image</label>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="city" class="required">Status</label>
                                 <select class=" form-control" name="status" id="status" value="{{ old('status') }}">
                                     @foreach(config('property.status') as $label => $value)
-                                    <option value="{{ $value }}" @if (old('type', $property->type) == $value) selected @endif> {{ $label }}</option>
+                                    <option value="{{ $value }}" @if (old('status', $property->status) == $value) selected @endif> {{ $label }}</option>
                                     @endforeach
                                 </select>
                             </div>

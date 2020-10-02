@@ -11,7 +11,6 @@ return [
         'sold' => '2',
         'booked' => '3',
         'hidden' => '4',
-
     ],
 
     'price_unit' => 'NRs.'

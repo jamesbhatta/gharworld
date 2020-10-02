@@ -51,7 +51,7 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $property = $request->validated();
-        if ($request->has('file')) {
+        if ($request->has('image')) {
             $baseDir = 'property/cover/' . date('Y') . '/' . date('M');
             $imgPath = Storage::putFile($baseDir, $request->file('image'));
             $property['image'] = $imgPath;
@@ -97,7 +97,9 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
-        //
+        
+        // $property->update($request->validated());
+        // return redirect()->back();
     }
 
     /**
