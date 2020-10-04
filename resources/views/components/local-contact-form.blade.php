@@ -51,7 +51,7 @@
 
         <div class="col-md-4 form-group">
             <label>Qualification</label>
-            <input type="text" name="qulification" class=" form-control" value="{{ old('qualification') }}" placeholder="Qualification">
+            <input type="text" name="qualification" class=" form-control" value="{{ old('qualification') }}" placeholder="Qualification">
         </div>
         <div class="col-md-4 form-group">
             <label for="image">Profile Picture</label>
