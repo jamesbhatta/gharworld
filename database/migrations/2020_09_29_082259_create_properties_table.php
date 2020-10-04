@@ -17,6 +17,8 @@ class CreatePropertiesTable extends Migration
             $table->id();
             $table->string('type');
             $table->string('for');
+            $table->string('name')->nullable();
+            $table->string('contact')->nullable();
             $table->string('image')->nullable();
             $table->string('title');
             $table->foreignId('city_id')->constrained('cities');
