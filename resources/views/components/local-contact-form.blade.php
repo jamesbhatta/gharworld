@@ -19,12 +19,12 @@
 
                 <div class="col-md-6 form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Name" required>
+                    <input type="text" name="name" class="form-control" value="{{ old('name', $localContact->name) }}" placeholder="Name" required>
                 </div>
 
                 <div class="col-md-6 form-group">
                     <label>Contact No.</label>
-                    <input type="text" name="contact" class="form-control" value="{{ old('contact') }}" placeholder="Contact No." required>
+                    <input type="text" name="contact" class="form-control" value="{{ old('contact', $localContact->contact) }}" placeholder="Contact No." required>
                 </div>
 
                 <div class="col-md-6 form-group">
@@ -39,25 +39,25 @@
 
                 <div class="col-md-6 form-group">
                     <label for="city">Address Line</label>
-                    <input type="text" name="address_line" class="form-control" value="{{ old('address_line') }}" placeholder="Local Address Line" required>
+                    <input type="text" name="address_line" class="form-control" value="{{ old('address_line', $localContact->address_line) }}" placeholder="Local Address Line" required>
                 </div>
 
 
                 <div class="col-md-6 form-group">
                     <label for="Email">Email</label>
-                    <input type="email" name="email" class=" form-control" value="{{ old('email') }}" placeholder="Email">
+                    <input type="email" name="email" class=" form-control" value="{{ old('email', $localContact->email) }}" placeholder="Email">
 
                 </div>
 
                 <div class="col-md-6 form-group">
                     <label>Qualification</label>
-                    <input type="text" name="qulification" class="form-control" value="{{ old('qualification') }}" placeholder="Qualification">
+                    <input type="text" name="qulification" class="form-control" value="{{ old('qualification', $localContact->qualification) }}" placeholder="Qualification">
                 </div>
 
 
                 <div class="col-md-12 form-group">
                     <label>About</label>
-                    <textarea name="about" class=" form-control" rows="8" placeholder="Let them know the specialities">{{ old('about') }}</textarea>
+                    <textarea name="about" class=" form-control" rows="8" placeholder="Let them know the specialities">{!! old('about', $localContact->about) !!}</textarea>
                 </div>
 
             </div>

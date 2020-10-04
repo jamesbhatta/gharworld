@@ -32,7 +32,7 @@ class LocalContactController extends Controller
      */
     public function create()
     {
-        return view('local-contact.create');
+        return view('local-contact.create-edit');
     }
 
     /**
@@ -66,7 +66,7 @@ class LocalContactController extends Controller
      */
     public function edit(LocalContact $localContact)
     {
-        //
+        return view('local-contact.create-edit', compact('localContact'));
     }
 
     /**
