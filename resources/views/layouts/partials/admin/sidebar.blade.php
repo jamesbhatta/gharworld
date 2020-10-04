@@ -23,30 +23,29 @@
               <li class="nav-item">
                   <a href="https://adminlte.io/docs/3.0" class="nav-link">
                       <i class="nav-icon fas fa-tachometer-alt"></i>
-                      <p>Documentation</p>
+                      <p>Dashboard</p>
                   </a>
               </li>
               {{-- Properties --}}
               <li class="nav-item">
                   <a href="{{ route('properties.index') }}" class="nav-link">
-                      <i class="nav-icon fas fa-copy"></i>
+                      <i class="nav-icon fa fa-list-ul"></i>
                       <p>
                           Properties
-                          <i class="fas fa-angle-left right"></i>
                       </p>
                   </a>
               </li>
               {{-- Features --}}
               <li class="nav-item">
                   <a href="{{ route('features.index') }}" class="nav-link">
-                      <i class="nav-icon fa fa-bookmark"></i>
+                      <i class="nav-icon fa fa-medal"></i>
                       <p>Features</p>
                   </a>
               </li>
               {{-- Facilities --}}
               <li class="nav-item">
                   <a href="{{ route('facilities.index') }}" class="nav-link">
-                      <i class="nav-icon fa fa-bookmark"></i>
+                      <i class="nav-icon fab fa-accessible-icon"></i>
                       <p>Facilities</p>
                   </a>
               </li>
@@ -64,66 +63,28 @@
                       <p>Cities</p>
                   </a>
               </li>
-              {{-- Logs --}}
-              <li class="nav-item">
-                  <a href="{{ route('system.logs') }}" class="nav-link" target="_blank">
-                      <i class="nav-icon fa fa-history"></i>
-                      <p>Logs</p>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="../widgets.html" class="nav-link">
-                      <i class="nav-icon fas fa-th"></i>
-                      <p>
-                          Widgets
-                          <span class="right badge badge-danger">New</span>
-                      </p>
-                  </a>
-              </li>
+
               <li class="nav-item has-treeview">
                   <a href="#" class="nav-link">
                       <i class="nav-icon fas fa-copy"></i>
                       <p>
-                          Layout Options
+                          System
                           <i class="fas fa-angle-left right"></i>
-                          <span class="badge badge-info right">6</span>
                       </p>
                   </a>
                   <ul class="nav nav-treeview">
+                      {{-- Logs --}}
                       <li class="nav-item">
-                          <a href="../layout/top-nav.html" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>Top Navigation</p>
+                          <a href="{{ route('system.logs') }}" class="nav-link" target="_blank">
+                              <i class="nav-icon fa fa-history"></i>
+                              <p>Logs</p>
                           </a>
                       </li>
+                      {{-- Settings --}}
                       <li class="nav-item">
                           <a href="../layout/top-nav-sidebar.html" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>Top Navigation + Sidebar</p>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="../layout/boxed.html" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>Boxed</p>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="../layout/fixed-sidebar.html" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>Fixed Sidebar</p>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="../layout/fixed-topnav.html" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>Fixed Navbar</p>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="../layout/fixed-footer.html" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>Fixed Footer</p>
+                              <i class="fa fa-cogs nav-icon"></i>
+                              <p>Settings</p>
                           </a>
                       </li>
                       <li class="nav-item">
