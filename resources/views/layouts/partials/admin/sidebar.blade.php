@@ -50,6 +50,13 @@
                       <p>Facilities</p>
                   </a>
               </li>
+              {{-- Professions --}}
+              <li class="nav-item">
+                  <a href="{{ route('professions.index') }}" class="nav-link">
+                      <i class="nav-icon fa fa-briefcase"></i>
+                      <p>Professions</p>
+                  </a>
+              </li>
               {{-- Cities --}}
               <li class="nav-item">
                   <a href="{{ route('cities.index') }}" class="nav-link">
