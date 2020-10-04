@@ -19,10 +19,10 @@ class LocalContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(LocalContact $localcontact = null)
+    public function index(LocalContact $localContact = null)
     {
-        $localcontacts=LocalContact::latest()->paginate(20);
-        return view('local-contact.index', compact('localcontacts'));
+        $localContacts=LocalContact::latest()->paginate(20);
+        return view('local-contact.index', compact('localContacts'));
     }
 
     /**
@@ -53,7 +53,7 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function show(LocalContact $localcontact)
+    public function show(LocalContact $localContact)
     {
         //
     }
@@ -64,7 +64,7 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function edit(LocalContact $localcontact)
+    public function edit(LocalContact $localContact)
     {
         //
     }
@@ -87,10 +87,10 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LocalContact $localcontact)
+    public function destroy(LocalContact $localContact)
     {
-        dd($localcontact);
-        $localcontact->delete();
+        dd($localContact);
+        $localContact->delete();
         return redirect()->back()->with('success','Local Contact Data deleted');
     }
 }

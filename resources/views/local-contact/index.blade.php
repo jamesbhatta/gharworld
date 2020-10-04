@@ -27,19 +27,19 @@
                             </tr>
                         </thead>
 
-                        @forelse ($localcontacts as $localcontact)
+                        @forelse ($localContacts as $localContact)
                             
                         
                         <tr>
-                            <td class="text-capitalize">{{ $localcontact->name}}</td>
-                            <td class="text-capitalize">{{ $localcontact->city->name.", ".$localcontact->address_line }}</td>
-                            <td>{{ $localcontact->contact}}</td>
-                            <td>{{$localcontact->profession->name}}</td>
+                            <td class="text-capitalize">{{ $localContact->name}}</td>
+                            <td class="text-capitalize">{{ $localContact->city->name.", ".$localContact->address_line }}</td>
+                            <td>{{ $localContact->contact}}</td>
+                            <td>{{$localContact->profession->name}}</td>
                             <td></td>
                             <td>
-                                <a href="{{ route('local-contacts.edit',$localcontact) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
+                                <a href="{{ route('local-contacts.edit',$localContact) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
                                 <span class="mx-3">|</span>
-                                <form action="{{ route('local-contacts.destroy',$localcontact) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
+                                <form action="{{ route('local-contacts.destroy',$localContact) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="border-0 my-0 p-0 text-danger bg-transparent"><i class="fa fa-trash-alt"></i></button>
@@ -55,7 +55,7 @@
                         @endforelse
 
                     </table>
-                    {{$localcontacts->links()}}
+                    {{$localContacts->links()}}
                 </div>
             </div>
         </div>
