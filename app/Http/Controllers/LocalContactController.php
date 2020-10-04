@@ -6,10 +6,17 @@ use App\City;
 use App\Http\Requests\LocalConatctRequest;
 use App\LocalContact;
 use App\Profession;
+use App\Service\LocalContactService;
 use Illuminate\Http\Request;
 
 class LocalContactController extends Controller
 {
+    private $localContactService;
+
+    public function __construct(LocalContactService $localContactService)
+    {
+        $this->localContactService = $localContactService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +36,7 @@ class LocalContactController extends Controller
     {
         $cities = City::get();
         $professions = Profession::get();
-        return view('localcontact.create',compact('cities', 'professions'));
+        return view('localcontact.create', compact('cities', 'professions'));
     }
 
     /**
@@ -40,7 +47,7 @@ class LocalContactController extends Controller
      */
     public function store(LocalConatctRequest $request)
     {
-        LocalContact::create($request->validated());
+        $this->localContactService->create($request->validated());
         return redirect()->route('localcontacts.index');
     }
 
