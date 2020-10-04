@@ -31,7 +31,7 @@ class LocalConatctRequest extends FormRequest
             'email' => 'nullable|email',
             'contact' => 'required',
             'image' => 'nullable',
-            'qulification' => 'nullable',
+            'qualification' => 'nullable',
             'about' => 'nullable',
         ];
     }

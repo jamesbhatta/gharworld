@@ -15,9 +15,10 @@ class LocalContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(LocalContact $localcontact = null)
     {
-        //
+        $localcontacts=LocalContact::latest()->paginate(20);
+        return view('localcontact.index', compact('localcontacts'));
     }
 
     /**
@@ -41,7 +42,7 @@ class LocalContactController extends Controller
     public function store(LocalConatctRequest $request)
     {
         LocalContact::create($request->validated());
-        return redirect()->route('localcontacts.index');
+        return redirect()->route('local-contacts.index');
     }
 
     /**
@@ -50,7 +51,7 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function show(LocalContact $localContact)
+    public function show(LocalContact $localcontact)
     {
         //
     }
@@ -61,7 +62,7 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function edit(LocalContact $localContact)
+    public function edit(LocalContact $localcontact)
     {
         //
     }
@@ -73,7 +74,7 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LocalContact $localContact)
+    public function update(Request $request, LocalContact $localcontact)
     {
         //
     }
@@ -84,8 +85,10 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LocalContact $localContact)
+    public function destroy(LocalContact $localcontact)
     {
-        //
+        dd($localcontact);
+        $localcontact->delete();
+        return redirect()->back()->with('success','Local Contact Data deleted');
     }
 }

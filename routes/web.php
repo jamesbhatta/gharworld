@@ -34,7 +34,7 @@ Route::resources(
         'facilities' => 'FacilityController',
         'features' => 'FeatureController',
         'properties' => 'PropertyController',
-        'localcontacts' => 'LocalContactController',
+        'local-contacts' => 'LocalContactController',
     ]
 );
 
