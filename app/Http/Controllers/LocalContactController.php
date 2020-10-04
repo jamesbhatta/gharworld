@@ -34,8 +34,8 @@ class LocalContactController extends Controller
      */
     public function create()
     {
-        $cities = City::get();
-        $professions = Profession::get();
+        $cities = City::orderBy('name')->get();
+        $professions = Profession::orderBy('name')->get();
         return view('localcontact.create', compact('cities', 'professions'));
     }
 
