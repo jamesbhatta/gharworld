@@ -50,6 +50,7 @@
                         @endforeach
 
                     </table>
+                    {{$properties->links()}}
                 </div>
             </div>
         </div>
