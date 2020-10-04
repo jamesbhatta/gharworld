@@ -23,4 +23,7 @@ class Profession extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+    public function localContacts(){
+        return$this->hasMany('App\LocalContact');
+    }
 }

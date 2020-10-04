@@ -12,4 +12,7 @@ class City extends Model
     {
         return $this->hasMany('App\Property');
     }
+    public function localcontact(){
+        return $this->hasMany('App\LocalContact');
+    }
 }
