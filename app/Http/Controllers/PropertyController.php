@@ -108,7 +108,7 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        $this->propertyService->unlinkPropertyImage($property);
+        $this->propertyService->unlinkImage($property);
         $property->delete();
         return redirect()->route('properties.index')->with('success', 'Property has been deleted.');
     }
