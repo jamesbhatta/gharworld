@@ -26,6 +26,8 @@ class PropertyRequest extends FormRequest
         return [
             'type' => 'required|in:house,land,room',
             'for' => 'required|in:rent,sale',
+            'name' => 'required',
+            'contact' => 'required',
             'title' => 'required',
             'city_id' => 'required|integer',
             'address_line' => 'required',

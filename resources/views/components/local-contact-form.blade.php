@@ -61,44 +61,57 @@
                 </div>
 
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group text-center">
-                @php
-                if ( Storage::exists($localContact->image) ) {
-                $imageUrl = asset('storage/' . $localContact->image);
-                } else{
-                $imageUrl = asset('assets/img/person-avatar.png');
-                }
-                @endphp
-                <img id="profileImagePreview" class="img-fluid img-thumbnail" src="{{ $imageUrl }}" alt="" style="max-height: 300px;">
-                <input type="file" name="image" id="profileImage" value="{{ old('image') }}" accept="image/*" hidden>
-                <label for="profileImage" class="btn btn-primary btn-lg mt-3" for="">Select Profile Image</label>
-                <script>
-                    let profileImage = document.getElementById('profileImage');
-                    let profileImagePreview = document.getElementById('profileImagePreview');
 
-                    function readProductImageURL(input) {
-                        if (input.files && input.files[0]) {
-                            var reader = new FileReader();
-                            reader.onload = function(e) {
-                                profileImagePreview.setAttribute('src', e.target.result);
-                            }
-                            reader.readAsDataURL(input.files[0]);
-                        }
+            <div class="col-md-6 form-group">
+                <label>Qualification</label>
+                <input type="text" name="qualification" class="form-control" value="{{ old('qualification', $localContact->qualification) }}" placeholder="Qualification">
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label for="image">Profile Picture</label>
+                <input type="file" id="image" name="image" class="  form-control" value="{{ old('image') }}" accept="image/*">
+            </div>
+            <div class="col-md-8 form-group">
+                <label>About</label>
+                <textarea name="about" class=" form-control" rows="4" placeholder="About">{{ old('about') }}</textarea>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group text-center">
+                    @php
+                    if ( Storage::exists($localContact->image) ) {
+                    $imageUrl = asset('storage/' . $localContact->image);
+                    } else{
+                    $imageUrl = asset('assets/img/person-avatar.png');
                     }
+                    @endphp
+                    <img id="profileImagePreview" class="img-fluid img-thumbnail" src="{{ $imageUrl }}" alt="" style="max-height: 300px;">
+                    <input type="file" name="image" id="profileImage" value="{{ old('image') }}" accept="image/*" hidden>
+                    <label for="profileImage" class="btn btn-primary btn-lg mt-3" for="">Select Profile Image</label>
+                    <script>
+                        let profileImage = document.getElementById('profileImage');
+                        let profileImagePreview = document.getElementById('profileImagePreview');
 
-                    profileImage.addEventListener("change", function() {
-                        readProductImageURL(this);
-                    });
+                        function readProductImageURL(input) {
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+                                reader.onload = function(e) {
+                                    profileImagePreview.setAttribute('src', e.target.result);
+                                }
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
 
-                </script>
+                        profileImage.addEventListener("change", function() {
+                            readProductImageURL(this);
+                        });
+
+                    </script>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row form-group">
-        <button type="submit" class="btn btn-success btn-lg">{{ $localContact->exists ? 'Update' : 'Save' }}</button>
-    </div>
+        <div class="row form-group">
+            <button type="submit" class="btn btn-success btn-lg">{{ $localContact->exists ? 'Update' : 'Save' }}</button>
+        </div>
 
 </form>
