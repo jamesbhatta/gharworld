@@ -56,12 +56,12 @@
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="name" class="required">Owner Name</label>
-                                    <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Ower Name" required>   
+                                    <input type="text" name="name" class="form-control" value="{{ old('name',$property->name) }}" placeholder="Ower Name" required>   
                                 </div>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="contact" class="required">Contact</label>
-                                <input type="tel" name="contact" id="contact" value="{{ old('contact') }}" class="form-control" placeholder="Contact No." required>
+                                <input type="tel" name="contact" id="contact" value="{{ old('contact',$property->contact) }}" class="form-control" placeholder="Contact No." required>
                                 
                             </div>
                             <div class="col-md-12">
