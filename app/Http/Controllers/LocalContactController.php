@@ -89,7 +89,7 @@ class LocalContactController extends Controller
      */
     public function destroy(LocalContact $localContact)
     {
-        dd($localContact);
+   
         $localContact->delete();
         return redirect()->back()->with('success','Local Contact Data deleted');
     }
