@@ -1,4 +1,4 @@
-<form action="{{ route('localcontacts.store') }}" method="post" class=" form" enctype="multipart/form-data">
+<form action="{{ route('local-contacts.store') }}" method="post" class=" form" enctype="multipart/form-data">
     @csrf
     @if($localContact->exists)
     @method('put')

@@ -55,6 +55,7 @@
                         @endforelse
 
                     </table>
+                    {{$localcontacts->links()}}
                 </div>
             </div>
         </div>

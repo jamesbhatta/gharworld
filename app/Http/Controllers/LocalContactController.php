@@ -22,7 +22,7 @@ class LocalContactController extends Controller
     public function index(LocalContact $localcontact = null)
     {
         $localcontacts=LocalContact::latest()->paginate(20);
-        return view('localcontact.index', compact('localcontacts'));
+        return view('local-contact.index', compact('localcontacts'));
     }
 
     /**
@@ -32,7 +32,7 @@ class LocalContactController extends Controller
      */
     public function create()
     {
-        return view('localcontact.create');
+        return view('local-contact.create');
     }
 
     /**
