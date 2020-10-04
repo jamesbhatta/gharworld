@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LocalConatctRequest;
+use App\Http\Requests\LocalContactRequest;
 use App\LocalContact;
 use App\Service\LocalContactService;
-use Illuminate\Http\Request;
 
 class LocalContactController extends Controller
 {
@@ -41,7 +40,7 @@ class LocalContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LocalConatctRequest $request)
+    public function store(LocalContactRequest $request)
     {
         $this->localContactService->create($request->validated());
         return redirect()->route('localcontacts.index');
@@ -76,7 +75,7 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LocalContact $localContact)
+    public function update(LocalContactRequest $request, LocalContact $localContact)
     {
         //
     }
