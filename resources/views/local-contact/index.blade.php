@@ -23,20 +23,20 @@
                                 <th>Contact</th>
                                 <th>Address</th>
                                 <th>Profession</th>
-                                <th>Status</th>
+                                <th>Active</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
 
                         @forelse ($localContacts as $localContact)
-                            
-                        
                         <tr>
                             <td class="text-capitalize">{{ $localContact->name}}</td>
                             <td class="text-capitalize">{{ $localContact->city->name.", ".$localContact->address_line }}</td>
                             <td>{{ $localContact->contact}}</td>
                             <td>{{$localContact->profession->name}}</td>
-                            <td></td>
+                            <td>
+                                <livewire:local-contact-status-switch :localContact="$localContact"/>
+                            </td>
                             <td>
                                 <a href="{{ route('local-contacts.edit',$localContact) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
                                 <span class="mx-3">|</span>
@@ -47,12 +47,12 @@
                                 </form>
                             </td>
                         </tr>
-                       
+
                         @empty
                         <tr>
                             <td colspan="42" class="text-center text-danger font-italic">No data available</td>
                         </tr>
-                            
+
                         @endforelse
 
                     </table>
