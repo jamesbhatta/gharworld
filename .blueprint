@@ -1,0 +1,6 @@
+created:
+    - database/factories/ProfessionFactory.php
+    - database/migrations/2020_10_04_113132_create_professions_table.php
+    - app/Profession.php
+models:
+    Profession: { name: string }

@@ -1,0 +1,15 @@
+models:
+  Profession:
+    name: string
+    
+Controllers:
+  Profession:
+    index:
+      query: all
+      render: profession.index with:professions
+    
+    store:
+      validate: name
+      save: profession
+      flash: profession.name
+      redirect: profession.index
