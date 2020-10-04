@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\City;
-use App\Http\Requests\LocalConatctRequest;
+use App\Http\Requests\LocalContactRequest;
 use App\LocalContact;
-use App\Profession;
-use Illuminate\Http\Request;
+use App\Service\LocalContactService;
 
 class LocalContactController extends Controller
 {
+    private $localContactService;
+
+    public function __construct(LocalContactService $localContactService)
+    {
+        $this->localContactService = $localContactService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,9 +32,7 @@ class LocalContactController extends Controller
      */
     public function create()
     {
-        $cities = City::get();
-        $professions = Profession::get();
-        return view('localcontact.create',compact('cities', 'professions'));
+        return view('localcontact.create');
     }
 
     /**
@@ -39,9 +41,9 @@ class LocalContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LocalConatctRequest $request)
+    public function store(LocalContactRequest $request)
     {
-        LocalContact::create($request->validated());
+        $this->localContactService->create($request->validated());
         return redirect()->route('local-contacts.index');
     }
 
@@ -74,7 +76,7 @@ class LocalContactController extends Controller
      * @param  \App\LocalContact  $localContact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LocalContact $localcontact)
+    public function update(LocalContactRequest $request, LocalContact $localContact)
     {
         //
     }
