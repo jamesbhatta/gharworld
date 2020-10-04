@@ -15,7 +15,7 @@ class Property extends Model
 
     public function setFeaturesAttribute($value)
     {
-        $this->attributes['facilities'] = implode(',', $value);
+        $this->attributes['features'] = implode(',', $value);
     }
 
     public function setFacilitiesAttribute($value)
