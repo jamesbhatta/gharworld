@@ -35,6 +35,15 @@
                       </p>
                   </a>
               </li>
+                   {{-- Local Contact --}}
+                   <li class="nav-item">
+                    <a href="{{ route('local-contacts.index') }}" class="nav-link">
+                        <i class="nav-icon fa fa-users"></i>
+                        <p>
+                            Local Contact
+                        </p>
+                    </a>
+                </li>
               {{-- Features --}}
               <li class="nav-item">
                   <a href="{{ route('features.index') }}" class="nav-link">
