@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="p-4">
+    <x-section-title>Local Contacts</x-section-title>
+
     <div class="row">
         {{-- Alerts --}}
         <div class="col-md-6 mx-auto">
@@ -12,9 +14,8 @@
     <div class="row">
         <div class="col-md-12 mx-auto">
             <div class="card z-depth-0 sticky-top">
-                <div class=" card-header">Local Contact List</div>
                 <div class="card-body">
-                    <a href="{{ route('local-contacts.create') }}" class="btn btn-info mb-1"> <span class="mr-2"><i class="fa fa-plus"></i></span> New Local Contacts</a>
+                    <a href="{{ route('local-contacts.create') }}" class="btn btn-info rounded-0 mb-3 mx-0"> <span class="mr-2"><i class="fa fa-plus"></i></span> New Local Contacts</a>
                     <table class="table">
                         <thead class="thead-light">
                             <tr>
@@ -49,7 +50,7 @@
                        
                         @empty
                         <tr>
-                            <td colspan="40" class=" text-danger">No data available</td>
+                            <td colspan="42" class="text-center text-danger font-italic">No data available</td>
                         </tr>
                             
                         @endforelse

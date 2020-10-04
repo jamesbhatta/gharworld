@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="p-4">
+    <x-section-title>Cities</x-section-title>
+
     <div class="row">
         {{-- Alerts --}}
         <div class="col-md-6 mx-auto">

@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="p-4">
+    <x-section-title>Properties</x-section-title>
+
     <div class="row">
         {{-- Alerts --}}
         <div class="col-md-6 mx-auto">
@@ -12,9 +14,8 @@
     <div class="row">
         <div class="col-md-12 mx-auto">
             <div class="card z-depth-0 sticky-top">
-                <div class=" card-header">Property List</div>
                 <div class="card-body">
-                    <a href="{{ route('properties.create') }}" class="btn btn-info mb-1"> <span class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
+                    <a href="{{ route('properties.create') }}" class="btn btn-info rounded-0 mb-3 mx-0"> <span class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
                     <table class="table">
                         <thead class="thead-light">
                             <tr>
@@ -37,8 +38,6 @@
                             <td>{{ $property->price }} /{{ $property->price_per }}</td>
                             <td>{{ $property->area }}</td>
                             <td>
-                                <a href="{{ asset('storage/'.$property->image) }}" target="_blank" class="text-muted"><i class="fa fa-image text-info"></i></a>
-                                <span class="mx-3">|</span>
                                 <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
                                 <span class="mx-3">|</span>
                                 <form action="{{ route('properties.destroy', $property) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
