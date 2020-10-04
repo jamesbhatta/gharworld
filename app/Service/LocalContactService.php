@@ -14,7 +14,9 @@ class LocalContactService
 
     public function create($data)
     {
-        $data['image'] = $this->imageService->storeImage($data['image']);
+        if (array_key_exists('image', $data)) {
+            $data['image'] = $this->imageService->storeImage($data['image']);
+        }
 
         return LocalContact::create($data);
     }
