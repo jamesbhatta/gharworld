@@ -11,8 +11,7 @@
                     <select name="profession_id" class="form-control" required>
                         <option value="">Select Profession</option>
                         @foreach ($professions as $profession)
-                        <option value="{{ $profession->id }}" class="text-capitalize">{{$profession->name }}
-                        </option>
+                        <option value="{{ $profession->id }}" @if(old('profession_id', $localContact->profession_id) == $profession->id) selected @endif>{{$profession->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -32,7 +31,7 @@
                     <select name="city_id" class="form-control" required>
                         <option value="">Select City</option>
                         @foreach ($cities as $city)
-                        <option value="{{ $city->id }}" class="text-capitalize">{{ $city->name }}</option>
+                        <option value="{{ $city->id }}" @if(old('city_id', $localContact->city_id) == $city->id) selected @endif>{{ $city->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -42,11 +41,9 @@
                     <input type="text" name="address_line" class="form-control" value="{{ old('address_line', $localContact->address_line) }}" placeholder="Detail Address Line" required>
                 </div>
 
-
                 <div class="col-md-6 form-group">
                     <label for="Email">Email</label>
                     <input type="email" name="email" class=" form-control" value="{{ old('email', $localContact->email) }}">
-
                 </div>
 
                 <div class="col-md-6 form-group">
@@ -54,10 +51,13 @@
                     <input type="text" name="qualification" class="form-control" value="{{ old('qualification', $localContact->qualification) }}">
                 </div>
 
-
                 <div class="col-md-12 form-group">
                     <label>About</label>
                     <textarea name="about" class=" form-control" rows="8" placeholder="Let them know the specialities">{!! old('about', $localContact->about) !!}</textarea>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <button type="submit" class="btn btn-success btn-lg w-100">{{ $localContact->exists ? 'Update' : 'Save' }}</button>
                 </div>
 
             </div>
@@ -94,10 +94,6 @@
 
                 </script>
             </div>
-        </div>
-
-        <div class="col-md-12 form-group">
-            <button type="submit" class="btn btn-success btn-lg">{{ $localContact->exists ? 'Update' : 'Save' }}</button>
         </div>
 
     </div>

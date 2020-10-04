@@ -78,7 +78,9 @@ class LocalContactController extends Controller
      */
     public function update(LocalContactRequest $request, LocalContact $localContact)
     {
-        //
+        $this->localContactService->update($localContact, $request->validated());
+
+        return redirect()->back()->with('success', 'Alright, the information got updated');
     }
 
     /**

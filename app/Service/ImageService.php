@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Service;
 
@@ -8,15 +8,14 @@ use Illuminate\Support\Facades\Storage;
 
 class ImageService
 {
-    public function syncPropertyImage(Property $property)
+    public function swapImage($oldImage, $newImage)
     {
-        if (request()->hasFile('image')) {
-            if ($property->image) {
-                $this->unlinkImage($property->image);
-            }
-            return $this->storeImage(request()->file('image'));
+        if ($newImage) {
+            $this->unlinkImage($oldImage);
+            return $this->storeImage($newImage);
         }
-        return $property->image;
+
+        return $oldImage;
     }
 
     public function storeImage($image)

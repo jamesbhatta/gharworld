@@ -20,4 +20,13 @@ class LocalContactService
 
         return LocalContact::create($data);
     }
+
+    public function update(LocalContact $localContact, $data)
+    {
+        if (array_key_exists('image', $data)) {
+            $data['image'] = $this->imageService->swapImage($localContact->image, $data['image']);
+        }
+
+        return $localContact->update($data);
+    }
 }
