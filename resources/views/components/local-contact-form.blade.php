@@ -1,6 +1,8 @@
 <form action="{{ route('localcontacts.store') }}" method="post" class=" form" enctype="multipart/form-data">
     @csrf
-
+    @if($localContact->exists)
+    @method('put')
+    @endif
     <div class="row">
         <div class="col-md-4 form-group">
             <label for="profesion">Profession</label>
@@ -63,7 +65,7 @@
     </div>
 
     <div class="row form-group">
-        <input type="submit" class=" btn btn-success">
+        <button type="submit" class="btn btn-success">{{ $localContact->exists ? 'Update' : 'Save' }}</button>
     </div>
 
 </form>

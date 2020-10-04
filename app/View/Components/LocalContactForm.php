@@ -3,19 +3,22 @@
 namespace App\View\Components;
 
 use App\City;
+use App\LocalContact;
 use App\Profession;
 use Illuminate\View\Component;
 
 class LocalContactForm extends Component
 {
+    public $localContact;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(LocalContact $localContact = null)
     {
-        //
+        $this->localContact = $localContact ?? new LocalContact();
     }
 
     /**
