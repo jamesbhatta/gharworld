@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\City;
 use App\Http\Requests\LocalConatctRequest;
 use App\LocalContact;
-use App\Profession;
 use App\Service\LocalContactService;
 use Illuminate\Http\Request;
 
@@ -34,9 +32,7 @@ class LocalContactController extends Controller
      */
     public function create()
     {
-        $cities = City::orderBy('name')->get();
-        $professions = Profession::orderBy('name')->get();
-        return view('localcontact.create', compact('cities', 'professions'));
+        return view('localcontact.create');
     }
 
     /**
