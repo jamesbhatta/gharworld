@@ -30,19 +30,5 @@ class HomeController extends Controller
         $cities=City::get();
         return view('theme.home',compact('cities'));
     }
-    public function search(LocationRequest $request)
-    {
-       if($request->type=="real-estate"){
-        $properties=Property::where('type','!=','room')->where('city_id','=',$request->city_id)->paginate(21);
-       
-       }
-    elseif($request->type=="room"){
-        $properties=Property::where('type','=','room')->where('city_id','=',$request->city_id)->paginate(21);
     
-    }else{
-
-    }
-    return view('theme.search-result',compact('properties'));
-       
-    }
 }

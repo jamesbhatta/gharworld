@@ -5,7 +5,7 @@
         <div class="container">
             <div class="hero-warp">
 
-                <form action="{{ route('frontend.location.search') }}" method="POST" class="main-search-form">
+                <form action="{{ route('frontend.property.search') }}" method="get" class="main-search-form">
 				  @csrf
 					<div class="search-type">
                         <div class="st-item">

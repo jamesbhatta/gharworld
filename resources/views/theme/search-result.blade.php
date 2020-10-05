@@ -15,11 +15,11 @@
                                         <div class="card property-item">
                                             <div class="pi-image">
                                                 <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                                    alt="{{ $property->title }}" class="image img-fluid img-thumbnail"
+                                                    alt="{{ $property->title }}" class="image img-fluid"
                                                     style="height: 180px;">
                                                 <div
                                                     class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
-                                                    {{ $property->type . '-' . $property->for }}</div>
+                                                    {{$property->for }}</div>
                                             </div>
                                             <div class="px-3 py-2">
                                                 <h3>{{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '') }}

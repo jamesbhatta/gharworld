@@ -28,6 +28,6 @@ Route::get('page/{page}', 'PageController@index');
 
 Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('frontend.home');
-    Route::post('properties', 'HomeController@search')->name('frontend.location.search');
-    Route::get('properties','PropertyController@index')->name('fontend.property.result');
+    Route::get('properties', 'PropertyController@search')->name('frontend.property.search');
+
 });
