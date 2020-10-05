@@ -17,17 +17,17 @@
                 </div>
 
                 <div class="col-md-6 form-group">
-                    <label for="name">Name</label>
+                    <label for="name" class="required">Name</label>
                     <input type="text" name="name" class="form-control" value="{{ old('name', $localContact->name) }}" placeholder="Name" required>
                 </div>
 
                 <div class="col-md-6 form-group">
-                    <label>Contact No.</label>
+                    <label class="required">Contact No.</label>
                     <input type="text" name="contact" class="form-control" value="{{ old('contact', $localContact->contact) }}" placeholder="Contact No." required>
                 </div>
 
                 <div class="col-md-6 form-group">
-                    <label for="city">City</label>
+                    <label for="city" class="required">City</label>
                     <select name="city_id" class="form-control" required>
                         <option value="">Select City</option>
                         @foreach ($cities as $city)
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="col-md-6 form-group">
-                    <label for="city">Address Line</label>
+                    <label for="city" class="required">Address Line</label>
                     <input type="text" name="address_line" class="form-control" value="{{ old('address_line', $localContact->address_line) }}" placeholder="Detail Address Line" required>
                 </div>
 
@@ -53,7 +53,7 @@
 
                 <div class="col-md-12 form-group">
                     <label>About</label>
-                    <textarea name="about" class=" form-control" rows="8" placeholder="Let them know the specialities">{!! old('about', $localContact->about) !!}</textarea>
+                    <textarea name="about" class=" form-control" id="about" rows="8" placeholder="Let them know the specialities">{!! old('about', $localContact->about) !!}</textarea>
                 </div>
 
                 <div class="col-md-6 form-group">
@@ -98,3 +98,13 @@
 
     </div>
 </form>
+@push('scripts')
+<script>
+    $(function() {
+        $('#about').summernote({
+            height: 250
+        });
+    });
+
+</script>
+@endpush

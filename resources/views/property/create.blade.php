@@ -1,18 +1,4 @@
 @extends('layouts.admin')
-@push('styles')
-<style>
-    label.required:after {
-        content: '*';
-        color: #fa5661;
-    }
-
-    /* Summer note */
-    .note-editor {
-        box-shadow: none;
-    }
-
-</style>
-@endpush
 
 @section('content')
 <div class="p-4">
@@ -167,7 +153,6 @@
     </div>
 </div>
 @endsection
-
 @push('scripts')
 <script>
     $(function() {

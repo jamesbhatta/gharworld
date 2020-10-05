@@ -71,6 +71,7 @@
     font-style: italic;
 }
 
+
 /* Toggle Switch */
 
 .switch {
@@ -124,4 +125,19 @@ input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+
+/* required *  i lable */
+
+label.required:after {
+    content: '*';
+    color: #fa5661;
+}
+
+
+/* Summer note */
+
+.note-editor {
+    box-shadow: none;
 }
