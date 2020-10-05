@@ -12,16 +12,8 @@
 							<label for="real-estate">Real Estate</label>
 						</div>
 						<div class="st-item">
-							<input type="radio" name="st" id="land">
-							<label for="land">Land</label>
-						</div>
-						<div class="st-item">
 							<input type="radio" name="st" id="buy">
-							<label for="buy">Room</label>
-						</div>
-						<div class="st-item">
-							<input type="radio" name="st" id="rent">
-							<label for="rent">Rent</label>
+							<label for="buy">Room Rent</label>
 						</div>
 						<div class="st-item">
 							<input type="radio" name="st" id="agents">
@@ -32,8 +24,6 @@
 						<input type="text" placeholder="Search by location">
 						<button class="site-btn" type="submit">Search</button>
 					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. </p>
 				</form>
 			</div>
 		</div>

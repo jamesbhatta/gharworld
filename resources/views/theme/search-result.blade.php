@@ -14,7 +14,7 @@
                             <li>Price High</li>
                         </ul>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="property-item">
                                     <div class="pi-image">
                                         <img src="{{asset('assets/mondy/img/property-search/1.jpg')}}" alt="">
@@ -31,7 +31,7 @@
                                     <a href="#" class="readmore-btn">Find out more</a>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="property-item">
                                     <div class="pi-image">
                                         <img src="{{asset('assets/mondy/img/property-search/2.jpg')}}" alt="">
@@ -48,7 +48,7 @@
                                     <a href="#" class="readmore-btn">Find out more</a>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="property-item">
                                     <div class="pi-image">
                                         <img src="{{asset('assets/mondy/img/property-search/3.jpg')}}" alt="">
@@ -65,7 +65,7 @@
                                     <a href="#" class="readmore-btn">Find out more</a>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="property-item">
                                     <div class="pi-image">
                                         <img src="{{asset('assets/mondy/img/property-search/4.jpg')}}" alt="">
@@ -82,7 +82,7 @@
                                     <a href="#" class="readmore-btn">Find out more</a>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="property-item">
                                     <div class="pi-image">
                                         <img src="{{asset('assets/mondy/img/property-search/3.jpg')}}" alt="">
@@ -99,7 +99,7 @@
                                     <a href="#" class="readmore-btn">Find out more</a>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="property-item">
                                     <div class="pi-image">
                                         <img src="{{asset('assets/mondy/img/property-search/1.jpg')}}" alt="">
