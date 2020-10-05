@@ -41,7 +41,7 @@
 
                                 @endforelse
                             </div>
-                            <button class="site-btn sb-big load-more">load More</button>
+                            {{$properties->links()}}
                         </div>
                     </div>
                 </div>
