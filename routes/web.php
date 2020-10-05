@@ -14,35 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')->name('login.social');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.social.callback');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'UserController@profile')->name('user.profile');
 Route::put('/profile/update/{user}', 'UserController@updateProfile')->name('user.profile.update');
 
-Route::resources(
-    [
-        'cities' => 'CityController',
-        'professions' => 'ProfessionController',
-        'facilities' => 'FacilityController',
-        'features' => 'FeatureController',
-        'properties' => 'PropertyController',
-        'local-contacts' => 'LocalContactController',
-    ]
-);
-
-Route::get('property-images/{property_id}', 'PropertyImageController@index')->name('property-images.index');
-Route::post('property-images', 'PropertyImageController@store')->name('property-images.store');
-Route::delete('property-images/{propertyImage}', 'PropertyImageController@destroy')->name('property-images.destroy');
-
 Route::get('page/{page}', 'PageController@index');
 
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('system.logs');
+Route::group(['namespace' => 'Frontend'], function () {
+    Route::get('/', 'HomeController@index')->name('frontend.home');
+});
