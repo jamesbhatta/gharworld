@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PropertyController extends Controller
 {
     public function index(){
-        $properties=Property::paginate(20);
+        $properties=Property::paginate(21);
         return view('theme.search-result',compact('properties'));
     }
     public function searchResult(){

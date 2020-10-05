@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\City;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LocationRequest;
+use App\Property;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +27,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $cities=City::get();
+        return view('theme.home',compact('cities'));
+    }
+    public function search(LocationRequest $request)
+    {
+       if($request->type=="real-estate"){
+        $properties=Property::where('type','!=','room')->where('city_id','=',$request->city_id)->paginate(21);
+        return view('theme.search-result',compact('properties'));
+       }
+    if($request->type=="room"){
+        $properties=Property::where('type','=','room')->where('city_id','=',$request->city_id)->paginate(21);
+        return view('theme.search-result',compact('properties'));
+    }
+       
     }
 }

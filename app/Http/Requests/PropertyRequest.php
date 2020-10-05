@@ -29,7 +29,7 @@ class PropertyRequest extends FormRequest
             'name' => 'required',
             'contact' => 'required',
             'title' => 'required',
-            'city_id' => 'required|integer',
+            'city_id' => 'required|exists:cities,id',
             'address_line' => 'required',
             'price' => 'required|integer|min:0',
             'facilities' => 'nullable',
