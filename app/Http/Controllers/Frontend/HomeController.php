@@ -36,9 +36,11 @@ class HomeController extends Controller
         $properties=Property::where('type','!=','room')->where('city_id','=',$request->city_id)->paginate(21);
         return view('theme.search-result',compact('properties'));
        }
-    if($request->type=="room"){
+    elseif($request->type=="room"){
         $properties=Property::where('type','=','room')->where('city_id','=',$request->city_id)->paginate(21);
         return view('theme.search-result',compact('properties'));
+    }else{
+        
     }
        
     }

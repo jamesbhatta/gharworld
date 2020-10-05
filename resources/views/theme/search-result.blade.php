@@ -17,8 +17,8 @@
                                                 <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
                                                     alt="{{ $property->title }}" class="image img-fluid img-thumbnail"
                                                     style="height: 180px;">
-                                                <div class="pi-badge {{ $property->for == 'sale' ? 'new' : 'offer' }}">
-                                                    {{ $property->for }}</div>
+                                                <div class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
+                                                    {{$property->type."-".$property->for }}</div>
                                             </div>
                                             <h3>{{"NRs. ".$property->price . ($property->for == 'rent' ? "/$property->price_per" : '') }}
                                             </h3>

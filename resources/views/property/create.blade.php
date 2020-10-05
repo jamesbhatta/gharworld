@@ -33,8 +33,8 @@
                             <div class="col-md-4 form-group">
                                 <label for="for" class="required">Property For</label>
                                 <select type="text" name="for" id="for" value="{{ old('for') }}" class="form-control" required>
-                                    <option value="sale">Sale</option>
-                                    <option value="rent" {{ old('for', $property->for) == 'rent' ? 'selected': '' }}>Rent</option>
+                                    <option value="rent">Rent</option>
+                                    <option value="sale" {{ old('for', $property->for) == 'sale' ? 'selected': '' }}>Sale</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
