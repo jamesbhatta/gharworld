@@ -17,16 +17,22 @@
                             <label for="room-rent">Room Rent</label>
                         </div>
                         <div class="st-item">
-                            <input type="radio" name="type" value="loca-contact" id="local-contact">
+                            <input type="radio" name="type"  value="loca-contact" id="local-contact">
                             <label for="local-contact">Local Contacts</label>
                         </div>
                     </div>
                     <div class="search-input si-v-2">
-                        <select type="text" name="city_id" class="col-md-10  form-lg font-weight-bold" required>
-                            <option value="">Select Location</option>
+                        <select type="text" name="city_id" id="city_id" class="col-md-10  form-lg font-weight-bold @error('city_id') is-invalid @enderror">
+							@error('city_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+							<option value="">Select Location</option>
                             @foreach ($cities as $city)
                                 <option value="{{ $city->id }}" class="text-capitalize">{{ $city->name }}</option>
-                            @endforeach
+							@endforeach
+							
                         </select>
                         <button class="site-btn" type="submit">Search</button>
                     </div>

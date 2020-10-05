@@ -24,8 +24,8 @@ class LocationRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required|in:real-estate,room,local-contact',
             'city_id' => 'required|exists:cities,id',
+            'type' => 'required|in:real-estate,room,local-contact',
         ];
     }
 }

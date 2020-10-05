@@ -34,14 +34,15 @@ class HomeController extends Controller
     {
        if($request->type=="real-estate"){
         $properties=Property::where('type','!=','room')->where('city_id','=',$request->city_id)->paginate(21);
-        return view('theme.search-result',compact('properties'));
+       
        }
     elseif($request->type=="room"){
         $properties=Property::where('type','=','room')->where('city_id','=',$request->city_id)->paginate(21);
-        return view('theme.search-result',compact('properties'));
+    
     }else{
-        
+
     }
+    return view('theme.search-result',compact('properties'));
        
     }
 }
