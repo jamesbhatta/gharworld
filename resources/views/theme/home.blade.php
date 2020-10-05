@@ -6,7 +6,7 @@
             <div class="hero-warp">
 
                 <form action="{{ route('frontend.property.search') }}" method="get" class="main-search-form">
-				  @csrf
+		
 					<div class="search-type">
                         <div class="st-item">
                             <input type="radio" name="type" value="real-estate" id="real-estate" checked>

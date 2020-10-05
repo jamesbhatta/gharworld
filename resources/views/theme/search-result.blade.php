@@ -8,7 +8,6 @@
                 <div class="row">
                     <div class="col-xl-12 p-0">
                         <div class="search-results">
-
                             <div class="row py-5">
                                 @forelse ($properties as $property)
                                     <div class="col-md-3">

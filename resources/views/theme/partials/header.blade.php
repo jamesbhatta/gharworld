@@ -19,8 +19,8 @@
         </ul>
         <div class="header-right">
             <div class="user-panel">
-                <a href="#" class="login">Sign in</a>
-                <a href="#" class="register">Join us</a>
+            <a href="{{url('login')}}" class="login">Sign in</a>
+            <a href="{{url('register')}}" class="register">Join us</a>
             </div>
         </div>
     
