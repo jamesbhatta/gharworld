@@ -25,13 +25,14 @@
                                                 </h3>
                                                 <h5 class="text-capitalize">{{ $property->type . ' | ' . $property->title }}
                                                 </h5>
-                                                <div class="pi-metas">
-                                                    <div class="pi-meta">{{ $property->city->name }}</div>
-                                                    <div class="pi-meta">{{ $property->address_line }}</div>
-                                                </div>
-                                                <div class="pi-metas">
-                                                    <div class="pi-meta">{{ $property->features }}</div>
-                                                </div>
+                                                    <div class=" fa fa-map-marker"> {{ $property->city->name.", ".$property->address_line }}</div>
+                                                    <hr>
+                                                    <div>{{ $property->features }}</div>
+                                                    <div class=" text-warning" >
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                        <span class="fa fa-star checked"></span>
+                                                        @endfor 
+                                                    </div>
                                                 <a href="#" class="readmore-btn">Find out more</a>
                                             </div>
                                         </div>

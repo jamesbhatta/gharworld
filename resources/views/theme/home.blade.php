@@ -17,7 +17,7 @@
                             <label for="room-rent">Room Rent</label>
                         </div>
                         <div class="st-item">
-                            <input type="radio" name="type"  value="loca-contact" id="local-contact">
+                            <input type="radio" name="type"  value="local-contact" id="local-contact">
                             <label for="local-contact">Local Contacts</label>
                         </div>
                     </div>
