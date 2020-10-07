@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\City;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LocationRequest;
+use App\Profession;
 use App\Property;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cities=City::get();
-        return view('theme.home',compact('cities'));
+        $cities=City::orderBy('name')->get();
+        $professions=Profession::orderBy('name')->get();
+        return view('theme.home',compact('cities','professions'));
     }
     
 }

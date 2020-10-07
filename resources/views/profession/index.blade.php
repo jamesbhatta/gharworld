@@ -15,7 +15,7 @@
             {{-- Add & Edit Form --}}
             <div class="card z-depth-0 sticky-top">
                 <div class="card-body">
-                    <form action="{{ $profession->id ? route('professions.update', $profession) : route('professions.store') }}" method="POST" class="form">
+                    <form action="{{ $profession->id ? route('professions.update', $profession) : route('professions.store') }}" method="POST" class="form" enctype="multipart/form-data">
                         @csrf
                         @if($profession->id)
                         @method('put')
@@ -24,6 +24,8 @@
                         <div class="form-group">
                             <label for="" class="required">Profession Name</label>
                             <input type="text" name="name" class="form-control" value="{{ old('name', $profession->name) }}" placeholder="Enter profession name">
+                            <label  class="required">Image</label>
+                            <input type="file" name="image" class="form-control" value="{{ old('file', $profession->file) }}" accept="image/*" >
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">{{ $profession->id ? 'Update' : 'ADD' }}</button>

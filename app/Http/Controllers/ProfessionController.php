@@ -41,8 +41,8 @@ class ProfessionController extends Controller
      */
     public function store(ProfessionRequest $request)
     {
+        
         Profession::create($request->validated());
-
         return redirect()->route('professions.index')->with('success', 'Profession has been added.');
     }
 

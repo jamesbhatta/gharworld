@@ -24,7 +24,7 @@ class PropertyController extends Controller
         $properties=Property::where('type','=','room')->where('city_id','=',$request->city_id)->paginate(21);
         return view('theme.search-result',compact('properties','types'));
     }else{
-        $localcontacts=LocalContact::where('active','=','1')->where('city_id','=',$request->city_id)->paginate(21);
+        $localcontacts=LocalContact::where('active','=','1')->where('city_id','=',$request->city_id)->where('profession_id','=',$request->profession_id)->paginate(21);
         return view('theme.localcontact-search-result',compact('localcontacts','types'));
     }
     
