@@ -9,20 +9,22 @@
                     <div class="col-md-2">
                         <div class="font-weight-bold text-decoration">Property type</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="type" id="all" value="all" checked> <label for="all">All</label>
+                            <div><input type="radio" name="type" id="all" value="all" {{$types=="real-estate" ? 'show' : 'hidden'}} checked> <label for="all" {{$types=="real-estate" ? 'show' : 'hidden'}}>All</label>
                             </div>
-                            <div><input type="radio" name="type" id="house" value="house"> <label for="house">House</label>
+                            <div><input type="radio" name="type" id="house" value="house" {{$types=="real-estate" ? 'show' : 'hidden'}}> <label for="house" {{$types=="real-estate" ? 'show' : 'hidden'}}>House</label>
                             </div>
-                            <div><input type="radio" name="type" id="land" value="land"> <label for="land">Land</label>
+                            <div><input type="radio" name="type" id="land" value="land" {{$types=="real-estate" ? 'show' : 'hidden'}}> <label for="land" {{$types=="real-estate" ? 'show' : 'hidden'}}>Land</label>
+                            </div>
+                            <div><input type="radio" name="type" id="room" value="room" {{$types=="room" ? 'show' : 'hidden'}} {{$types=="room" ? 'checked' : ''}}> <label for="room" {{$types=="room" ? 'show' : 'hidden'}}>Room</label>
                             </div>
                         </div>
                         <hr>
                         <div class="font-weight-bold text-decoration">Property For</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="for" id="all" value="all" checked> <label for="all">All</label>
+                            <div><input type="radio" name="for" id="forall" value="all" {{$types=="real-estate" ? 'show' : 'hidden'}} checked> <label for="forall" {{$types=="real-estate" ? 'show' : 'hidden'}}>All</label>
                             </div>
-                            <div><input type="radio" name="for" id="rent" value="rent"> <label for="rent">Rent</label></div>
-                            <div><input type="radio" name="for" id="sale" value="sale"> <label for="sale">Sale</label></div>
+                            <div><input type="radio" name="for" id="rent" value="rent" {{$types=="room" ? 'checked' : ''}}> <label for="rent">Rent</label></div>
+                            <div><input type="radio" name="for" id="sale" value="sale" {{$types=="real-estate" ? 'show' : 'hidden'}}> <label for="sale" {{$types=="real-estate" ? 'show' : 'hidden'}}>Sale</label></div>
                         </div>
                         <hr>
                         <div class="font-weight-bold text-decoration">Price</div>
