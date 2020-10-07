@@ -53,8 +53,11 @@
                     <div class="col-md-10 p-0">
                         <div class="search-results">
                             <div class="row py-5">
+
                                 @forelse ($localcontacts as $localcontact)
-                                    <div class="col-md-4">
+                                
+                                <div class="col-md-4">
+                                <a href="{{route('frontend.localcontact.show',$localcontact)}}">
                                         <div class="card localcontact-item text-center">
                                             <div class="pi-image">
                                                 <img src="{{ $localcontact->image != null ? asset('storage/' . $localcontact->image) : asset('assets/img/real-estate.jpg') }}"
@@ -73,10 +76,11 @@
                                                         <span class="fa fa-star checked"></span>
                                                     @endfor
                                                 </div>
-                                                <a href="#" class="readmore-btn">Find out more</a>
                                             </div>
                                         </div>
+                                   </a>
                                     </div>
+                                
                                 @empty
                                     <div class="col-md-12 text-danger text-center justify-content-center">* No data available in databale </div>
 

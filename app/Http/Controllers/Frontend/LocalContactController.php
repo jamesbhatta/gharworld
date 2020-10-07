@@ -16,4 +16,9 @@ class LocalContactController extends Controller
         $localcontacts=LocalContact::where('active','=','1')->where('city_id','=',$request->city_id)->where('profession_id','=',$request->profession_id)->paginate(21);
         return view('theme.localcontact-search-result',compact('localcontacts','types'));
     }
+    public function show(LocalContact $localcontact)
+        {
+           
+            return view('theme.localcontact-profile',compact('localcontact'));
+    }
 }

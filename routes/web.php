@@ -32,6 +32,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('local-contacts', 'LocalContactController@search')->name('frontend.local-contacts.search');
     Route::get('professions', 'ProfessionController@index')->name('frontend.professions');
     Route::get('professions/{profession}', 'ProfessionController@show')->name('frontend.professions.show');
+    Route::get('localcontact-profile/{localcontact}', 'localcontactController@show')->name('frontend.localcontact.show');
 
 });
 
