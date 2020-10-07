@@ -6,11 +6,55 @@
         <section class="search-result-section ">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-12 p-0">
+                    <div class="col-md-2 my-5 py-5">
+                        <div class="font-weight-bold text-decoration">Rating</div>
+                        <div class="px-2 py-2">
+                            <div class="row">
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                            </div>
+                            <div class="row">
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"> And Up</span>
+
+                            </div>
+                            <div class="row">
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"> And Up</span>
+                            </div>
+                            <div class="row">
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"> And Up</span>
+
+                            </div>
+                            <div class="row">
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"> And Up</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-10 p-0">
                         <div class="search-results">
                             <div class="row py-5">
                                 @forelse ($localcontacts as $localcontact)
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="card localcontact-item text-center">
                                             <div class="pi-image">
                                                 <img src="{{ $localcontact->image != null ? asset('storage/' . $localcontact->image) : asset('assets/img/real-estate.jpg') }}"
@@ -18,15 +62,16 @@
                                                     style="height: 280px;">
                                             </div>
                                             <div class="px-3 py-2">
-                                                <h3>{{ $localcontact->profession->name}}
-                                                </h3>
-                                                <h5 class="text-capitalize">{{ $localcontact->name}}
-                                                </h5>
-                                                    <div class="fa fa-map-marker"> {{ $localcontact->city->name .", ".$localcontact->address_line  }}</div>
-                                                <div class=" text-warning" >
+                                                <div class="font-weight-bold">{{ $localcontact->profession->name }}
+                                                </div>
+                                                <div class="text-capitalize font-weight-bold">{{ $localcontact->name }}
+                                                </div>
+                                                <div class="fa fa-map-marker">
+                                                    {{ $localcontact->city->name . ', ' . $localcontact->address_line }}</div>
+                                                <div class=" text-warning">
                                                     @for ($i = 0; $i < 5; $i++)
-                                                    <span class="fa fa-star checked"></span>
-                                                    @endfor 
+                                                        <span class="fa fa-star checked"></span>
+                                                    @endfor
                                                 </div>
                                                 <a href="#" class="readmore-btn">Find out more</a>
                                             </div>
@@ -36,7 +81,7 @@
 
                                 @endforelse
                             </div>
-                            {{$localcontacts->links()}}
+                            {{ $localcontacts->links() }}
                         </div>
                     </div>
                 </div>

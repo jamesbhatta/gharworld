@@ -82,7 +82,7 @@
                                 </select>
                              
                                 <select type="text" name="profession_id" id="professon_id"
-                                    class="ml-3 col-md-5  form-lg font-weight-bold @error('profession_id') is-invalid @enderror">
+                                    class="ml-3 col-md-5  form-lg font-weight-bold @error('profession_id') is-invalid @enderror" required>
                                     @error('profession_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}

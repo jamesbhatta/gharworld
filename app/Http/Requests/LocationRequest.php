@@ -26,6 +26,7 @@ class LocationRequest extends FormRequest
         return [
             'city_id' => 'required|exists:cities,id',
             'type' => 'required|in:real-estate,room,local-contact',
+            'profession' => 'nullable|exists:professions,id',
         ];
     }
 }
