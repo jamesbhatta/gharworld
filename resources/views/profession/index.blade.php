@@ -51,6 +51,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $profession->name }}</td>
                                 <td>
+                                    <a href="{{asset('storage/'.$profession->image) }}" class="text-muted" target="_blank"><i class="fa fa-image"></i></a>
+                                    <span class="mx-3">|</span>
                                     <a href="{{ route('professions.edit', $profession) }}" class="text-muted"><i class="fa fa-edit"></i></a>
                                     <span class="mx-3">|</span>
                                     <form action="{{ route('professions.destroy', $profession) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">

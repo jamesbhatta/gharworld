@@ -24,7 +24,7 @@ class ProfessionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:professions,name,' . $this->id,
             'image' => 'nullable|mimes:jpeg,jpg,png,gif,bmp'
         ];
     }

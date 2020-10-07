@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfessionRequest;
 use App\Profession;
-use Illuminate\Http\Request;
+use App\Service\ProfessionService;
 
 class ProfessionController extends Controller
 {
+    private $profesionService;
+
+    public function __construct(ProfessionService $profesionService)
+    {
+        $this->profesionService = $profesionService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,8 +47,7 @@ class ProfessionController extends Controller
      */
     public function store(ProfessionRequest $request)
     {
-        
-        Profession::create($request->validated());
+        $this->profesionService->create($request->validated());;
         return redirect()->route('professions.index')->with('success', 'Profession has been added.');
     }
 
@@ -77,7 +82,7 @@ class ProfessionController extends Controller
      */
     public function update(ProfessionRequest $request, Profession $profession)
     {
-        $profession->update($request->validated());
+        $this->profesionService->update($profession, $request->validated());
 
         return redirect()->route('professions.index')->with('success', 'Profession has been updated');
     }
