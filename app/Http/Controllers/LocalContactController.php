@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LocalContactRequest;
 use App\LocalContact;
 use App\Service\LocalContactService;
+use Illuminate\Support\Facades\Storage;
 
 class LocalContactController extends Controller
 {
@@ -91,7 +92,7 @@ class LocalContactController extends Controller
      */
     public function destroy(LocalContact $localContact)
     {
-   
+        Storage::delete($localContact->image);
         $localContact->delete();
         return redirect()->back()->with('success','Local Contact Data deleted');
     }

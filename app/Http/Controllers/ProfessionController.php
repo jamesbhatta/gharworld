@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfessionRequest;
 use App\Profession;
 use App\Service\ProfessionService;
+use Illuminate\Support\Facades\Storage;
 
 class ProfessionController extends Controller
 {
@@ -95,6 +96,7 @@ class ProfessionController extends Controller
      */
     public function destroy(Profession $profession)
     {
+        Storage::delete($profession->image);
         $profession->delete();
 
         return redirect()->route('professions.index')->with('success', 'Profession has been deleted');
