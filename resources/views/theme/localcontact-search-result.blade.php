@@ -9,44 +9,44 @@
                     <div class="col-md-2 my-5 py-5">
                         <div class="font-weight-bold text-decoration">Rating</div>
                         <div class="px-2 py-2">
-                            <div class="row">
+                            <a href="" class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
-                            </div>
-                            <div class="row">
+                            </a>
+                            <a href="" class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"> And Up</span>
 
-                            </div>
-                            <div class="row">
+                            </a>
+                            <a href="" class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"> And Up</span>
-                            </div>
-                            <div class="row">
+                            </a>
+                            <a href="" class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
-                                <span class="fa fa-star text-secondary p-1"></span>
-                                <span class="fa fa-star text-secondary p-1"></span>
-                                <span class="fa fa-star text-secondary p-1"> And Up</span>
-
-                            </div>
-                            <div class="row">
-                                <span class="fa fa-star checked text-warning p-1"></span>
-                                <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"> And Up</span>
 
-                            </div>
+                            </a>
+                            <a href="" class="row">
+                                <span class="fa fa-star checked text-warning p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"></span>
+                                <span class="fa fa-star text-secondary p-1"> And Up</span>
+
+                            </a>
 
                         </div>
                     </div>
@@ -78,6 +78,7 @@
                                         </div>
                                     </div>
                                 @empty
+                                    <div class="col-md-12 text-danger text-center justify-content-center">* No data available in databale </div>
 
                                 @endforelse
                             </div>

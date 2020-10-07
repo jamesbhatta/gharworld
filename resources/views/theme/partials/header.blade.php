@@ -8,6 +8,7 @@
         <ul class="main-menu">
         <li><a href="{{url('/')}}" class="active">Home</a></li>
             <li><a href="{{url('page/about')}}">About</a></li>
+            <li><a href="{{route('frontend.professions')}}">Local Contact</a></li>
             <li><a href="#">Pages</a>
                 <ul class="sub-menu">
                     <li><a href="{{url('page/search-result')}}">Search Result</a></li>

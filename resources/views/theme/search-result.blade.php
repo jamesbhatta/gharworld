@@ -113,7 +113,7 @@
                                         </div>
                                     </div>
                                 @empty
-
+                                    <div class="col-md-12 text-danger text-center justify-content-center">* No data available in databale </div>
                                 @endforelse
                             </div>
                             {{ $properties->links() }}

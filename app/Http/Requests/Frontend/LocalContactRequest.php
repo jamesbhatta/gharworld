@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Frontend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LocationRequest extends FormRequest
+class LocalContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,6 +26,7 @@ class LocationRequest extends FormRequest
         return [
             'city_id' => 'required|exists:cities,id',
             'type' => 'required|in:real-estate,room,local-contact',
+            'profession_id' => 'required|exists:professions,id',
         ];
     }
 }

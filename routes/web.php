@@ -24,10 +24,16 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 Route::get('/profile', 'UserController@profile')->name('user.profile');
 Route::put('/profile/update/{user}', 'UserController@updateProfile')->name('user.profile.update');
 
-Route::get('page/{page}', 'PageController@index');
+
 
 Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('frontend.home');
     Route::get('properties', 'PropertyController@search')->name('frontend.property.search');
+    Route::get('local-contacts', 'LocalContactController@search')->name('frontend.local-contacts.search');
+    Route::get('professions', 'ProfessionController@index')->name('frontend.professions');
+    Route::get('professions/{profession}', 'ProfessionController@show')->name('frontend.professions.show');
 
 });
+
+
+Route::get('page/{page}', 'PageController@index');

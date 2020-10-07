@@ -65,7 +65,7 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape
-                        <form action="{{ route('frontend.property.search') }}" method="get" class="main-search-form">
+                        <form action="{{ route('frontend.local-contacts.search') }}" method="get" class="main-search-form">
                             <input type="text" name="type" value="local-contact" hidden>
                             <div class="search-input si-v-2">
                                 <select type="text" name="city_id" id="city_id"
