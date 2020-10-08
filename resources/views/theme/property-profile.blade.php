@@ -18,6 +18,13 @@
                                     <h3 class="text-uppercase">{{ $property->type . ' | ' . $property->title }}</h3>
                                     <h5><i class="fa fa-map-marker"></i>
                                         {{ $property->city->name . ', ' . $property->address_line }} </h5>
+                                        <h5>
+                                            <i class="fa fa-user"></i>
+                                            {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
+                                        </h5>
+                                        <h5><i class=" fa fa-phone"></i><a
+                                            href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
+                                            {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a></h5>
                                 </div>
                             </div>
                             <div class="col-lg-4 text-left text-lg-right">
@@ -158,21 +165,10 @@
                 <div class="col-lg-4 col-md-8 sidebar">
                     <div class="agent-widget">
                         <div class="aw-text">
-                            <div class="btn btn-info text-center py-2 mb-3">Contact Information</div>
-                            <h4 class="text-capitalize"><i class="fa fa-"></i>
-                                {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}</h4>
-                            <h6><i class=" fa fa-phone"></i><a
-                                    href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
-                                    {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a></h6>
                             <p>Fusce lobortis a enim eget tempus. Class aptent taciti sociosqu ad litora. Donec eget
                                 efficitur ex. Donec eget dolor vitae eros feugiat tristique id vitae massa. </p>
                             <a href="#" class="readmore-btn">Contact the agent</a>
                         </div>
-                    </div>
-                    <div class="map-widget">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14376.077865872314!2d-73.879277264103!3d40.757667781624285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1546528920522"
-                            style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
