@@ -7,24 +7,51 @@
             <div class="">
                 <div class="row py-5">
                     <div class="col-md-2">
+                        <div class="font-weight-bold text-decoration">Location</div>
+                        <div class="px-2 py-2">
+                            <select name="city_id" id="city" class="form-control">
+                                <option value="">Select Location</option>
+                                @foreach ($cities as $city)
+                                   <option value="{{ $city->id}}" {{"$city_id"=="$city->id" ? 'selected' : '' }}>
+                                    {{ $city->name}}
+                                </option>
+                                @endforeach
+
+
+                            </select>
+                        </div>
+                        <hr>
                         <div class="font-weight-bold text-decoration">Property type</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="type" id="all" value="all" {{$types=="real-estate" ? 'show' : 'hidden'}} checked> <label for="all" {{$types=="real-estate" ? 'show' : 'hidden'}}>All</label>
+                            <div><input type="radio" name="type" id="all" value="all"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }} checked> <label for="all"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}>All</label>
                             </div>
-                            <div><input type="radio" name="type" id="house" value="house" {{$types=="real-estate" ? 'show' : 'hidden'}}> <label for="house" {{$types=="real-estate" ? 'show' : 'hidden'}}>House</label>
+                            <div><input type="radio" name="type" id="house" value="house"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}> <label for="house"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}>House</label>
                             </div>
-                            <div><input type="radio" name="type" id="land" value="land" {{$types=="real-estate" ? 'show' : 'hidden'}}> <label for="land" {{$types=="real-estate" ? 'show' : 'hidden'}}>Land</label>
+                            <div><input type="radio" name="type" id="land" value="land"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}> <label for="land"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}>Land</label>
                             </div>
-                            <div><input type="radio" name="type" id="room" value="room" {{$types=="room" ? 'show' : 'hidden'}} {{$types=="room" ? 'checked' : ''}}> <label for="room" {{$types=="room" ? 'show' : 'hidden'}}>Room</label>
+                            <div><input type="radio" name="type" id="room" value="room"
+                                    {{ $types == 'room' ? 'show' : 'hidden' }} {{ $types == 'room' ? 'checked' : '' }}>
+                                <label for="room" {{ $types == 'room' ? 'show' : 'hidden' }}>Room</label>
                             </div>
                         </div>
                         <hr>
                         <div class="font-weight-bold text-decoration">Property For</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="for" id="forall" value="all" {{$types=="real-estate" ? 'show' : 'hidden'}} checked> <label for="forall" {{$types=="real-estate" ? 'show' : 'hidden'}}>All</label>
+                            <div><input type="radio" name="for" id="forall" value="all"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }} checked> <label for="forall"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}>All</label>
                             </div>
-                            <div><input type="radio" name="for" id="rent" value="rent" {{$types=="room" ? 'checked' : ''}}> <label for="rent">Rent</label></div>
-                            <div><input type="radio" name="for" id="sale" value="sale" {{$types=="real-estate" ? 'show' : 'hidden'}}> <label for="sale" {{$types=="real-estate" ? 'show' : 'hidden'}}>Sale</label></div>
+                            <div><input type="radio" name="for" id="rent" value="rent"
+                                    {{ $types == 'room' ? 'checked' : '' }}> <label for="rent">Rent</label></div>
+                            <div><input type="radio" name="for" id="sale" value="sale"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}> <label for="sale"
+                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}>Sale</label></div>
                         </div>
                         <hr>
                         <div class="font-weight-bold text-decoration">Price</div>
@@ -34,52 +61,52 @@
                                     class=" col-sm-12 form-control input-sm my-2 text-right" id="min" placeholder="Minimum">
                                 <input type="number" min="0" name="max" class="col-sm-12 form-control text-right" id="max"
                                     placeholder="Maximum">
-                            <i class="fa fa-play col-sm-3 btn m-1 btn-info" ></i>
-                                </div>
+                                <i class="fa fa-play col-sm-3 btn m-1 btn-info"></i>
+                            </div>
                         </div>
                         <hr>
                         <div class="font-weight-bold text-decoration">Rating</div>
                         <div class="px-2 py-2">
-                            
-                               <div class="row">
+
+                            <div class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
-                               </div>
-                               <div class="row" >
+                            </div>
+                            <div class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"> And Up</span>
-                                
-                               </div>
-                              <div class="row">
+
+                            </div>
+                            <div class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"> And Up</span>
-                              </div>
-                              <div class="row">
+                            </div>
+                            <div class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"> And Up</span>
-                            
-                              </div>
-                                <div class="row">                             
+
+                            </div>
+                            <div class="row">
                                 <span class="fa fa-star checked text-warning p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"></span>
                                 <span class="fa fa-star text-secondary p-1"> And Up</span>
-                                
-                                </div>
-                           
+
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-10 p-2">
@@ -87,33 +114,35 @@
                             <div class="row">
                                 @forelse ($properties as $property)
                                     <div class="col-md-3">
-                                        <div class="card property-item">
+                                        <a href="{{ route('frontend.property.show', $property) }}">
+                                            <div class="card property-item hover">
 
-                                            <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                                alt="{{ $property->title }}" class="image img-fluid" style="height: 180px;">
-                                            <div
-                                                class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
-                                                {{ $property->for }}</div>
-                                            <div class="px-3 py-2">
-                                                <div class="font-weight-bold">
-                                                    {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '') }}
+                                                <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
+                                                    alt="{{ $property->title }}" class="image img-fluid" style="height: 180px;">
+                                                <div
+                                                    class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
+                                                    {{ $property->for }}</div>
+                                                <div class="px-3 py-2">
+                                                    <div class="font-weight-bold">
+                                                        {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
+                                                    </div>
+                                                    <div class="text-capitalize">
+                                                        {{ $property->type . ' | ' . $property->title }}
+                                                    </div>
+                                                    <div class=" fa fa-map-marker">
+                                                        {{ $property->city->name . ', ' . $property->address_line }}</div>
+                                                    <div class=" text-warning">
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                            <span class="fa fa-star checked"></span>
+                                                        @endfor
+                                                    </div>
                                                 </div>
-                                                <div class="text-capitalize">{{ $property->type . ' | ' . $property->title }}
-                                                </div>
-                                                <div class=" fa fa-map-marker">
-                                                    {{ $property->city->name . ', ' . $property->address_line }}</div>
-                                                <div>{{ $property->features }}</div>
-                                                <div class=" text-warning">
-                                                    @for ($i = 0; $i < 5; $i++)
-                                                        <span class="fa fa-star checked"></span>
-                                                    @endfor
-                                                </div>
-                                                <a href="#" class="readmore-btn">Find out more</a>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 @empty
-                                    <div class="col-md-12 text-danger text-center justify-content-center">* No data available in databale </div>
+                                    <div class="col-md-12 text-danger text-center justify-content-center">* No data available in
+                                        databale </div>
                                 @endforelse
                             </div>
                             {{ $properties->links() }}

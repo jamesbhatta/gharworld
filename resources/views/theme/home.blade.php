@@ -13,7 +13,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#room" role="tab"
-                            aria-controls="profile" aria-selected="false">Room</a>
+                            aria-controls="profile" aria-selected="false">Room Rent</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
@@ -21,8 +21,7 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="real-estate" role="tabpanel" aria-labelledby="home-tab">Raw
-                        denim you
+                    <div class="tab-pane fade show active" id="real-estate" role="tabpanel" aria-labelledby="home-tab">
                         <form action="{{ route('frontend.property.search') }}" method="get" class="main-search-form">
 
                             <input type="text" name="type" value="real-estate" id="real-estate" hidden>

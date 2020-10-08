@@ -12,4 +12,9 @@ class Facility extends Model
     {
         return '<i class="' . $this->icon . '"></i>';
     }
+
+    public function properties()
+    {
+        return $this->belongsToMany('App\Property');
+    }
 }

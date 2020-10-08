@@ -57,4 +57,9 @@ class Property extends Model
     {
         return $this->hasMany('App\PropertyImage');
     }
+
+    public function facilities()
+    {
+        return $this->belongsToMany('App\Facility');
+    }
 }

@@ -57,6 +57,7 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $property = Property::create($request->validated());
+        $property->facilities()->sync($request->facilities);
 
         return redirect()->route('properties.index')->with('success', 'Property has been added.');
     }
@@ -96,6 +97,7 @@ class PropertyController extends Controller
         $property['image'] = $this->propertyService->syncPropertyImage($property);
         $property->fill($request->validated());
         $property->save();
+        $property->facilities()->sync($request->facilities);
 
         return redirect()->back()->with('success', 'All Done, property have been successfully updated');
     }

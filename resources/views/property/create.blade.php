@@ -107,7 +107,7 @@
                                         @foreach ($facilities as $facility)
                                         <div class="col-md-4">
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" name="facilities[]" class="custom-control-input" id="facility-{{ $facility->name }}" value="{{ $facility->name }}" @if(in_array($facility->name, old('facilities', $property->getFacilitiesArray() ))) checked @endif />
+                                                <input type="checkbox" name="facilities[]" class="custom-control-input" id="facility-{{ $facility->name }}" value="{{ $facility->id }}" @if(in_array($facility->name, old('facilities', $property->getFacilitiesArray() ))) checked @endif />
                                                 <label class="custom-control-label" for="facility-{{ $facility->name }}">{{ ucfirst($facility->name) }}</label>
                                             </div>
                                         </div>

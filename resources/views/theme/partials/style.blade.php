@@ -5,4 +5,5 @@
 
 <!-- Main Stylesheets -->
 <link rel="stylesheet" href="{{ asset('assets/mondy/css/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/mondy/css/style1.css') }}" />
 @stack('styles')

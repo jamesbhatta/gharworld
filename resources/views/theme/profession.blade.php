@@ -12,7 +12,7 @@
                                 @forelse ($professions as $profession)
                                 
                                     <div class="col-md-3 py-2">
-                                        <div class="card localcontact-item text-center">
+                                        <div class="card localcontact-item text-center hover">
                                         <a href="{{route('frontend.professions.show',$profession)}}" >
                                             <div class="pi-image">
                                                 <img src="{{ $profession->image != null ? asset('storage/' . $profession->image) : asset('assets/img/real-estate.jpg') }}"
