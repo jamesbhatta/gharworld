@@ -9,7 +9,7 @@
                 <div class="col-lg-8">
                     <div class="single-property">
                         <div class="sp-image">
-                            <img src="{{ asset('storage/' . $property->image) }}" alt="{{ $property->title }}">
+                            <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $property->title }}">
                             <div class="sp-badge new text-capitalize">{{ $property->for }}</div>
                         </div>
                         <div class="row">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="property-feature">
                             <div class="row">
-                              
+
                             </div>
                             <div class="row">
                                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
@@ -127,19 +127,28 @@
                                 style="height:180px; solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
                                 {!! $property->description !!}
                             </div>
-                            <h4>Details</h4>
-                            <p>Proin vulputate congue rutrum. Fusce lobortis a enim eget tempus. Class aptent taciti
-                                sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse
-                                potenti. Ut gravida mattis magna, non varius lorem sodales nec. In libero orci, ornare
-                                non nisl a, auctor euismod purus. Morbi pretium interdum vestibulum. Fusce nec eleifend
-                                ipsum. Sed non blandit tellus. </p>
+
                         </div>
                     </div>
-                    <div class="video-item">
-                        <img src="{{ asset('assets/mondy/img/video-img.jpg') }}" alt="">
-                        <a href="https://www.youtube.com/watch?v=Sz_1tkcU0Co" class="video-play"><span
-                                class="i fa fa-play"></span></a>
+                    <div class="property-text">
+                        <h4>Pictures</h4>
+                        <div class="row">
+                            @forelse ($propertyImages as $propertyImage)
+                            <div class="col-md-4 py-3">
+                                <div class="thumbnail hover">
+                                    <a href="{{asset('storage/'.$propertyImage->link)}}" target="_blank">
+                                    <img  src="{{asset('storage/'.$propertyImage->link)}}" alt="PropertyImages-{{$property->title }}" class="img-fluid img-thumbnail" style="width:100%">
+                                    </a>
+                                </div>
+                            </div>
+                            @empty
+                                <p class="text-center text-danger">*Picture not available </p>
+                            @endforelse
+                           
+                        </div>
+
                     </div>
+                    <h4 class="my-3">Map View</h4>
                     <div class="map-widget">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14376.077865872314!2d-73.879277264103!3d40.757667781624285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1546528920522"

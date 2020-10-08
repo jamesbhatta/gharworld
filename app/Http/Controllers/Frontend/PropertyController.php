@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LocationRequest;
 use App\LocalContact;
 use App\Property;
+use App\PropertyImage;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -31,6 +32,7 @@ class PropertyController extends Controller
     }
     public function show(Property $property)
     {
-        return view('theme.property-profile', compact('property'));
+      $propertyImages=PropertyImage::where('property_id','=',"$property->id")->get();
+        return view('theme.property-profile', compact('property','propertyImages'));
     }
 }

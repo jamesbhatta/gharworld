@@ -42,7 +42,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane fade" id="room" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie
+                    <div class="tab-pane fade" id="room" role="tabpanel" aria-labelledby="profile-tab">
                         <form action="{{ route('frontend.property.search') }}" method="get" class="main-search-form">
 
                             <input type="text" name="type" value="room" hidden>
@@ -63,7 +63,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <form action="{{ route('frontend.local-contacts.search') }}" method="get" class="main-search-form">
                             <input type="text" name="type" value="local-contact" hidden>
                             <div class="search-input si-v-2">
