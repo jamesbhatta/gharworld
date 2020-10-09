@@ -1,8 +1,7 @@
 @extends('theme.client')
 @section('main-content')
     <div class="my-4"></div>
-
-    <!-- Single Property Section end -->
+  <!-- Single Property Section end -->
     <section class="single-property-section spad">
         <div class="container">
             <div class="row">
@@ -144,12 +143,15 @@
                             <div class="col-md-4 py-3">
                                 <div class="thumbnail hover">
                                     <a href="{{asset('storage/'.$propertyImage->link)}}" target="_blank">
-                                    <img  src="{{asset('storage/'.$propertyImage->link)}}" alt="PropertyImages-{{$property->title }}" class="img-fluid img-thumbnail" style="width:100%">
+                                    <img  src="{{asset('storage/'.$propertyImage->link)}}" alt="PropertyImages-{{$property->title }}"  class="img-fluid img-thumbnail" onclick="openModal();currentSlide({{$propertyImage->id}})" style="hight:100%">
                                     </a>
                                 </div>
                             </div>
                             @empty
+                            <div class="row">
+                                
                                 <p class="text-center text-danger">*Picture not available </p>
+                            </div>
                             @endforelse
                            
                         </div>
@@ -179,3 +181,41 @@
 
     @include('theme.partials.pagefooter')
 @endsection
+<script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+    
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+    
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+    </script>

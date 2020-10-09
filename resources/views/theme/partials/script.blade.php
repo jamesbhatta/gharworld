@@ -4,3 +4,4 @@
 	<script src="{{asset('assets/mondy/js/jquery.slicknav.min.js')}}"></script>
 	<script src="{{asset('assets/mondy/js/jquery.magnific-popup.min.js')}}"></script>
 	<script src="{{asset('assets/mondy/js/main.js')}}"></script>
+	

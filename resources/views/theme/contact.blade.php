@@ -45,19 +45,20 @@
 					</div>
 				</div>
 			</div>
-			<form class="contact-form">
+		<form action="{{route('contact.store')}}" class="contact-form" method="POST" >
+				@csrf
 				<div class="row">
 					<div class="col-lg-4">
-						<input type="text" placeholder="Your name">
+						<input type="text" name="name" placeholder="Your name">
 					</div>
 					<div class="col-lg-4">
-						<input type="text" placeholder="Your e-mail">
+						<input type="email" name="email" placeholder="Your e-mail">
 					</div>
 					<div class="col-lg-4">
-						<input type="text" placeholder="Subject">
+						<input type="text" name="subject" placeholder="Subject">
 					</div>
 					<div class="col-lg-12">
-						<textarea placeholder="Message"></textarea>
+						<textarea name="message" placeholder="Message"></textarea>
 						<button class="site-btn sb-big">Send message</button>
 					</div>
 				</div>
