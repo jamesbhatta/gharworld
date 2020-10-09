@@ -28,8 +28,10 @@ Route::put('/profile/update/{user}', 'UserController@updateProfile')->name('user
 
 Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index')->name('frontend.home');
-    Route::get('properties', 'PropertyController@search')->name('frontend.property.search');
-    Route::get('local-contacts', 'LocalContactController@search')->name('frontend.local-contacts.search');
+    Route::get('properties/real-estate', 'PropertyController@realEstate')->name('frontend.property.real-estate');
+    Route::get('properties/room-rent', 'PropertyController@roomRent')->name('frontend.property.room-rent');
+    Route::get('properties/search', 'PropertyController@search')->name('frontend.property.search');
+    Route::get('local-contacts/search', 'LocalContactController@search')->name('frontend.local-contacts.search');
     Route::get('professions', 'ProfessionController@index')->name('frontend.professions');
     Route::get('professions/{profession}', 'ProfessionController@show')->name('frontend.professions.show');
     Route::get('localcontact-profile/{localcontact}', 'localcontactController@show')->name('frontend.localcontact.show');

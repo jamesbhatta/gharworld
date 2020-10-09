@@ -35,4 +35,20 @@ class PropertyController extends Controller
       $propertyImages=PropertyImage::where('property_id','=',"$property->id")->get();
         return view('theme.property-profile', compact('property','propertyImages'));
     }
+    public function realEstate(){
+        $types = "real-estate";
+        $city_id = 0;
+        $cities = City::orderBy('name')->get();
+            $properties = Property::where('type', '!=', 'room')->paginate(21);
+
+            return view('theme.search-result', compact('properties', 'types', 'city_id', 'cities'));
+    }
+    public function roomRent(){
+        $types = "room";
+        $city_id = 0;
+        $cities = City::orderBy('name')->get();
+            $properties = Property::where('type', '=', 'room')->paginate(21);
+
+            return view('theme.search-result', compact('properties', 'types', 'city_id', 'cities'));
+    }
 }

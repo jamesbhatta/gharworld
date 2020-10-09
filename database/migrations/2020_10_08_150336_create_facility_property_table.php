@@ -16,8 +16,8 @@ class CreateFacilityPropertyTable extends Migration
         Schema::create('facility_property', function (Blueprint $table) {
             $table->id();
 
-            $table->string('facility_id');
-            $table->string('property_id');
+            $table->unsignedBigInteger('facility_id');
+            $table->unsignedBigInteger('property_id');
 
             $table->foreign('facility_id')->references('id')->on('facilities')->onDelete('cascade');
             $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
