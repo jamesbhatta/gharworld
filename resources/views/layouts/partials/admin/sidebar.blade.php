@@ -1,6 +1,7 @@
   <!-- Brand Logo -->
   <a href="/" class="brand-link">
-      {{-- <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
+      {{-- <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8"> --}}
       <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
   </a>
 
@@ -35,15 +36,15 @@
                       </p>
                   </a>
               </li>
-                   {{-- Local Contact --}}
-                   <li class="nav-item">
-                    <a href="{{ route('local-contacts.index') }}" class="nav-link">
-                        <i class="nav-icon fa fa-users"></i>
-                        <p>
-                            Local Contact
-                        </p>
-                    </a>
-                </li>
+              {{-- Local Contact --}}
+              <li class="nav-item">
+                  <a href="{{ route('local-contacts.index') }}" class="nav-link">
+                      <i class="nav-icon fa fa-users"></i>
+                      <p>
+                          Local Contact
+                      </p>
+                  </a>
+              </li>
               {{-- Features --}}
               <li class="nav-item">
                   <a href="{{ route('features.index') }}" class="nav-link">
@@ -72,7 +73,13 @@
                       <p>Cities</p>
                   </a>
               </li>
-
+              {{-- contact --}}
+              <li class="nav-item">
+                  <a href="{{ route('contact.index') }}" class="nav-link">
+                      <i class="nav-icon fa fa-rss"></i>
+                      <p>Contact</p>
+                  </a>
+              </li>
               <li class="nav-item has-treeview">
                   <a href="#" class="nav-link">
                       <i class="nav-icon fas fa-copy"></i>
@@ -105,17 +112,18 @@
                   </ul>
               </li>
               <li class="nav-item">
-                <a href="../calendar.html" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="nav-icon fa fa-sign-in"></i>
-                    <p>
-                        Logout
-                        <span class="badge badge-info right">2</span>
-                    </p>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </a>
-            </li>
+                  <a href="../calendar.html" class="nav-link"
+                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      <i class="nav-icon fa fa-sign-in"></i>
+                      <p>
+                          Logout
+                          <span class="badge badge-info right">2</span>
+                      </p>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                  </a>
+              </li>
               <li class="nav-header">EXAMPLES</li>
               <li class="nav-item">
                   <a href="../calendar.html" class="nav-link">
