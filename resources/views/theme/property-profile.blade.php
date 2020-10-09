@@ -1,14 +1,15 @@
 @extends('theme.client')
 @section('main-content')
     <div class="my-4"></div>
-  <!-- Single Property Section end -->
+    <!-- Single Property Section end -->
     <section class="single-property-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="single-property">
                         <div class="sp-image">
-                            <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $property->title }}">
+                            <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
+                                alt="{{ $property->title }}">
                             <div class="sp-badge new text-capitalize">{{ $property->for }}</div>
                         </div>
                         <div class="row">
@@ -17,13 +18,14 @@
                                     <h3 class="text-uppercase">{{ $property->type . ' | ' . $property->title }}</h3>
                                     <h5><i class="fa fa-map-marker"></i>
                                         {{ $property->city->name . ', ' . $property->address_line }} </h5>
-                                        <h5>
-                                            <i class="fa fa-user"></i>
-                                            {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
-                                        </h5>
-                                        <h5><i class=" fa fa-phone"></i><a
+                                    <h5>
+                                        <i class="fa fa-user"></i>
+                                        {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
+                                    </h5>
+                                    <h5><i class=" fa fa-phone"></i><a
                                             href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
-                                            {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a></h5>
+                                            {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a>
+                                    </h5>
                                 </div>
                             </div>
                             <div class="col-lg-4 text-left text-lg-right">
@@ -129,34 +131,31 @@
                         </div>
                         <div class="property-text">
                             <h4>Description</h4>
-                            <div class=" pl-md-2 text-left mr-4"
-                                style="height:180px; solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-                                {!! $property->description !!}
-                            </div>
-
+                           <p>{!! $property->description !!}</p>
                         </div>
                     </div>
-                    <div class="property-text">
-                        <h4>Pictures</h4>
-                        <div class="row">
-                            @forelse ($propertyImages as $propertyImage)
-                            <div class="col-md-4 py-3">
-                                <div class="thumbnail hover">
-                                    <a href="{{asset('storage/'.$propertyImage->link)}}" target="_blank">
-                                    <img  src="{{asset('storage/'.$propertyImage->link)}}" alt="PropertyImages-{{$property->title }}"  class="img-fluid img-thumbnail" onclick="openModal();currentSlide({{$propertyImage->id}})" style="hight:100%">
-                                    </a>
-                                </div>
-                            </div>
-                            @empty
-                            <div class="row">
-                                
-                                <p class="text-center text-danger">*Picture not available </p>
-                            </div>
-                            @endforelse
-                           
+                    <h4>Pictures</h4>
+                    <div class="col-md-12 my-2">
+                        <div id="slider" class="flexslider">
+                            <ul class="slides">
+                                @foreach ($propertyImages as $propertyImage)
+                                   <li>
+                                        <img src="{{ asset('storage/' . $propertyImage->link) }}" />
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-
+                        <div id="carousel" class="flexslider">
+                            <ul class="slides">
+                                @foreach ($propertyImages as $propertyImage)
+                                   <li>
+                                        <img src="{{ asset('storage/' . $propertyImage->link) }}" />
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
+                  
                     <h4 class="my-3">Map View</h4>
                     <div class="map-widget">
                         <iframe
@@ -178,44 +177,49 @@
     </section>
     <!--  Section end -->
 
-
     @include('theme.partials.pagefooter')
-@endsection
-<script>
-    function openModal() {
-      document.getElementById("myModal").style.display = "block";
-    }
+        <div id="slider" class="flexslider">
+            <ul class="slides">
+                @foreach ($propertyImages as $propertyImage)
+                   <li>
+                        <img src="{{ asset('storage/' . $propertyImage->link) }}" />
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+        <div id="carousel" class="flexslider">
+            <ul class="slides">
+                @foreach ($propertyImages as $propertyImage)
+                   <li>
+                        <img src="{{ asset('storage/' . $propertyImage->link) }}" />
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     
-    function closeModal() {
-      document.getElementById("myModal").style.display = "none";
-    }
+  
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     
-    var slideIndex = 1;
-    showSlides(slideIndex);
-    
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("demo");
-      var captionText = document.getElementById("caption");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active";
-      captionText.innerHTML = dots[slideIndex-1].alt;
-    }
+    <script>
+  $(window).load(function() {
+  // The slider being synced must be initialized first
+  $('#carousel').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    itemWidth: 210,
+    itemMargin: 5,
+    asNavFor: '#slider'
+  });
+  $('#slider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    sync: "#carousel"
+  });
+});
+
     </script>
+@endsection
