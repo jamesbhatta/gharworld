@@ -32,8 +32,8 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('properties/room-rent', 'PropertyController@roomRent')->name('frontend.property.room-rent');
     Route::get('properties/search', 'PropertyController@search')->name('frontend.property.search');
     Route::get('local-contacts/search', 'LocalContactController@search')->name('frontend.local-contacts.search');
-    Route::get('professions', 'ProfessionController@index')->name('frontend.professions');
-    Route::get('professions/{profession}', 'ProfessionController@show')->name('frontend.professions.show');
+    Route::get('local-contacts', 'ProfessionController@index')->name('frontend.professions');
+    Route::get('local-contacts/{profession}', 'ProfessionController@show')->name('frontend.professions.show');
     Route::get('localcontact-profile/{localcontact}', 'localcontactController@show')->name('frontend.localcontact.show');
     Route::get('properties-profile/{property}', 'PropertyController@show')->name('frontend.property.show');
     Route::get('contact', 'ContactController@index')->name('frontend.contact.show');

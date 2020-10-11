@@ -7,3 +7,16 @@
 
 
 /* end */
+
+.property-item .pi-badge {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 60px;
+    padding: 5px 5px 0;
+    height: 35px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}

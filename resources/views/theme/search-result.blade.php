@@ -109,13 +109,14 @@
 
                         </div>
                     </div>
+                 
                     <div class="col-md-10 p-2">
                         <div class="">
                             <div class="row">
                                 @forelse ($properties as $property)
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 text-color">
                                         <a href="{{ route('frontend.property.show', $property) }}">
-                                            <div class="card property-item hover">
+                                            <div class="card property-item hover text-dark">
 
                                                 <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
                                                     alt="{{ $property->title }}" class="image img-fluid" style="height: 180px;">
@@ -126,8 +127,8 @@
                                                     <div class="font-weight-bold">
                                                         {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
                                                     </div>
-                                                    <div class="text-capitalize">
-                                                        {{ $property->type . ' | ' . $property->title }}
+                                                    <div class="text-capitalize font-weight-bold">
+                                                    <i class="{{$property->type=="house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i> {{ $property->type . ' | ' . $property->title }}
                                                     </div>
                                                     <div class=" fa fa-map-marker">
                                                         {{ $property->city->name . ', ' . $property->address_line }}</div>

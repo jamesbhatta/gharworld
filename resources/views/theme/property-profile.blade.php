@@ -16,14 +16,14 @@
                             <div class="col-lg-8">
                                 <div class="property-header">
                                     <h3 class="text-uppercase">{{ $property->type . ' | ' . $property->title }}</h3>
-                                    <h5><i class="fa fa-map-marker"></i>
+                                    <h5 class="py-1"><i class="fa fa-map-marker"></i>
                                         {{ $property->city->name . ', ' . $property->address_line }} </h5>
-                                    <h5>
+                                    <h5 class="py-1">
                                         <i class="fa fa-user"></i>
                                         {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
                                     </h5>
-                                    <h5><i class=" fa fa-phone"></i><a
-                                            href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
+                                    <h5 class="py-1"><i class=" fa fa-phone"></i><a
+                                            href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}" class="text-secondary">
                                             {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a>
                                     </h5>
                                 </div>
@@ -137,24 +137,24 @@
                     <h4>Pictures</h4>
                     <!-- Place somewhere in the <body> of your page -->
                     <div id="aniimated-thumbnials">
-                      
+
                         @foreach ($propertyImages as $propertyImage)
-                        
-                        <a   href="{{ asset('storage/' . $propertyImage->link) }}" >
-                            <img class="row-cols-4 img-responsive p-1" src="{{ asset('storage/' . $propertyImage->link) }}" height="155" />
-                        </a> 
-                        
+
+                            <a href="{{ asset('storage/' . $propertyImage->link) }}">
+                                <img class="row-cols-4 img-responsive p-1"
+                                    src="{{ asset('storage/' . $propertyImage->link) }}" height="155" />
+                            </a>
+
                         @endforeach
 
                     </div>
                     <!-- jQuery -->
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-                    <script src="{{asset('assets/lightgallery/dist/js/lightgallery.min.js')}}"></script>
                     <!-- A jQuery plugin that adds cross-browser mouse wheel support. (Optional) -->
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js">
                     </script>
-                      <script src="{{asset('assets/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
-                      <script src="{{asset('assets/lightgallery/lib/jquery.mousewheel.min.js')}}"></script>
+                    <script src="{{ asset('assets/lightgallery/dist/js/lightgallery-all.min.js') }}"></script>
+                    <script src="{{ asset('assets/lightgallery/lib/jquery.mousewheel.min.js') }}"></script>
 
                     <script>
                         $('#aniimated-thumbnials').lightGallery({
@@ -162,28 +162,6 @@
                         });
 
                     </script>
-                    <h4>Pictures</h4>
-                    <div class="col-md-12 my-2">
-                        <div id="slider" class="flexslider">
-                            <ul class="slides">
-                                @foreach ($propertyImages as $propertyImage)
-                                    <li>
-                                        <img  src="{{ asset('storage/' . $propertyImage->link) }}" />
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div id="carousel" class="flexslider">
-                            <ul class="slides">
-                                @foreach ($propertyImages as $propertyImage)
-                                    <li>
-                                        <img src="{{ asset('storage/' . $propertyImage->link) }}" />
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-
                     <h4 class="my-3">Map View</h4>
                     <div class="map-widget">
                         <iframe
@@ -203,29 +181,5 @@
             </div>
         </div>
     </section>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-    <script>
-        $(window).load(function() {
-            // The slider being synced must be initialized first
-            $('#carousel').flexslider({
-                animation: "slide",
-                controlNav: false,
-                animationLoop: false,
-                slideshow: false,
-                itemWidth: 210,
-                itemMargin: 5,
-                asNavFor: '#slider'
-            });
-            $('#slider').flexslider({
-                animation: "slide",
-                controlNav: false,
-                animationLoop: false,
-                slideshow: false,
-                sync: "#carousel"
-            });
-        });
-
-    </script>
 
 @endsection
