@@ -5,4 +5,4 @@
 	<script src="{{asset('assets/mondy/js/jquery.magnific-popup.min.js')}}"></script>
 	<script src="{{asset('assets/mondy/js/main.js')}}"></script>
 	<script src="{{asset('assets/lightgallery/dist/js/lightgallery.min.js')}}"></script>
-                    
+@stack('scripts')
