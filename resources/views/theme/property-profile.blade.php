@@ -23,7 +23,8 @@
                                         {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
                                     </h5>
                                     <h5 class="py-1"><i class=" fa fa-phone"></i><a
-                                            href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}" class="text-secondary">
+                                            href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}"
+                                            class="text-secondary">
                                             {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a>
                                     </h5>
                                 </div>
@@ -51,9 +52,9 @@
                             </div>
                         </div>
                         <div class="property-feature">
-                            <div class="row">
-
+                        
                             </div>
+                            
                             <div class="row">
                                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                                     <div class="pf-box">
@@ -129,6 +130,19 @@
                                 </div>
                             </div>
                         </div>
+                        <h4>Facilities</h4>
+                        <div class="row my-3">
+                            @foreach ($facilities as $facility)
+                                @foreach ($facility_properties as $facility_property)
+                                    @if ($facility->id == $facility_property->facility_id)
+                                        <div class="col-md-3 bg-light mr-5 mb-4 p-3">
+                                            <i class="fa fa-check-circle text-success"></i><span class="mr-2 p-2">{!!
+                                                $facility->fontAwesomeIcon !!} {{ $facility->name }}</span> 
+
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endforeach
                         <div class="property-text">
                             <h4>Description</h4>
                             <p>{!! $property->description !!}</p>

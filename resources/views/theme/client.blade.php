@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Mondy | Real Estate HTML Template</title>
+	<title>GharWorld</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Real estate HTML Template">
 	<meta name="keywords" content="real estate, html">

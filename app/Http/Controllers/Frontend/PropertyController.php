@@ -10,6 +10,7 @@ use App\LocalContact;
 use App\Property;
 use App\PropertyImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PropertyController extends Controller
 {
@@ -39,7 +40,9 @@ class PropertyController extends Controller
     public function show(Property $property)
     {
       $propertyImages=PropertyImage::where('property_id','=',"$property->id")->get();
-        return view('theme.property-profile', compact('property','propertyImages'));
+     $facility_properties=DB::table('facility_property')->where('property_id','=',$property->id)->get();
+       $facilities=Facility::get();
+        return view('theme.property-profile', compact('property','propertyImages','facilities','facility_properties'));
     }
     public function realEstate(){
         $types = "real-estate";
