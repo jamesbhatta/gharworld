@@ -23,6 +23,7 @@ class CreateLocalContactsTable extends Migration
             $table->string('email')->nullable();
             $table->string('image')->nullable();
             $table->string('qualification')->nullable();
+            $table->string('expiry')->nullable();
             $table->text('about')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();

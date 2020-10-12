@@ -43,12 +43,16 @@
 
                 <div class="col-md-6 form-group">
                     <label for="Email">Email</label>
-                    <input type="email" name="email" class=" form-control" value="{{ old('email', $localContact->email) }}">
+                    <input type="email" name="email" class=" form-control" value="{{ old('email', $localContact->email) }}" placeholder="example@domain.com">
                 </div>
 
                 <div class="col-md-6 form-group">
                     <label>Qualification</label>
-                    <input type="text" name="qualification" class="form-control" value="{{ old('qualification', $localContact->qualification) }}">
+                    <input type="text" name="qualification" class="form-control" value="{{ old('qualification', $localContact->qualification) }}" placeholder="Qualification">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Expiry Date</label>
+                    <input type="date" name="expiry" class="form-control" value="{{ old('expiry', $localContact->expiry) }}" placeholder="YYYY-MM-DD">
                 </div>
 
                 <div class="col-md-12 form-group">

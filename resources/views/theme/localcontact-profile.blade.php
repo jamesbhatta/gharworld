@@ -11,7 +11,7 @@
                     <div class="card shadow" style="width: 70rem;">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="{{ asset('storage/' . $localcontact->image) }}" class="img-thumbnail"
+                                <img src="{{$localcontact->image!=null ? asset('storage/' . $localcontact->image) : asset('assets/img/person-avatar.png')}}" class="img-thumbnail"
                                     alt="{{ $localcontact->name }}">
                             </div>
                             <div class="col-md-6 text-center font-weight-bold py-5 text-black">

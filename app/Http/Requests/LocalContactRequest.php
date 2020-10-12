@@ -33,6 +33,7 @@ class LocalContactRequest extends FormRequest
             'image' => 'nullable',
             'qualification' => 'nullable',
             'about' => 'nullable',
+            'expiry' => 'nullable|date|after:yesterday',
         ];
     }
 }
