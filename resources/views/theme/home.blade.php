@@ -1,7 +1,22 @@
 @extends('theme.client')
 @section('main-content')
+
+
+
     <!-- Hero Section end -->
     <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}">
+        <div class=" row justify-content-lg-center py-3 text-center">
+            <a href="{{ route('frontend.property.real-estate') }}">
+               <h2 class="hero-warp py-4 my-5 mx-3 px-5 m rounded-pill hover" ><span class="text-white fa fa-building"> Real Estate</span></h2>
+            </a>
+            <a href="{{ route('frontend.property.room-rent') }}">
+                <h2 class="hero-warp my-5 mx-3 py-4 px-5 rounded-pill hover"><span class="fa fa-home text-white">Room Rent</span></h2>
+            </a>
+            <a href="{{ route('frontend.professions') }}">
+                <h2 class="hero-warp my-5 mx-3 py-4 px-5 rounded-pill hover"><span class="fa fa-user text-white"> Local Contact</span></h2>
+            
+            </a>
+        </div>
         <div class="container">
             <div class="hero-warp">
                 <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
@@ -52,7 +67,8 @@
                         <select id="select-professions" name="profession_id" style="display: none;">
                             <option value="">Select Profession</option>
                             @foreach ($professions as $profession)
-                                <option value="{{ $profession->id }}" class="text-capitalize">{{ $profession->name }}</option>
+                                <option value="{{ $profession->id }}" class="text-capitalize">{{ $profession->name }}
+                                </option>
                             @endforeach
                         </select>
                         <button class="site-btn" type="submit">Search</button>
