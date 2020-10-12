@@ -2,19 +2,28 @@
 @section('main-content')
 
 
+    <style>
+        .home-hover:hover {
+            background: #ff000a;
+            box-shadow: -2px 5px 16px 8px rgba(0,0,0,0.75);
+        }
 
+    </style>
     <!-- Hero Section end -->
     <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}">
         <div class=" row justify-content-lg-center py-3 text-center">
             <a href="{{ route('frontend.property.real-estate') }}">
-               <h2 class="hero-warp py-4 my-5 mx-3 px-5 hover" ><span class="text-white fa fa-building"> Real Estate</span></h2>
+                <h2 class="hero-warp py-4 my-5 mx-3 px-5 home-hover"><span class="text-white fa fa-building"> Real
+                        Estate</span></h2>
             </a>
             <a href="{{ route('frontend.property.room-rent') }}">
-                <h2 class="hero-warp my-5 mx-3 py-4 px-5 hover"><span class="fa fa-home text-white">Room Rent</span></h2>
+                <h2 class="hero-warp my-5 mx-3 py-4 px-5 home-hover"><span class="fa fa-home text-white">Room Rent</span>
+                </h2>
             </a>
             <a href="{{ route('frontend.professions') }}">
-                <h2 class="hero-warp my-5 mx-3 py-4 px-5 hover"><span class="fa fa-user text-white"> Local Contact</span></h2>
-            
+                <h2 class="hero-warp my-5 mx-3 py-4 px-5 home-hover"><span class="fa fa-user text-white"> Local
+                        Contact</span></h2>
+
             </a>
         </div>
         <div class="container">
