@@ -129,6 +129,10 @@
                                 <label class="d-block btn btn-primary z-depth-0 my-0" for="image">Choose Image</label>
                             </div>
                             <div class="col-md-4 form-group">
+                                <label for="expiry">Expiry</label>
+                                <input type="date" name="expiry" id="expiry" class="form-control" value="{{ old('expiry', $property->expiry) }}" placeholder="YYYY-MM-DD">
+                            </div>
+                            <div class="col-md-4 form-group">
                                 <label for="city" class="required">Status</label>
                                 <select class=" form-control" name="status" id="status" value="{{ old('status') }}">
                                     @foreach(config('property.status') as $label => $value)

@@ -30,6 +30,7 @@ class CreatePropertiesTable extends Migration
             $table->string('price_per');
             $table->string('location')->nullable();
             $table->string('area')->nullable();
+            $table->string('expiry')->nullable();
             $table->tinyInteger('status');
             $table->timestamps();
         });

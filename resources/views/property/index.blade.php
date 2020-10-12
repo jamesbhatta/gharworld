@@ -25,6 +25,7 @@
                                 <th>Address</th>
                                 <th>Price</th>
                                 <th>Area</th>
+                                <th>Expiry</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
@@ -37,6 +38,10 @@
                             <td class="text-capitalize">{{ $property->city ->name}}, {{ $property->address_line }}</td>
                             <td>{{ $property->price }} /{{ $property->price_per }}</td>
                             <td>{{ $property->area }}</td>
+                            <td>@php
+                                $diff=date_diff(now(),date_create("$property->expiry"));
+                                echo $diff->format("%R%a Remaining days");
+                                @endphp</td>
                             <td>
                                 <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
                                 <span class="mx-3">|</span>
