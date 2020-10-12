@@ -23,10 +23,7 @@
                         <hr>
                         <div class="font-weight-bold text-decoration">Property type</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="type" id="all" value="all"
-                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }} checked> <label for="all"
-                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}>All</label>
-                            </div>
+                           
                             <div><input type="radio" name="type" id="house" value="house"
                                     {{ $types == 'real-estate' ? 'show' : 'hidden' }}> <label for="house"
                                     {{ $types == 'real-estate' ? 'show' : 'hidden' }}>House</label>
@@ -43,10 +40,6 @@
                         <hr>
                         <div class="font-weight-bold text-decoration">Property For</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="for" id="forall" value="all"
-                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }} checked> <label for="forall"
-                                    {{ $types == 'real-estate' ? 'show' : 'hidden' }}>All</label>
-                            </div>
                             <div><input type="radio" name="for" id="rent" value="rent"
                                     {{ $types == 'room' ? 'checked' : '' }}> <label for="rent">Rent</label></div>
                             <div><input type="radio" name="for" id="sale" value="sale"

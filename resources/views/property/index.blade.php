@@ -26,6 +26,7 @@
                                 <th>Price</th>
                                 <th>Area</th>
                                 <th>Expiry</th>
+                                <th>Status</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>
@@ -40,9 +41,11 @@
                             <td>{{ $property->area }}</td>
                             <td>@php
                                 $diff=date_diff(now(),date_create("$property->expiry"));
-                                echo $diff->format("%R%a Remaining days");
+                                echo $diff->format("%R%a days");
                                 @endphp</td>
+                                <td class="text-capitalize">{{ $property->status}}</td>
                             <td>
+                                
                                 <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
                                 <span class="mx-3">|</span>
                                 <form action="{{ route('properties.destroy', $property) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">

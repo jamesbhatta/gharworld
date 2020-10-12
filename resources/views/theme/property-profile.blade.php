@@ -131,19 +131,18 @@
                         </div>
                         <h4>Facilities</h4>
                         <div class="row py-3">
-                            @foreach ($facilities as $facility)
-                                @foreach ($facility_properties as $facility_property)
-                                    @if ($facility->id == $facility_property->facility_id)
-                                        <div class="col-md-3 bg-light mx-3 my-2 py-2">
-                                            <i class="fa fa-check-circle text-success"></i><span class=""> {!!$facility->fontAwesomeIcon !!} {{ $facility->name }}</span>
-                                        </div>
-                                    @endif
-                                @endforeach
+                            @foreach ($property->facilities as $facility)
+                                <div class="col-md-3 bg-light mx-3 my-2 py-2">
+                                    <span class="text-success mr-1">
+                                        <i class="{{ $facility->icon ?? 'fa fa-check-circle' }}"></i>
+                                    </span>
+                                    {{ $facility->name }}
+                                </div>
                             @endforeach
                         </div>
                     </div>
 
-                
+
 
                     <div class="property-text">
                         <h4>Description</h4>
@@ -154,11 +153,11 @@
                     <!-- Place somewhere in the <body> of your page -->
                     <div id="aniimated-thumbnials">
 
-                        @foreach ($propertyImages as $propertyImage)
+                        @foreach ($property->images as $image)
 
-                            <a href="{{ asset('storage/' . $propertyImage->link) }}">
-                                <img class="row-cols-4 img-responsive p-1"
-                                    src="{{ asset('storage/' . $propertyImage->link) }}" height="155" />
+                            <a href="{{ asset('storage/' . $image->link) }}">
+                                <img class="row-cols-4 img-responsive p-1" src="{{ asset('storage/' . $image->link) }}"
+                                    height="155" />
                             </a>
 
                         @endforeach

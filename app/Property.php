@@ -18,10 +18,10 @@ class Property extends Model
         $this->attributes['features'] = implode(',', $value);
     }
 
-    public function setFacilitiesAttribute($value)
-    {
-        $this->attributes['facilities'] = implode(',', $value);
-    }
+    // public function setFacilitiesAttribute($value)
+    // {
+    //     $this->attributes['facilities'] = implode(',', $value);
+    // }
 
     /**
      * Get features as array
