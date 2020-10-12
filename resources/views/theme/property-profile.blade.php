@@ -52,102 +52,104 @@
                             </div>
                         </div>
                         <div class="property-feature">
-                        
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>House Type</h6>
+                                    <p>Family</p>
+                                </div>
                             </div>
-                            
-                            <div class="row">
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>House Type</h6>
-                                        <p>Family</p>
-                                    </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Stories</h6>
+                                    <p>3</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Stories</h6>
-                                        <p>3</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Year Built</h6>
+                                    <p>2008</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Year Built</h6>
-                                        <p>2008</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>A/C</h6>
+                                    <p>Central</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>A/C</h6>
-                                        <p>Central</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Heating</h6>
+                                    <p>Forced Air</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Heating</h6>
-                                        <p>Forced Air</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Bathrooms</h6>
+                                    <p>2</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Bathrooms</h6>
-                                        <p>2</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Pool</h6>
+                                    <p>Yes</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Pool</h6>
-                                        <p>Yes</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Fireplace</h6>
+                                    <p>No</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Fireplace</h6>
-                                        <p>No</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Parking Spaces</h6>
+                                    <p> 2 spaces</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Parking Spaces</h6>
-                                        <p> 2 spaces</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Parking Type</h6>
+                                    <p>Garage</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Parking Type</h6>
-                                        <p>Garage</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Patio</h6>
+                                    <p>128 SQ</p>
                                 </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Patio</h6>
-                                        <p>128 SQ</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="pf-box">
-                                        <h6>Playgroung</h6>
-                                        <p>No</p>
-                                    </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="pf-box">
+                                    <h6>Playgroung</h6>
+                                    <p>No</p>
                                 </div>
                             </div>
                         </div>
                         <h4>Facilities</h4>
-                        <div class="row my-3">
+                        <div class="row py-3">
                             @foreach ($facilities as $facility)
                                 @foreach ($facility_properties as $facility_property)
                                     @if ($facility->id == $facility_property->facility_id)
-                                        <div class="col-md-3 bg-light mr-5 mb-4 p-3">
-                                            <i class="fa fa-check-circle text-success"></i><span class="mr-2 p-2">{!!
-                                                $facility->fontAwesomeIcon !!} {{ $facility->name }}</span> 
-
+                                        <div class="col-md-3 bg-light mx-3 my-2 py-2">
+                                            <i class="fa fa-check-circle text-success"></i><span class=""> {!!$facility->fontAwesomeIcon !!} {{ $facility->name }}</span>
                                         </div>
                                     @endif
                                 @endforeach
                             @endforeach
-                        <div class="property-text">
-                            <h4>Description</h4>
-                            <p>{!! $property->description !!}</p>
                         </div>
                     </div>
+
+                
+
+                    <div class="property-text">
+                        <h4>Description</h4>
+                        <p>{!! $property->description !!}</p>
+                    </div>
+
                     <h4>Pictures</h4>
                     <!-- Place somewhere in the <body> of your page -->
                     <div id="aniimated-thumbnials">
