@@ -13,6 +13,11 @@ class Property extends Model
     public const BOOKED = 3;
     public const HIDDEN = 4;
 
+    public function scopeAvailable($query)
+    {
+        return $query->where('status', self::AVAILABLE);
+    }
+
     public function setFeaturesAttribute($value)
     {
         $this->attributes['features'] = implode(',', $value);
