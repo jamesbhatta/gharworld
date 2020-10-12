@@ -7,13 +7,13 @@
     <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}">
         <div class=" row justify-content-lg-center py-3 text-center">
             <a href="{{ route('frontend.property.real-estate') }}">
-               <h2 class="hero-warp py-4 my-5 mx-3 px-5 m rounded-pill hover" ><span class="text-white fa fa-building"> Real Estate</span></h2>
+               <h2 class="hero-warp py-4 my-5 mx-3 px-5 hover" ><span class="text-white fa fa-building"> Real Estate</span></h2>
             </a>
             <a href="{{ route('frontend.property.room-rent') }}">
-                <h2 class="hero-warp my-5 mx-3 py-4 px-5 rounded-pill hover"><span class="fa fa-home text-white">Room Rent</span></h2>
+                <h2 class="hero-warp my-5 mx-3 py-4 px-5 hover"><span class="fa fa-home text-white">Room Rent</span></h2>
             </a>
             <a href="{{ route('frontend.professions') }}">
-                <h2 class="hero-warp my-5 mx-3 py-4 px-5 rounded-pill hover"><span class="fa fa-user text-white"> Local Contact</span></h2>
+                <h2 class="hero-warp my-5 mx-3 py-4 px-5 hover"><span class="fa fa-user text-white"> Local Contact</span></h2>
             
             </a>
         </div>
@@ -79,6 +79,7 @@
     </section>
 
     <!-- Hero Section end -->
+    @include('theme.partials.pagefooter')
 @endsection
 @push('scripts')
     <script>
