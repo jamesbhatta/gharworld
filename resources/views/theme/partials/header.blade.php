@@ -7,8 +7,8 @@
         
         <ul class="main-menu">
         <li><a href="{{url('/')}}" class="active">Home</a></li>
-        <li><a href="{{route('frontend.property.real-estate')}}">Real Estate</a></li>
-        <li><a href="{{route('frontend.property.room-rent')}}">Room Rent</a></li>
+        <li><a href="{{url('properties/search?type=real-estate&for=all')}}">Real Estate</a></li>
+        <li><a href="{{url('properties/search?type=room&for=rent')}}">Room Rent</a></li>
         <li><a href="{{route('frontend.professions')}}">Local Contact</a></li> 
         <li><a href="{{url('page/about')}}">About</a></li>
         <li><a href="{{url('contact')}}">Contact</a></li>
