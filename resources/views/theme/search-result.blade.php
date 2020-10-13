@@ -25,43 +25,49 @@
                     <hr>
                     <div class="font-weight-bold text-decoration">Property type</div>
                     <div class="px-3 py-2">
-                        <div><input type="radio" name="type" id="real-estate" value="real-estate" {{Request()->type=="real-estate" ? 'checked' : ''}}>
+                        <div><input type="radio" name="type" id="real-estate" value="real-estate"
+                                {{Request()->type=="real-estate" ? 'checked' : ''}}>
                             <label for="real-estate">Land/House</label>
                         </div>
-                        <div><input type="radio" name="type" id="house" value="house" {{Request()->type=="house" ? 'checked' : ''}}>
+                        <div><input type="radio" name="type" id="house" value="house"
+                                {{Request()->type=="house" ? 'checked' : ''}}>
                             <label for="house">House</label>
                         </div>
-                        <div><input type="radio" name="type" id="land" value="land" {{Request()->type=="land" ? 'checked' : ''}}>
-                             <label for="land">Land</label>
+                        <div><input type="radio" name="type" id="land" value="land"
+                                {{Request()->type=="land" ? 'checked' : ''}}>
+                            <label for="land">Land</label>
                         </div>
-                        <div><input type="radio" name="type" id="room" value="room" {{Request()->type=="room" ? 'checked' : ''}}>
+                        <div><input type="radio" name="type" id="room" value="room"
+                                {{Request()->type=="room" ? 'checked' : ''}}>
                             <label for="room">Room</label>
                         </div>
                     </div>
                     <hr>
                     <div class="font-weight-bold text-decoration">Property For</div>
                     <div class="px-3 py-2">
-                        <div><input type="radio" name="for" id="all" value="all" {{Request()->for=="all" ? 'checked' : ''}}>
+                        <div><input type="radio" name="for" id="all" value="all"
+                                {{Request()->for=="all" ? 'checked' : ''}}>
                             <label for="all">Sale/Rent</label>
-                       </div>
-                        <div><input type="radio" name="for" id="rent" value="rent" {{Request()->for=="rent" ? 'checked' : ''}}>
-                             <label for="rent">Rent</label>
                         </div>
-                        <div><input type="radio" name="for" id="sale" value="sale" {{Request()->for=="sale" ? 'checked' : ''}}> 
+                        <div><input type="radio" name="for" id="rent" value="rent"
+                                {{Request()->for=="rent" ? 'checked' : ''}}>
+                            <label for="rent">Rent</label>
+                        </div>
+                        <div><input type="radio" name="for" id="sale" value="sale"
+                                {{Request()->for=="sale" ? 'checked' : ''}}>
                             <label for="sale">Sale</label></div>
                     </div>
                     <hr>
-                    <div class="font-weight-bold text-decoration">Price</div>
+                    {{-- <div class="font-weight-bold text-decoration">Price</div>
                     <div class="mx-2 my-2">
                         <div class="row form-group">
                             <input type="number" min="0" name="min"
                                 class=" col-sm-12 form-control input-sm my-2 text-right" id="min" placeholder="Minimum">
                             <input type="number" min="0" name="max" class="col-sm-12 form-control text-right" id="max"
                                 placeholder="Maximum">
-                            <i class="fa fa-play col-sm-3 btn m-1 btn-info"></i>
                         </div>
                     </div>
-                    <hr>
+                    <hr> --}}
                     <div class="font-weight-bold text-decoration">Rating</div>
                     <div class="px-2 py-2">
 

@@ -41,9 +41,12 @@ class PropertyController extends Controller
                 $properties = $properties->whereFor($request->for);
             }
         }
-
         if ($request->has('city_id')) {
-            $properties = $properties->whereCityId($request->city_id);
+            if ($request->city_id == null) {
+                
+            }else{
+                $properties = $properties->whereCityId($request->city_id);
+            }
         }
 
         // price
