@@ -17,6 +17,7 @@ class CreateLocalContactsTable extends Migration
             $table->id();
             $table->foreignId('profession_id')->constrained('professions');
             $table->string('name');
+            $table->string('slug');
             $table->foreignId('city_id')->constrained('cities');
             $table->string('address_line');
             $table->string('contact');
