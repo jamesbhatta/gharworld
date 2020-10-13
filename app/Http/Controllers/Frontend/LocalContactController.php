@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class LocalContactController extends Controller
 {
-    public function search(FrontendLocalContactRequest $request)
+    public function search($request)
     {
         $city_id=$request->city_id;
         $cities=City::orderBy('name')->get();
