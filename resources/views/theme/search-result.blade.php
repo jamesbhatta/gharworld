@@ -8,13 +8,13 @@
         <div class="row py-5">
 
             <div class="col-md-2">
-                <form action="" method="GET">
+                <form action="{{route('frontend.property.search')}}" method="GET">
                     <div class="font-weight-bold text-decoration">Location</div>
                     <div class="px-2 py-2">
                         <select name="city_id" id="city" class="form-control">
                             <option value="">Select Location</option>
                             @foreach ($cities as $city)
-                            <option value="{{ $city->id}}" {{"$city_id"=="$city->id" ? 'selected' : '' }}>
+                            <option value="{{ $city->id}}" {{"$city->id"==Request()->city_id ? 'selected' : '' }}>
                                 {{ $city->name}}
                             </option>
                             @endforeach
@@ -25,28 +25,30 @@
                     <hr>
                     <div class="font-weight-bold text-decoration">Property type</div>
                     <div class="px-3 py-2">
-
-                        <div><input type="radio" name="type" id="house" value="house"
-                                {{ $types == 'real-estate' ? 'show' : 'hidden' }}> <label for="house"
-                                {{ $types == 'real-estate' ? 'show' : 'hidden' }}>House</label>
+                        <div><input type="radio" name="type" id="real-estate" value="real-estate" {{Request()->type=="real-estate" ? 'checked' : ''}}>
+                            <label for="real-estate">Land/House</label>
                         </div>
-                        <div><input type="radio" name="type" id="land" value="land"
-                                {{ $types == 'real-estate' ? 'show' : 'hidden' }}> <label for="land"
-                                {{ $types == 'real-estate' ? 'show' : 'hidden' }}>Land</label>
+                        <div><input type="radio" name="type" id="house" value="house" {{Request()->type=="house" ? 'checked' : ''}}>
+                            <label for="house">House</label>
                         </div>
-                        <div><input type="radio" name="type" id="room" value="room"
-                                {{ $types == 'room' ? 'show' : 'hidden' }} {{ $types == 'room' ? 'checked' : '' }}>
-                            <label for="room" {{ $types == 'room' ? 'show' : 'hidden' }}>Room</label>
+                        <div><input type="radio" name="type" id="land" value="land" {{Request()->type=="land" ? 'checked' : ''}}>
+                             <label for="land">Land</label>
+                        </div>
+                        <div><input type="radio" name="type" id="room" value="room" {{Request()->type=="room" ? 'checked' : ''}}>
+                            <label for="room">Room</label>
                         </div>
                     </div>
                     <hr>
                     <div class="font-weight-bold text-decoration">Property For</div>
                     <div class="px-3 py-2">
-                        <div><input type="radio" name="for" id="rent" value="rent"
-                                {{ $types == 'room' ? 'checked' : '' }}> <label for="rent">Rent</label></div>
-                        <div><input type="radio" name="for" id="sale" value="sale"
-                                {{ $types == 'real-estate' ? 'show' : 'hidden' }}> <label for="sale"
-                                {{ $types == 'real-estate' ? 'show' : 'hidden' }}>Sale</label></div>
+                        <div><input type="radio" name="for" id="all" value="all" {{Request()->for=="all" ? 'checked' : ''}}>
+                            <label for="all">Sale/Rent</label>
+                       </div>
+                        <div><input type="radio" name="for" id="rent" value="rent" {{Request()->for=="rent" ? 'checked' : ''}}>
+                             <label for="rent">Rent</label>
+                        </div>
+                        <div><input type="radio" name="for" id="sale" value="sale" {{Request()->for=="sale" ? 'checked' : ''}}> 
+                            <label for="sale">Sale</label></div>
                     </div>
                     <hr>
                     <div class="font-weight-bold text-decoration">Price</div>

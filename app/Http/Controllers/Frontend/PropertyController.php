@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\City;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LocationRequest;
-use App\LocalContact;
 use App\Property;
-use Illuminate\Support\Facades\App;
+use Symfony\Component\HttpFoundation\Request;
 
 class PropertyController extends Controller
 {
@@ -19,21 +18,28 @@ class PropertyController extends Controller
 
     public function search(LocationRequest $request)
     {
+        
         if ($request->type == "local-contact") {
             return $this->localContactController->search($request);
         }
         $properties = Property::with('city')->available();
-        if ($request->has('type')) {
+        if ($request->has('type')) 
+        {
             if ($request->type == 'real-estate') {
                 $properties = $properties->whereIn('type', ['land', 'house']);
             }
-            if ($request->type == 'room') {
-                $properties = $properties->whereIn('type', ['room']);
+            else {
+                $properties = $properties->whereType($request->type);
             }
         }
 
         if ($request->has('for')) {
-            $properties = $properties->whereFor($request->for);
+            if ($request->for == 'all') {
+                $properties = $properties->whereIn('for', ['sale', 'rent']);
+            }
+            else{
+                $properties = $properties->whereFor($request->for);
+            }
         }
 
         if ($request->has('city_id')) {
@@ -49,10 +55,8 @@ class PropertyController extends Controller
 
         $properties = $properties->paginate($request->per_page ?? 21);
 
-        $types = $request->type;
-        $city_id = $request->city_id;
         $cities = City::orderBy('name')->get();
-        return view('theme.search-result', compact('properties', 'types', 'city_id', 'cities'));
+        return view('theme.search-result', compact('properties','cities'));
     }
 
     public function show(Property $property)
