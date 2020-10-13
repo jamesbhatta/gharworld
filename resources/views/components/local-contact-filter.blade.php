@@ -1,4 +1,4 @@
-<form class="form border">
+<form class="form">
     @csrf
     <div class="form-group">
         <label for="select-city" class="text-secondary">Location</label>

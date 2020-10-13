@@ -14,7 +14,19 @@ class LocalContactController extends Controller
 {
     public function search(Request $request)
     {
-        $localcontacts = LocalContact::where('active', '=', '1')->where('city_id', '=', $request->city_id)->where('profession_id', '=', $request->profession_id)->paginate(21);
+        $localcontacts = LocalContact::with('profession')->active();
+
+        if ($request->has('city_id')) {
+            $localcontacts = $localcontacts->whereCityId($request->city_id);
+        }
+
+        if ($request->has('profession_id')) {
+            $localcontacts = $localcontacts->whereProfessionId($request->profession_id);
+        }
+
+
+        // $localcontacts = LocalContact::where('active', '=', '1')->where('city_id', '=', $request->city_id)->where('profession_id', '=', $request->profession_id)->paginate(21);
+        $localcontacts = $localcontacts->paginate(request()->per_page ?? 21);
         return view('theme.localcontact-search-result', compact('localcontacts'));
     }
     public function show(LocalContact $localcontact)
