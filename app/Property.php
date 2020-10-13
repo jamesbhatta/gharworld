@@ -71,9 +71,13 @@ class Property extends Model
      *
      * @return void
      */
-    public function getFacilitiesArray()
+    public function getFacilitiesIdArrayAttribute()
     {
-        return explode(',', $this->facilities);
+        $facilitiesIdArray = [];
+        foreach($this->facilities as $facility){
+        array_push($facilitiesIdArray, $facility->id);
+        }
+        return $facilitiesIdArray;
     }
 
     /**
