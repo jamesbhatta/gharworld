@@ -12,12 +12,21 @@
                             <select name="city_id" id="city" class="form-control">
                                 <option value="">Select Location</option>
                                 @foreach ($cities as $city)
-                                    <option value="{{ $city->id }}" {{"$city_id"=="$city->id" ? 'selected' : '' }}>
+                                    <option value="{{ $city->id }}" {{"$city->id"==Request()->city_id ? 'selected' : '' }}>
                                 {{ $city->name }}
                                 </option>
                                 @endforeach
-
-
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="font-weight-bold text-decoration">Profession</div>
+                        <div class="px-2 py-2">
+                            <select name="profesion_id" id="profession" class="form-control">
+                                @foreach ($professions as $profession)
+                                    <option value="{{ $profession->id }}" {{"$profession->id"==Request()->profession_id ? 'selected' : '' }}>
+                                {{ $profession->name }}
+                                </option>
+                                @endforeach
                             </select>
                         </div>
                         <hr>

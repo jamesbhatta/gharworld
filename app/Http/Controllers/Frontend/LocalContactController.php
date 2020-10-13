@@ -14,10 +14,10 @@ class LocalContactController extends Controller
 {
     public function search($request)
     {
-        $city_id=$request->city_id;
         $cities=City::orderBy('name')->get();
+        $professions=Profession::orderBy('name')->get();
         $localcontacts=LocalContact::where('active','=','1')->where('city_id','=',$request->city_id)->where('profession_id','=',$request->profession_id)->paginate(21);
-        return view('theme.localcontact-search-result',compact('localcontacts','city_id','cities'));
+        return view('theme.localcontact-search-result',compact('localcontacts','professions','cities'));
     }
     public function show(LocalContact $localcontact)
         {
