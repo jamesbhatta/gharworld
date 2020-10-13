@@ -17,9 +17,10 @@ class ProfessionController extends Controller
     }
     public function show(Profession $profession)
     {
-        $city_id=0;
-        $cities=City::orderBy('name')->get();
+        return redirect()->action('Frontend\LocalContactController@search', ['profession_id' => $profession->id]);
+        
+        $cities = City::orderBy('name')->get();
         $localcontacts = LocalContact::where('active', '=', '1')->where('profession_id', '=', $profession->id)->paginate(21);
-        return view('theme.localcontact-search-result',compact('localcontacts','city_id','cities'));
+        return view('theme.localcontact-search-result', compact('localcontacts', 'city_id', 'cities'));
     }
 }

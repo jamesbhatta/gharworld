@@ -1,5 +1,5 @@
   <!-- Brand Logo -->
-  <a href="/" class="brand-link">
+  <a href="{{ route('frontend.home') }}" class="brand-link" target="_blank">
       {{-- <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8"> --}}
       <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
@@ -112,7 +112,7 @@
                   </ul>
               </li>
               <li class="nav-item">
-                  <a href="../calendar.html" class="nav-link"
+                  <a href="#" class="nav-link"
                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                       <i class="nav-icon fa fa-sign-in"></i>
                       <p>
