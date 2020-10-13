@@ -8,29 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    // use HasSlug;
+    use HasSlug;
 
-    /**
-     * Get the options for generating the slug.
-     */
-    // public function getSlugOptions() : SlugOptions
-    // {
-    //     return SlugOptions::create()
-    //         ->generateSlugsFrom('title')
-    //         ->saveSlugsTo('slug')
-    //         ->slugsShouldBeNoLongerThan(50)
-    //         ->doNotGenerateSlugsOnUpdate();
-    // }
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
 
     protected $guarded = [];
 
@@ -38,6 +17,29 @@ class Property extends Model
     public const SOLD = 2;
     public const BOOKED = 3;
     public const HIDDEN = 4;
+
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug')
+            ->slugsShouldBeNoLongerThan(50)
+            ->doNotGenerateSlugsOnUpdate();
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function scopeAvailable($query)
     {
