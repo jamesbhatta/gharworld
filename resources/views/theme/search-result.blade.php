@@ -14,7 +14,7 @@
                         <select name="city_id" id="city" class="form-control">
                             <option value="">Select Location</option>
                             @foreach ($cities as $city)
-                            <option value="{{ $city->id}}" {{"$city->id"==Request()->city_id ? 'selected' : '' }}>
+                            <option value="{{ $city->id}}" {{"$city->id"==request()->city_id ? 'selected' : '' }}>
                                 {{ $city->name}}
                             </option>
                             @endforeach
@@ -26,19 +26,19 @@
                     <div class="font-weight-bold text-decoration">Property type</div>
                     <div class="px-3 py-2">
                         <div><input type="radio" name="type" id="real-estate" value="real-estate"
-                                {{Request()->type=="real-estate" ? 'checked' : ''}}>
+                                {{request()->type=="real-estate" ? 'checked' : ''}}>
                             <label for="real-estate">Land/House</label>
                         </div>
                         <div><input type="radio" name="type" id="house" value="house"
-                                {{Request()->type=="house" ? 'checked' : ''}}>
+                                {{request()->type=="house" ? 'checked' : ''}}>
                             <label for="house">House</label>
                         </div>
                         <div><input type="radio" name="type" id="land" value="land"
-                                {{Request()->type=="land" ? 'checked' : ''}}>
+                                {{request()->type=="land" ? 'checked' : ''}}>
                             <label for="land">Land</label>
                         </div>
                         <div><input type="radio" name="type" id="room" value="room"
-                                {{Request()->type=="room" ? 'checked' : ''}}>
+                                {{request()->type=="room" ? 'checked' : ''}}>
                             <label for="room">Room</label>
                         </div>
                     </div>
@@ -46,15 +46,15 @@
                     <div class="font-weight-bold text-decoration">Property For</div>
                     <div class="px-3 py-2">
                         <div><input type="radio" name="for" id="all" value="all"
-                                {{Request()->for=="all" ? 'checked' : ''}}>
-                            <label for="all">Sale/Rent</label>
+                                {{request()->for=="all" ? 'checked' : ''}}>
+                            <label for="all" >Sale/Rent</label>
                         </div>
                         <div><input type="radio" name="for" id="rent" value="rent"
-                                {{Request()->for=="rent" ? 'checked' : ''}}>
-                            <label for="rent">Rent</label>
+                                {{request()->for=="rent" ? 'checked' : ''}}>
+                            <label for="rent" >Rent</label>
                         </div>
                         <div><input type="radio" name="for" id="sale" value="sale"
-                                {{Request()->for=="sale" ? 'checked' : ''}}>
+                                {{request()->for=="sale" ? 'checked' : ''}} >
                             <label for="sale">Sale</label></div>
                     </div>
                     <hr>
