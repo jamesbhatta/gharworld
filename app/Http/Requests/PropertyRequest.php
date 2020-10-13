@@ -32,7 +32,6 @@ class PropertyRequest extends FormRequest
             'city_id' => 'required|exists:cities,id',
             'address_line' => 'required',
             'price' => 'required|integer|min:0',
-            'facilities' => 'nullable',
             'features' => 'nullable',
             'location' => 'nullable',
             'area' => 'required',
