@@ -8,6 +8,9 @@ use App\Feature;
 use App\Http\Requests\PropertyRequest;
 use App\Property;
 use App\Service\PropertyService;
+use Illuminate\Http\Request;
+
+use function PHPSTORM_META\type;
 
 class PropertyController extends Controller
 {
@@ -25,7 +28,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::latest()->paginate(20);
+        $properties = Property::latest()->paginate(21);
         return view('property.index', compact('properties'));
     }
 
@@ -120,5 +123,16 @@ class PropertyController extends Controller
         return  request()->validate([
             'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg,bmp',
         ]);
+    }
+    public function search(Request $request){
+        if($request->by=="city_id"){
+            $city=City::where('name',"$request->search")->first('id');
+              $request['search']="$city->id";
+        }
+        if($request!=null){
+            $properties=Property::where("$request->by",'LIKE',"%$request->search%")->paginate($request->per_page ?? 21);
+            return view('property.index', compact('properties'));
+        }
+        
     }
 }

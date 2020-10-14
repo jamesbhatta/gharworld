@@ -61,14 +61,15 @@
                                 <input type="number" min="0" class=" form-control" name="price" id="facilities" value="{{ old('price', $property->price) }}" placeholder="Price Rs.">
                             </div>
                             <div class="col-md-4  form-group">
-                                <label for="price_per" class="required">Price Per</label>
+                                <label for="price_per">Price Per</label>
                                 <select class=" form-control" name="price_per" id="price_per">
+                                    <option value="">Select Per Price</option>
                                     <option value="month">Month</option>
                                     <option value="year" @if(old('price_per', $property->price_per) == 'year') selected @endif>Year</option>
                                 </select>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label for="area" class=" required">Size</label>
+                                <label for="area" class=" required">Area</label>
                                 <input type="text" name="area" id="area" class=" form-control" value="{{ old('area',$property->area) }}" placeholder="Area size with unit" required>
                             </div>
                             <div class="col-md-4 form-group">

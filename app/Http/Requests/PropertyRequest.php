@@ -35,7 +35,7 @@ class PropertyRequest extends FormRequest
             'features' => 'nullable',
             'location' => 'nullable',
             'area' => 'required',
-            'price_per' => 'required|in:month,year',
+            'price_per' => 'nullable|in:month,year',
             'description' => 'nullable',
             'status' => 'required',
             'expiry' => 'nullable|date|after:yesterday',
