@@ -11,10 +11,10 @@
                 <form action="{{route('frontend.property.search')}}" method="GET">
                     <div class="font-weight-bold text-decoration">Location</div>
                     <div class="px-2 py-2">
-                        <select name="city_id" id="city" class="form-control">
+                        <select name="city_id" id="city" class="form-control" onchange='this.form.submit()'>
                             <option value="">Select Location</option>
                             @foreach ($cities as $city)
-                            <option value="{{ $city->id}}" {{"$city->id"==request()->city_id ? 'selected' : '' }}>
+                            <option value="{{ $city->id}}" {{"$city->id"==request()->city_id ? 'selected' : '' }} >
                                 {{ $city->name}}
                             </option>
                             @endforeach
@@ -26,19 +26,19 @@
                     <div class="font-weight-bold text-decoration">Property type</div>
                     <div class="px-3 py-2">
                         <div><input type="radio" name="type" id="real-estate" value="real-estate"
-                                {{request()->type=="real-estate" ? 'checked' : ''}}>
+                                {{request()->type=="real-estate" ? 'checked' : ''}} onchange='this.form.submit()'>
                             <label for="real-estate">Land/House</label>
                         </div>
                         <div><input type="radio" name="type" id="house" value="house"
-                                {{request()->type=="house" ? 'checked' : ''}}>
+                                {{request()->type=="house" ? 'checked' : ''}} onchange='this.form.submit()'>
                             <label for="house">House</label>
                         </div>
                         <div><input type="radio" name="type" id="land" value="land"
-                                {{request()->type=="land" ? 'checked' : ''}}>
+                                {{request()->type=="land" ? 'checked' : ''}} onchange='this.form.submit()'>
                             <label for="land">Land</label>
                         </div>
                         <div><input type="radio" name="type" id="room" value="room"
-                                {{request()->type=="room" ? 'checked' : ''}}>
+                                {{request()->type=="room" ? 'checked' : ''}} onchange='this.form.submit()'>
                             <label for="room">Room</label>
                         </div>
                     </div>
@@ -46,15 +46,15 @@
                     <div class="font-weight-bold text-decoration">Property For</div>
                     <div class="px-3 py-2">
                         <div><input type="radio" name="for" id="all" value="all"
-                                {{request()->for=="all" ? 'checked' : ''}}>
+                                {{request()->for=="all" ? 'checked' : ''}} onchange='this.form.submit()'>
                             <label for="all" >Sale/Rent</label>
                         </div>
                         <div><input type="radio" name="for" id="rent" value="rent"
-                                {{request()->for=="rent" ? 'checked' : ''}}>
+                                {{request()->for=="rent" ? 'checked' : ''}} onchange='this.form.submit()'>
                             <label for="rent" >Rent</label>
                         </div>
                         <div><input type="radio" name="for" id="sale" value="sale"
-                                {{request()->for=="sale" ? 'checked' : ''}} >
+                                {{request()->for=="sale" ? 'checked' : ''}} onchange='this.form.submit()'>
                             <label for="sale">Sale</label></div>
                     </div>
                     <hr>
@@ -111,7 +111,6 @@
                         </div>
 
                     </div>
-                    <input type="submit">
                 </form>
             </div>
 
