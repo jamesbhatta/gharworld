@@ -129,14 +129,52 @@ class PropertyController extends Controller
         ]);
     }
     public function search(Request $request){
-        if($request->by=="city_id"){
-            $city=City::where('name',"$request->search")->first('id');
-              $request['search']="$city->id";
+        $properties=Property::AVAILABLE();
+        if ($request->has('name')) {
+            if ($request->name != null)
+                $properties = $properties->where('name', 'LIKE', ["$request->name%"]);
         }
-        if($request!=null){
-            $properties=Property::where("$request->by",'LIKE',"%$request->search%")->paginate($request->per_page ?? 21);
-            return view('property.index', compact('properties'));
+        if ($request->has('title')) {
+            if ($request->title != null)
+                $properties = $properties->where('title', 'LIKE', ["$request->title%"]);
         }
+        if ($request->has('contact')) {
+            if ($request->contact != null)
+                $properties = $properties->whereContact($request->contact);
+        }
+        if ($request->has('address_line')) {
+            if ($request->address_line != null)
+                $properties = $properties->where('address_line', 'Like', ["$request->address_line%"]);
+        }
+        if ($request->has('city_id')) {
+            if ($request->city_id != null)
+                $properties = $properties->whereCityId($request->city_id);
+        }
+        if ($request->has('type')) {
+            if ($request->type != null)
+                $properties = $properties->whereType($request->type);
+        }
+        if ($request->has('for')) {
+            if ($request->for != null)
+                $properties = $properties->whereFor($request->for);
+        }
+        if ($request->has('expiry')) {
+            if ($request->expiry != null && $request->day != null) {
+                $date = now();
+                date_modify($date, "$request->day days");
+                $properties = $properties->where('expiry', "$request->expiry", [date_format($date, "Y-m-d")]);
+            }
+        }
+        if ($request->has('status')) {
+            if ($request->status != null)
+                $properties = $properties->whereStatus($request->status);
+        }
+        $properties=$properties->paginate(request()->per_page ?? 21);
+        $cities = City::get();
+        $property = new Property();
+        return view('property.index', compact('properties','cities','property'));
+   
+            // $properties=Property::where("$request->by",'LIKE',"%$request->search%")->paginate($request->per_page ?? 21);
         
     }
 }

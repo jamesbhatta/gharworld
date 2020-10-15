@@ -19,7 +19,7 @@
                             class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
                     <button onclick="myFunction()" class="btn-info btn rounded-0 mb-3 mx-0"> <i class="fa fa-filter"
                             aria-hidden="true"></i> Filter</button>
-                    <form action="{{route('localcontact-search')}}" method="POST" class="form" id="myDIV"
+                    <form action="{{route('property-search')}}" method="POST" class="form" id="myDIV"
                         style="display:none;">
                         @csrf
                         @method('put')
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="">For</label>
-                                <select type="text" name="For" class="form-control">
+                                <select type="text" name="for" class="form-control">
                                     <option value="">Select For</option>
                                     <option value="rent">Rent</option>
                                     <option value="sale">Sale</option>
@@ -70,11 +70,20 @@
                             
                             <div class="col-md-4 form-group">
                                 <label for="address">Expiry</label>
-                                <input type="date" name="address_line" class="form-control" placeholder="YYYY-MM-DD">
+                                <div class="row">
+                                    <select name="expiry" id="" class="form-control col-md-6 mx-2">
+                                        <option value="">Select Expiry For</option>
+                                        <option value="=">Equal</option>
+                                        <option value="<">Less</option>
+                                        <option value=">">Greater</option>
+                                    </select>
+                                    <input type="number" name="day" class="form-control col-md-5" placeholder="days">
+                                </div>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="">Status</label>
                                 <select type="text" name="status" class="form-control">
+                                    <option value="">Select Status</option>
                                     @foreach(config('property.status') as $label => $value)
                                     <option value="{{ $value }}" @if (old('status', $property->status) == $value) selected @endif> {{ $label }}</option>
                                     @endforeach
@@ -144,8 +153,10 @@
                     <td>{{ $property->price }}{{ $property->price_per==null ? '' : "/$property->price_per" }}
                     </td>
                     <td>@php
-                        $diff=date_diff(now(),date_create("$property->expiry"));
-                        echo $diff->format("%R%a days");
+                       $date1=date_create(date('yy-m-d'));
+                        $date2=date_create("$property->expiry");
+                        $diff=date_diff($date1,$date2);
+                        echo $diff->format("%R%a Remaining days");
                         @endphp</td>
                     <td class="text-capitalize">{{ $property->status}}</td>
                     <td>

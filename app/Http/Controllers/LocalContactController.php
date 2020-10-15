@@ -126,14 +126,16 @@ class LocalContactController extends Controller
             if ($request->profession_id != null)
                 $localContacts = $localContacts->whereProfessionId($request->profession_id);
         }
-
-
         if ($request->has('expiry')) {
             if ($request->expiry != null && $request->day != null) {
                 $date = now();
                 date_modify($date, "$request->day days");
                 $localContacts = $localContacts->where('expiry', "$request->expiry", [date_format($date, "Y-m-d")]);
             }
+        }
+        if ($request->has('active')) {
+            if ($request->active != null)
+                $localContacts = $localContacts->whereActive($request->active);
         }
         $localContacts = $localContacts->paginate(request()->per_page ?? 21);
 

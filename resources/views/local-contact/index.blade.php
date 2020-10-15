@@ -68,10 +68,21 @@
                                     <input type="number" name="day" class="form-control col-md-5" placeholder="days">
                                 </div>
                             </div>
-                            <div class="col-md-1">
-                                <input type="submit" class="form-control btn-info" value="Search">
+                            <div class="col-md-4 form-group">
+                                <label for="name">Status</label>
+                                <select type="text" name="active" class="form-control">
+                                    <option value="">Select Status</option>
+                                    <option value="1">Available</option>
+                                    <option value="0">Not-Available</option>
+                                    </select>
                             </div>
                         </div>
+                   
+                            <div class="col-md-1">
+                                <input type="submit" class="form-control btn-info" value="Search">
+                   
+                            </div>
+                    
                     </form>
                     {{-- <form action="{{route('localcontact-search')}}" method="post" class="form">
                     @method('put')
