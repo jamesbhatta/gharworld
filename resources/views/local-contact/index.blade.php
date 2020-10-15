@@ -36,7 +36,6 @@
                                     @foreach ($professions as $profession)
                                     <option value="{{$profession->id}}">{{$profession->name}}</option>
                                     @endforeach
-
                                 </select>
                             </div>
                             <div class="col-md-4 form-group">
@@ -74,15 +73,15 @@
                                     <option value="">Select Status</option>
                                     <option value="1">Available</option>
                                     <option value="0">Not-Available</option>
-                                    </select>
+                                </select>
                             </div>
                         </div>
-                   
-                            <div class="col-md-1">
-                                <input type="submit" class="form-control btn-info" value="Search">
-                   
-                            </div>
-                    
+
+                        <div class="col-md-1">
+                            <input type="submit" class="form-control btn-info" value="Search">
+
+                        </div>
+
                     </form>
                     {{-- <form action="{{route('localcontact-search')}}" method="post" class="form">
                     @method('put')
