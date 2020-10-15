@@ -58,8 +58,15 @@
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="address">Expiry</label>
-                            
-                                <input type="date" name="expiry" class="form-control" placeholder="YYYY-MM-DD">
+                                <div class="row">
+                                    <select name="expiry" id="" class="form-control col-md-6 mx-2">
+                                        <option value="">Select Expiry For</option>
+                                        <option value="=">Equal</option>
+                                        <option value="<">Less</option>
+                                        <option value=">">Greater</option>
+                                    </select>
+                                    <input type="number" name="day" class="form-control col-md-5" placeholder="days">
+                                </div>
                             </div>
                             <div class="col-md-1">
                                 <input type="submit" class="form-control btn-info" value="Search">
@@ -112,7 +119,9 @@
                     <td class="text-capitalize">
                         {{ $localContact->city->name . ', ' . $localContact->address_line }}</td>
                     <td>@php
-                        $diff=date_diff(now(),date_create("$localContact->expiry"));
+                        $date1=date_create(date('yy-m-d'));
+                        $date2=date_create("$localContact->expiry");
+                        $diff=date_diff($date1,$date2);
                         echo $diff->format("%R%a Remaining days");
                         @endphp</td>
                     <td>

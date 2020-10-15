@@ -26,9 +26,9 @@ class LocalContactController extends Controller
     public function index(LocalContact $localContact = null)
     {
         $localContacts = LocalContact::latest()->paginate(20);
-        $cities=City::get();
-        $professions=Profession::get();
-        return view('local-contact.index', compact('localContacts','cities','professions'));
+        $cities = City::get();
+        $professions = Profession::get();
+        return view('local-contact.index', compact('localContacts', 'cities', 'professions'));
     }
 
     /**
@@ -103,33 +103,42 @@ class LocalContactController extends Controller
     }
     public function search(Request $request)
     {
-       
+
         $localContacts = LocalContact::active();
-        
+
         if ($request->has('name')) {
-            if($request->name!=null)
-            $localContacts = $localContacts->where('name','LIKE',["$request->name%"]);
+            if ($request->name != null)
+                $localContacts = $localContacts->where('name', 'LIKE', ["$request->name%"]);
         }
         if ($request->has('contact')) {
-            if($request->contact!=null)
-            $localContacts = $localContacts->whereContact($request->contact);
+            if ($request->contact != null)
+                $localContacts = $localContacts->whereContact($request->contact);
         }
         if ($request->has('address_line')) {
-            if($request->address_line!=null)
-            $localContacts = $localContacts->where('address_line','Like',["$request->address_line%"]);
+            if ($request->address_line != null)
+                $localContacts = $localContacts->where('address_line', 'Like', ["$request->address_line%"]);
         }
         if ($request->has('city_id')) {
-            if($request->city_id!=null)
-            $localContacts = $localContacts->whereCityId($request->city_id);
+            if ($request->city_id != null)
+                $localContacts = $localContacts->whereCityId($request->city_id);
         }
         if ($request->has('profession_id')) {
-            if($request->profession_id!=null)
-            $localContacts = $localContacts->whereProfessionId($request->profession_id);
+            if ($request->profession_id != null)
+                $localContacts = $localContacts->whereProfessionId($request->profession_id);
+        }
+
+
+        if ($request->has('expiry')) {
+            if ($request->expiry != null && $request->day != null) {
+                $date = now();
+                date_modify($date, "$request->day days");
+                $localContacts = $localContacts->where('expiry', "$request->expiry", [date_format($date, "Y-m-d")]);
+            }
         }
         $localContacts = $localContacts->paginate(request()->per_page ?? 21);
 
-        $cities=City::get();
-        $professions=Profession::get();
-        return view('local-contact.index', compact('localContacts','cities','professions'));
+        $cities = City::get();
+        $professions = Profession::get();
+        return view('local-contact.index', compact('localContacts', 'cities', 'professions'));
     }
 }
