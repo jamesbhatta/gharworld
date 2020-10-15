@@ -40,6 +40,7 @@ class LocalContact extends Model
     {
         return $query->where('active', $status);
     }
+ 
 
     public function city()
     {

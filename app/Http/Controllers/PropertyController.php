@@ -28,8 +28,12 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        $cities = City::get();
+      
+        $property = new Property();
+       
         $properties = Property::latest()->paginate(21);
-        return view('property.index', compact('properties'));
+        return view('property.index', compact('properties','cities','property'));
     }
 
     /**

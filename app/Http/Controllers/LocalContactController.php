@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\Http\Requests\LocalContactRequest;
 use App\LocalContact;
+use App\Profession;
 use App\Service\LocalContactService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class LocalContactController extends Controller
@@ -22,8 +25,10 @@ class LocalContactController extends Controller
      */
     public function index(LocalContact $localContact = null)
     {
-        $localContacts=LocalContact::latest()->paginate(20);
-        return view('local-contact.index', compact('localContacts'));
+        $localContacts = LocalContact::latest()->paginate(20);
+        $cities=City::get();
+        $professions=Profession::get();
+        return view('local-contact.index', compact('localContacts','cities','professions'));
     }
 
     /**
@@ -94,6 +99,37 @@ class LocalContactController extends Controller
     {
         Storage::delete($localContact->image);
         $localContact->delete();
-        return redirect()->back()->with('success','Local Contact Data deleted');
+        return redirect()->back()->with('success', 'Local Contact Data deleted');
+    }
+    public function search(Request $request)
+    {
+       
+        $localContacts = LocalContact::active();
+        
+        if ($request->has('name')) {
+            if($request->name!=null)
+            $localContacts = $localContacts->where('name','LIKE',["$request->name%"]);
+        }
+        if ($request->has('contact')) {
+            if($request->contact!=null)
+            $localContacts = $localContacts->whereContact($request->contact);
+        }
+        if ($request->has('address_line')) {
+            if($request->address_line!=null)
+            $localContacts = $localContacts->where('address_line','Like',["$request->address_line%"]);
+        }
+        if ($request->has('city_id')) {
+            if($request->city_id!=null)
+            $localContacts = $localContacts->whereCityId($request->city_id);
+        }
+        if ($request->has('profession_id')) {
+            if($request->profession_id!=null)
+            $localContacts = $localContacts->whereProfessionId($request->profession_id);
+        }
+        $localContacts = $localContacts->paginate(request()->per_page ?? 21);
+
+        $cities=City::get();
+        $professions=Profession::get();
+        return view('local-contact.index', compact('localContacts','cities','professions'));
     }
 }

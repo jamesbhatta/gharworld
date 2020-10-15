@@ -22,6 +22,7 @@ Route::post('contact', 'ContactController@store')->name('contact.store');
 Route::get('contact', 'ContactController@index')->name('contact.index');
 Route::delete('contact/{contact}', 'ContactController@destroy')->name('contact.destroy');
 Route::put('properties','PropertyController@search')->name('property-search');
+Route::put('local-contacts','LocalContactController@search')->name('localcontact-search');
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('system.logs');
