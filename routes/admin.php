@@ -12,6 +12,7 @@ Route::resources(
         'features' => 'FeatureController',
         'properties' => 'PropertyController',
         'local-contacts' => 'LocalContactController',
+        'profile' => 'ProfileController',
     ]
 );
 

@@ -89,6 +89,13 @@
                       </p>
                   </a>
                   <ul class="nav nav-treeview">
+                       {{-- Profile --}}
+                       <li class="nav-item">
+                        <a href="{{route('profile.index')}}" class="nav-link">
+                            <i class="fa  fa-address-card nav-icon"></i>
+                            <p>Profile</p>
+                        </a>
+                    </li>
                       {{-- Logs --}}
                       <li class="nav-item">
                           <a href="{{ route('system.logs') }}" class="nav-link" target="_blank">
@@ -96,13 +103,7 @@
                               <p>Logs</p>
                           </a>
                       </li>
-                      {{-- Settings --}}
-                      <li class="nav-item">
-                          <a href="../layout/top-nav-sidebar.html" class="nav-link">
-                              <i class="fa fa-cogs nav-icon"></i>
-                              <p>Settings</p>
-                          </a>
-                      </li>
+                     
                       <li class="nav-item">
                           <a href="../layout/collapsed-sidebar.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
