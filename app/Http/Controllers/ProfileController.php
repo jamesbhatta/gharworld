@@ -16,8 +16,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile=Profile::first();
-        return view('profile.index',compact('profile'));
+        $profile = Profile::first();
+        return view('profile.index', compact('profile'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ProfileController extends Controller
      */
     public function create(Profile $profile)
     {
-        return view('profile.create-edit',compact('profile'));
+        return view('profile.create-edit', compact('profile'));
     }
 
     /**
@@ -38,16 +38,19 @@ class ProfileController extends Controller
      */
     public function store(ProfileRequest $request)
     {
-        
-        $data=$request->validated();
-        
-        if($request->logo!=null){
-            $baseDir = 'uploads/logo/' . date('Y') . '/' . date('M');
-            $imgPath = Storage::putFile($baseDir, $request->file('logo'));
-            $data['logo']=$imgPath;
+        if (!Profile::count()) {
+            $data = $request->validated();
+
+            if ($request->logo != null) {
+                $baseDir = 'uploads/logo/' . date('Y') . '/' . date('M');
+                $imgPath = Storage::putFile($baseDir, $request->file('logo'));
+                $data['logo'] = $imgPath;
+            }
+            Profile::create($data);
+            return redirect()->route('profile.index')->with('success', 'Company Profile Created');
         }
-        Profile::create($data); 
-        return redirect()->route('profile.index')->with('success','Company Profile Updated');
+        return redirect()->route('profile.index')->with('error', 'Company Profile already Created');
+
     }
 
     /**
@@ -69,7 +72,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        return view('profile.create-edit',compact('profile'));
+        return view('profile.create-edit', compact('profile'));
     }
 
     /**
@@ -81,18 +84,16 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, Profile $profile)
     {
-    
-        $data=$request->validated();
-        if($request->logo!=null)
-        {
+
+        $data = $request->validated();
+        if ($request->logo != null) {
             Storage::delete($profile->logo);
             $baseDir = 'uploads/logo/' . date('Y') . '/' . date('M');
             $imgPath = Storage::putFile($baseDir, $request->file('logo'));
-            $data['logo']=$imgPath;
+            $data['logo'] = $imgPath;
         }
         $profile->update($data);
-        return redirect()->route('profile.index')->with('success','Company Profile Updated');
-
+        return redirect()->route('profile.index')->with('success', 'Company Profile Updated');
     }
 
     /**
@@ -103,6 +104,5 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-       
     }
 }

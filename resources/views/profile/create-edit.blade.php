@@ -23,13 +23,13 @@
                         @endif
                         <div class="row">
                             <div class="col-md-4 form-group">
-                                <label for="name">Name</label>
+                                <label for="name" class="required">Name</label>
                                 <input type="text" name="name" class="form-control"
                                     value="{{old('name',$profile->name)}}" id="name" placeholder="Company Name"
                                     autofocus>
                             </div>
                             <div class="col-md-4 form-group">
-                                <label for="address">Address</label>
+                                <label for="address" class="required">Address</label>
                                 <input type="text" name="address" class="form-control"
                                     value="{{old('address',$profile->address)}}" id="address" placeholder="address">
                             </div>
@@ -38,13 +38,13 @@
                                 <input type="file" name="logo" class="form-control" id="logo" accept="image/*">
                             </div>
                             <div class="col-md-4 form-group">
-                                <label for="email">Email</label>
+                                <label for="email" class="required">Email</label>
                                 <input type="email" name="email" class="form-control"
                                     value="{{old('email',$profile->email)}}" id="email"
                                     placeholder="example@domain.com">
                             </div>
                             <div class="col-md-4 form-group">
-                                <label for="contact">Contact No.</label>
+                                <label for="contact" class="required">Contact No.</label>
                                 <input type="tel" name="contact" class="form-control"
                                     value="{{old('contact',$profile->contact)}}" id="contact" placeholder="Contact No.">
                             </div>

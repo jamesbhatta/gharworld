@@ -24,10 +24,11 @@
                     </a>
                 </div>
             </div>
+            @isset($profile)
             <div class="row">
                 <div class="col-md-6">
                     <ul class="list-group">
-                        @isset($profile)
+                        
                         <li class="list-group-item fa fa-home"> {{$profile->name}}</li>
                         <li class="list-group-item fa fa-map-marker"> {{$profile->address}}</li>
                         <li class="list-group-item fa fa-envelope "> {{$profile->email}}s</li>
@@ -36,7 +37,7 @@
                         <li class="list-group-item fa fa-facebook"> {{$profile->facebook}}</li>
                         <li class="list-group-item fa fa-linkedin"> {{$profile->linkedin}}</li>
                         <li class="list-group-item fa fa-youtube"> {{$profile->linkedin}}</li>
-                        @endisset
+                        
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -44,6 +45,7 @@
                     <img class=" img-fluid img-thumbnail" src="{{"../storage/".$profile->logo}}"  alt="ghar World Logo">
                 </div>
             </div>
+            @endisset
         </div>
     </div>
 </div>
