@@ -16,7 +16,7 @@
         <div class="col-md-12 mx-auto">
             <div class="card z-depth-0">
                 <div class="card-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover table-responsive-lg">
                         <tr class="bg-light">
                             <th>Name</th>
                             <th>Email</th>
@@ -39,11 +39,14 @@
                             </td>
                         </tr>
                         @empty
-
+                            <tr>
+                                <td colspan="40">No data availabale in database</td>
+                            </tr>
                         @endforelse
 
 
                     </table>
+                    {{$users->links()}}
                 </div>
             </div>
         </div>

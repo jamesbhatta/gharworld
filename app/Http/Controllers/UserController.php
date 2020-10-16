@@ -42,7 +42,7 @@ class UserController extends Controller
 		return back()->with('success', 'Profile updated successfully.');
 	}
 	public function index(){
-		$users=User::get();
+		$users=User::paginate(20);
 		return view('user.index',compact('users'));
 	}
 	public function destroy(User $user){

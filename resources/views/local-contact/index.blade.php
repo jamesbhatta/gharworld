@@ -58,13 +58,13 @@
                             <div class="col-md-4 form-group">
                                 <label for="address">Expiry</label>
                                 <div class="row">
-                                    <select name="expiry" id="" class="form-control col-md-6 mx-2">
+                                    <select name="expiry" id="" class="form-control  form-group col-md-6 mx-2">
                                         <option value="">Select Expiry For</option>
                                         <option value="=">Equal</option>
                                         <option value="<">Less</option>
                                         <option value=">">Greater</option>
                                     </select>
-                                    <input type="number" name="day" class="form-control col-md-5" placeholder="days">
+                                    <input type="number" name="day" class="form-control form-group mx-1 col-md-5" placeholder="days">
                                 </div>
                             </div>
                             <div class="col-md-4 form-group">
@@ -108,7 +108,7 @@
                     </form> --}}
                 </div>
             </div>
-            <table class="table">
+            <table class="table table-responsive-lg">
                 <thead class="thead-light">
                     <tr>
                         <th>Name</th>

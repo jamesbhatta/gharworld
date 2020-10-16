@@ -126,7 +126,7 @@
                     </form>
                 </div>
             </div> --}}
-            <table class="table">
+            <table class="table table-responsive-lg">
                 <thead class="thead-light">
                     <tr>
                         <th>Owner Name</th>
