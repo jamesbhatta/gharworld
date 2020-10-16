@@ -23,7 +23,8 @@
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="{{url('login')}}">Dashbord</a>
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="{{url('profile')}}">Profile</a>
+                    <a class="dropdown-item" href="">Change Password</a>
                     <a class="dropdown-item" href="#"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
