@@ -52,9 +52,7 @@
                             </div>
                         </div>
                         <div class="property-feature">
-
                         </div>
-
                         <h4>Facilities</h4>
                         <div class="row py-3">
                             @foreach ($property->facilities as $facility)
@@ -111,11 +109,44 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 sidebar">
+                    <h4 class="text-center">Related Property</h4>
                     <div class="agent-widget">
                         <div class="aw-text">
-                            <p>Fusce lobortis a enim eget tempus. Class aptent taciti sociosqu ad litora. Donec eget
-                                efficitur ex. Donec eget dolor vitae eros feugiat tristique id vitae massa. </p>
-                            <a href="#" class="readmore-btn">Contact the agent</a>
+                            <div class="row">
+                                @forelse ($properties as $property)
+                                <div class="col-md-10 text-color">
+                                    <a href="{{ route('frontend.property.show', $property) }}">
+                                        <div class="card property-item hover text-dark">
+        
+                                            <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
+                                                alt="{{ $property->title }}" class="image img-fluid" style="width:100%; height:200px">
+                                            <div
+                                                class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
+                                                {{ $property->for }}</div>
+                                            <div class="px-3 py-2">
+                                                <div class="font-weight-bold">
+                                                    {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
+                                                </div>
+                                                <div class="text-capitalize font-weight-bold text-muted">
+                                                    <i
+                                                        class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
+                                                    {{ $property->type . ' | ' . $property->title }}
+                                                </div>
+                                                <div class=" fa fa-map-marker">
+                                                    {{ $property->city->name . ', ' . $property->address_line }}</div>
+                                                <div class=" text-warning">
+                                                    @for ($i = 0; $i < 5; $i++) <span class="fa fa-star checked"></span>
+                                                        @endfor
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                @empty
+                                <div class="col-md-12 text-danger text-center justify-content-center">* No data available in
+                                    databale </div>
+                                @endforelse
+                            </div>
                         </div>
                     </div>
                 </div>
