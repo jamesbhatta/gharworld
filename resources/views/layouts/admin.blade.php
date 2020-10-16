@@ -23,7 +23,7 @@
         @include('layouts.partials.admin.navbar')
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary">
             @include('layouts.partials.admin.sidebar')
         </aside>
 

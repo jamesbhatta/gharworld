@@ -124,7 +124,7 @@
                                 <div class="card property-item hover text-dark">
 
                                     <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                        alt="{{ $property->title }}" class="image img-fluid" style="width:100%; height:auto">
+                                        alt="{{ $property->title }}" class="image img-fluid" style="width:100%; height:200px">
                                     <div
                                         class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
                                         {{ $property->for }}</div>
