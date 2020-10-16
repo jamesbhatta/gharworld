@@ -38,7 +38,7 @@ class PropertyRequest extends FormRequest
             'price_per' => 'nullable|in:month,year',
             'description' => 'nullable',
             'status' => 'required',
-            'expiry' => 'nullable|date|after:yesterday',
+            'expiry' => 'required|date|after:yesterday',
         ];
     }
 }

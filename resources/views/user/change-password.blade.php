@@ -1,29 +1,26 @@
-@extends('theme.client')
-@section('main-content')
-<div class="my-5"></div>
-<div class="container-fluid">
-    <!-- Search Result Section end -->
-    <section class="search-result-section">
-        <div class="container-fluid py-5">
-            <div class="row my-3 py-5 justify-content-center">
-                <div class="card shadow" style="width: 30rem;">
-                    @if (Session::has('success'))
-                    <div class="bg-success text-white p-2">
-                        {{ Session::get('success') }}
-                    </div>
-                    @endif
-                    @if (Session::has('error'))
-                    <div class=" bg-danger text-white p-2">
-                        {{ Session::get('error') }}
-                    </div>
-                    @endif
+@extends('layouts.admin')
 
-                    <h3 class="py-3 text-center">User Password Change</h3>
-                    <form action="{{route('frontend.change-password.change')}}" class="form px-5 py-4" method="POST">
+@section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="p-4">
+    <x-section-title>User Password Change</x-section-title>
+
+    <div class="row">
+        {{-- Alerts --}}
+        <div class="col-md-6 mx-auto">
+            @include('alerts.all')
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card z-depth-0">
+                <div class="card-body">
+                    <form action="{{route('users.change-password',$user)}}" class="form px-5 py-4" method="POST">
                         @csrf
                         <input type="password" name="current"
                             class="form-control form-group @error('current') is-invalid @enderror" id="current"
-                            placeholder="Current Password" required autofocus>
+                            placeholder="Your Current Password" required autofocus>
                         @error('current')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -48,12 +45,10 @@
                         <input type="submit" class=" form-control btn btn-success" value="Change">
                     </form>
                 </div>
-
             </div>
         </div>
-    </section>
-    <!-- Search Result Section end -->
+    </div>
 </div>
-
-@include('theme.partials.pagefooter')
+</div>
+</div>
 @endsection

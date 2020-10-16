@@ -73,6 +73,13 @@
                       <p>Cities</p>
                   </a>
               </li>
+               {{-- Users --}}
+               <li class="nav-item">
+                <a href="{{ route('users.index') }}" class="nav-link">
+                    <i class="nav-icon fa fa-user"></i>
+                    <p>Users</p>
+                </a>
+            </li>
               {{-- contact --}}
               <li class="nav-item">
                   <a href="{{ route('contact.index') }}" class="nav-link">
@@ -93,7 +100,7 @@
                        <li class="nav-item">
                         <a href="{{route('profile.index')}}" class="nav-link">
                             <i class="fa  fa-address-card nav-icon"></i>
-                            <p>Profile</p>
+                            <p>Company Profile</p>
                         </a>
                     </li>
                       {{-- Logs --}}

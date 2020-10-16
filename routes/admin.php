@@ -24,6 +24,10 @@ Route::get('contact', 'ContactController@index')->name('contact.index');
 Route::delete('contact/{contact}', 'ContactController@destroy')->name('contact.destroy');
 Route::put('properties','PropertyController@search')->name('property-search');
 Route::put('local-contacts','LocalContactController@search')->name('localcontact-search');
+Route::get('users','UserController@index')->name('users.index');
+Route::delete('users/destroy/{user}','UserController@destroy')->name('users.destroy');
+Route::get('users/change-password/{user}','UserController@changePasswordShow')->name('users.change-password.show');
+Route::post('users/change-password/{user}','UserController@changePassword')->name('users.change-password');
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('system.logs');

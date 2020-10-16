@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Http\Request;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-	public function profile()
+	public function profile(User $user)
 	{
+		
 		$user = Auth::user();
 
 		return view('user.profile', compact('user'));
@@ -38,4 +41,24 @@ class UserController extends Controller
 
 		return back()->with('success', 'Profile updated successfully.');
 	}
+	public function index(){
+		$users=User::get();
+		return view('user.index',compact('users'));
+	}
+	public function destroy(User $user){
+	$user->delete();
+		return redirect()->back()->with('success','User deleted');
+	}
+	public function changePasswordShow(User $user){
+        return view('user.change-password',compact('user'));
+    }
+    public function changePassword(User $user, ChangePasswordRequest $request){
+        if (Hash::check($request->current, Auth::user()->password)) {
+                $user->update(['password' => Hash::make($request->new)]);
+            return redirect()->back()->with('success', "Password change successfull");
+        } else {
+            return redirect()->back()->with('error', "Incorrect your current password");
+        }
+
+    }
 }
