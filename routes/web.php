@@ -37,6 +37,8 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('localcontact-profile/{localcontact}', 'localcontactController@show')->name('frontend.localcontact.show');
     Route::get('properties-profile/{property}', 'PropertyController@show')->name('frontend.property.show');
     Route::get('contact', 'ContactController@index')->name('frontend.contact.show');
+    Route::get('change-password', 'ChangePasswordController@index')->name('frontend.change-password.index')->middleware('auth');
+    Route::post('change-password', 'ChangePasswordController@change')->name('frontend.change-password.change')->middleware('auth');
 
 });
 
