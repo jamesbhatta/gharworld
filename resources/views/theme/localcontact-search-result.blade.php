@@ -19,7 +19,7 @@
                                 <a href="{{route('frontend.localcontact.show',$localcontact)}}">
                                     <div class="card localcontact-item text-center hover">
                                         <div class="pi-image">
-                                            <img src="{{ $localcontact->image != null ? asset('storage/' . $localcontact->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $localcontact->name }}" class="image img-fluid" style="height: 280px;">
+                                            <img src="{{ $localcontact->image != null ? asset('storage/' . $localcontact->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $localcontact->name }}" class="image img-fluid" style="width:100%; height:auto">
                                         </div>
                                         <div class="px-3 py-2">
                                             <div class="font-weight-bold">{{ $localcontact->profession->name }}

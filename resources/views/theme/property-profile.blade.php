@@ -9,7 +9,7 @@
                     <div class="single-property">
                         <div class="sp-image">
                             <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                alt="{{ $property->title }}" style="width: 100%">
+                                alt="{{ $property->title }}" style="width:100%; height:auto">
                             <div class="sp-badge new text-capitalize">{{ $property->for }}</div>
                         </div>
                         <div class="row">

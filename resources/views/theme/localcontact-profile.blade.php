@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <img src="{{$localcontact->image!=null ? asset('storage/' . $localcontact->image) : asset('assets/img/person-avatar.png')}}" class="img-thumbnail"
-                                    alt="{{ $localcontact->name }}">
+                                    alt="{{ $localcontact->name }}" style="width:100%; height:auto">
                             </div>
                             <div class="col-md-6 text-center font-weight-bold py-5 text-black">
                                 <h2>{{ $localcontact->name }}</h2>

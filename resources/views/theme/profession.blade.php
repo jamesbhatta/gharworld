@@ -17,7 +17,7 @@
                                             <div class="pi-image">
                                                 <img src="{{ $profession->image != null ? asset('storage/' . $profession->image) : asset('assets/img/real-estate.jpg') }}"
                                                     alt="{{ $profession->name }}" class="image img-fluid"
-                                                    style="height: 220px;">
+                                                    style="width:100%; height:auto">
                                                     <div class="px-3 py-2 bg-dark">
                                                         <div class="font-weight-bold text-capitalize text-white">
                                                             {{$profession->name}}
