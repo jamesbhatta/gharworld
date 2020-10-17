@@ -11,18 +11,18 @@
                     <div class="card shadow" style="width: 70rem;">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="{{$localcontact->image!=null ? asset('storage/' . $localcontact->image) : asset('assets/img/person-avatar.png')}}" class="img-thumbnail"
-                                    alt="{{ $localcontact->name }}" style="width:100%; height:auto">
+                                <img src="{{$localContact->image!=null ? asset('storage/' . $localContact->image) : asset('assets/img/person-avatar.png')}}" class="img-thumbnail"
+                                    alt="{{ $localContact->name }}" style="width:100%; height:auto">
                             </div>
                             <div class="col-md-6 text-center font-weight-bold py-5 text-black">
-                                <h2>{{ $localcontact->name }}</h2>
-                                <h4 class="text-capitalize py-3">{{ $localcontact->profession->name}} </h4>
-                                <h5><i class="fa fa-map-marker py-2"> </i> {{ $localcontact->city->name.", ".$localcontact->address_line }} </h5>
-                                <h5><i class="fa fa-phone py-2" > </i><a href="tel:{{ $localcontact->contact}}" class=" text-dark"> {{ $localcontact->contact}}</a>  </h5>
-                                <h5><i class="fa fa-envelope-o py-2 "> </i><a href="mailto:{{ $localcontact->email}}" class="text-dark"> {{ $localcontact->email}}</a></h5>
-                                <h5><i class="fa fa-graduation-cap py-2"> </i>{{ $localcontact->qualification}}</a></h5>
+                                <h2>{{ $localContact->name }}</h2>
+                                <h4 class="text-capitalize py-3">{{ $localContact->profession->name}} </h4>
+                                <h5><i class="fa fa-map-marker py-2"> </i> {{ $localContact->city->name.", ".$localContact->address_line }} </h5>
+                                <h5><i class="fa fa-phone py-2" > </i><a href="tel:{{ $localContact->contact}}" class=" text-dark"> {{ $localContact->contact}}</a>  </h5>
+                                <h5><i class="fa fa-envelope-o py-2 "> </i><a href="mailto:{{ $localContact->email}}" class="text-dark"> {{ $localContact->email}}</a></h5>
+                                <h5><i class="fa fa-graduation-cap py-2"> </i>{{ $localContact->qualification}}</a></h5>
                                 <div class=" pl-md-2 text-left mr-4" style="height:180px; solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-                                    {!! $localcontact->about !!}
+                                    {!! $localContact->about !!}
                                 </div>
                             </div>
                         </div>

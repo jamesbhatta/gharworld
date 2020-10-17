@@ -13,21 +13,21 @@
                     <div class="search-results">
                         <div class="row py-5">
 
-                            @forelse ($localcontacts as $localcontact)
+                            @forelse ($localContacts as $localContact)
 
                             <div class="col-md-4">
-                                <a href="{{route('frontend.localcontact.show',$localcontact)}}">
+                                <a href="{{route('frontend.localcontact.show',$localContact)}}">
                                     <div class="card localcontact-item text-center hover">
                                         <div class="pi-image">
-                                            <img src="{{ $localcontact->image != null ? asset('storage/' . $localcontact->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $localcontact->name }}" class="image img-fluid" style="width:100%; height:250px;">
+                                            <img src="{{ $localContact->image != null ? asset('storage/' . $localContact->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $localContact->name }}" class="image img-fluid" style="width:100%; height:250px;">
                                         </div>
                                         <div class="px-3 py-2">
-                                            <div class="font-weight-bold">{{ $localcontact->profession->name }}
+                                            <div class="font-weight-bold">{{ $localContact->profession->name }}
                                             </div>
-                                            <div class="text-capitalize font-weight-bold">{{ $localcontact->name }}
+                                            <div class="text-capitalize font-weight-bold">{{ $localContact->name }}
                                             </div>
                                             <div class="fa fa-map-marker">
-                                                {{ $localcontact->city->name . ', ' . $localcontact->address_line }}</div>
+                                                {{ $localContact->city->name . ', ' . $localContact->address_line }}</div>
                                             <div class=" text-warning">
                                                 @for ($i = 0; $i < 5; $i++) <span class="fa fa-star checked"></span>
                                                     @endfor
@@ -42,7 +42,7 @@
 
                             @endforelse
                         </div>
-                        {{ $localcontacts->links() }}
+                        {{ $localContacts->links() }}
                     </div>
                 </div>
             </div>
