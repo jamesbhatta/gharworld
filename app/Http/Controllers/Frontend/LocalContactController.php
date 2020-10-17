@@ -10,7 +10,7 @@ use App\localContact;
 use App\Profession;
 use Illuminate\Http\Request;
 
-class localContactController extends Controller
+class LocalContactController extends Controller
 {
     public function search(Request $request)
     {
