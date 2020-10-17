@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\City;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Frontend\localContactRequest as FrontendlocalContactRequest;
-use App\Http\Requests\localContactRequest;
-use App\localContact;
-use App\Profession;
+
+use App\LocalContact;
+
 use Illuminate\Http\Request;
 
 class LocalContactController extends Controller
