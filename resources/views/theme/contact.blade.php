@@ -10,7 +10,7 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('contact.store') }}" class="contact-form" method="POST">
+            <form action="{{ route('forntend.contact.store') }}" class="contact-form" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-lg-4">
