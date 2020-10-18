@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('theme.client')
 
 @push('styles')
 <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     .login-form .head {
         padding: 15px 10px;
         /* background: linear-gradient(110deg, #30c5d7, #4edca7) !important; */
-        background-color: #6200ee;
+        background-color: #4c4c4c;
         text-align:center;
     }
     .login-form .head .form-title {
@@ -90,8 +90,8 @@
 </style>
 @endpush
 
-@section('content')
-<div class="vh-100">
+@section('main-content')
+<div class="vh-100 spad">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 mb-5 p-4">
@@ -125,7 +125,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control rounded-0 @error('password') is-invalid @enderror" autocomplete="current-password" placeholder="**your secure password**">
+                                <input type="password" name="password" class="form-control rounded-0 @error('password') is-invalid @enderror" autocomplete="current-password" placeholder="Password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -147,7 +147,7 @@
                             <div class="d-flex justify-content-between">
                                 <div class="align-self-center">
                                     @if (Route::has('password.request'))
-                                    <a class="text-muted" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}s</a>
+                                    <a class="text-muted" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                                     @endif
                                 </div>
                                 <div>
