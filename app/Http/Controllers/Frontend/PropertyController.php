@@ -18,17 +18,15 @@ class PropertyController extends Controller
 
     public function search(LocationRequest $request)
     {
-        
+
         if ($request->type == "local-contact") {
             return $this->localContactController->search($request);
         }
         $properties = Property::with('city')->available();
-        if ($request->has('type')) 
-        {
+        if ($request->has('type')) {
             if ($request->type == 'real-estate') {
                 $properties = $properties->whereIn('type', ['land', 'house']);
-            }
-            else {
+            } else {
                 $properties = $properties->whereType($request->type);
             }
         }
@@ -36,15 +34,13 @@ class PropertyController extends Controller
         if ($request->has('for')) {
             if ($request->for == 'all') {
                 $properties = $properties->whereIn('for', ['sale', 'rent']);
-            }
-            else{
+            } else {
                 $properties = $properties->whereFor($request->for);
             }
         }
         if ($request->has('city_id')) {
             if ($request->city_id == null) {
-                
-            }else{
+            } else {
                 $properties = $properties->whereCityId($request->city_id);
             }
         }
@@ -59,14 +55,14 @@ class PropertyController extends Controller
         $properties = $properties->paginate($request->per_page ?? 21);
 
         $cities = City::orderBy('name')->get();
-        return view('theme.search-result', compact('properties','cities'));
+        return view('theme.search-result', compact('properties', 'cities'));
     }
 
     public function show(Property $property)
     {
-        $properties=Property::where('type',$property->type)->where('city_id',$property->city_id)->paginate(4);
+        $properties = Property::where('type', $property->type)->where('city_id', $property->city_id)->paginate(4);
         $property->load(['city', 'facilities', 'images']);
-        return view('theme.property-profile', compact('property','properties'));
+        return view('theme.property-profile', compact('property', 'properties'));
     }
 
     public function realEstate()
