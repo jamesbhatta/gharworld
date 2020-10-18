@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('theme.client')
 
 @push('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.css">
 @endpush
 
-@section('content')
-<div class="container">
+@section('main-content')
+<div class="container spad my-2">
 	<div class="card rounded-0 p-4 z-depth-1">
 		@include('partials.alerts')
 		<div class="row">

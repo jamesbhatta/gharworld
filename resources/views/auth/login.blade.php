@@ -162,4 +162,5 @@
         </div>
     </div>
 </div>
+@include('theme.partials.pagefooter')
 @endsection
