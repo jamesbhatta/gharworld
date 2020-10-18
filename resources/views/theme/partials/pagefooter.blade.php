@@ -6,14 +6,13 @@
                  <div class="footer-widger">
                      <div class="about-widget">
                          <div class="aw-text">
-                             <img src="{{ asset('assets/mondy/img/footer-logo.png') }} alt="">
-        <p>Donec eget efficitur ex. Donec eget dolor vitae eros feugiat tristique id vitae massa. Proin vulputate cong ue rutrum. Fusce lobortis a enim eget tempus. </p>
-        <a href=" #" class="site-btn">we are hiring</a>
+                             <img src="{{asset('assets/img/gw.png') }}" alt="GharWorld Logo" style="height:50px;">
+                              <p><a href="http://gharworld.com"> Gharworld.com</a> is a platform to disseminate real estate industry information. We provide comprehensive detail on real estate properties which are for sale or rent, including current news and information about real estate market.</p>
                          </div>
                      </div>
                  </div>
              </div>
-             <div class="col-lg-2 col-md-3 col-sm-6">
+             {{-- <div class="col-lg-2 col-md-3 col-sm-6">
                  <div class="footer-widger">
                      <h2>Company</h2>
                      <ul>
@@ -60,7 +59,7 @@
                          <li><a href="#">Houses</a></li>
                      </ul>
                  </div>
-             </div>
+             </div> --}}
          </div>
          <div class="copyright">Copyright &copy;<script>
                  document.write(new Date().getFullYear());
