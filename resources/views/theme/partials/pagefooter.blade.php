@@ -1,5 +1,5 @@
  <!-- Footer Section -->
- <footer class="footer-section pt-4">
+ <footer class="footer-section pt-4  {{ request()->is('/') ? 'd-none' : '' }}">
      <div class="container">
          <div class="row text-white text-center">
              <div class="col-md-12">
