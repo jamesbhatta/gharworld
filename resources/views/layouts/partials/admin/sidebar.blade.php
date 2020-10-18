@@ -22,14 +22,14 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
               <li class="nav-item">
-                  <a href="{{ route('admin.dashboard') }}" class="nav-link">
+                  <a href="{{ route('admin.dashboard') }}" class="{{ (request()->is('admin/dashboard')) ? 'active' : '' }} nav-link">
                       <i class="nav-icon fas fa-tachometer-alt"></i>
                       <p>Dashboard</p>
                   </a>
               </li>
               {{-- Properties --}}
               <li class="nav-item">
-                  <a href="{{ route('properties.index') }}" class="nav-link">
+                  <a href="{{ route('properties.index') }}" class="nav-link {{ (request()->is('admin/properties*')) ? 'active' : '' }}">
                       <i class="nav-icon fa fa-list-ul"></i>
                       <p>
                           Properties
@@ -38,7 +38,7 @@
               </li>
               {{-- Local Contact --}}
               <li class="nav-item">
-                  <a href="{{ route('local-contacts.index') }}" class="nav-link">
+                  <a href="{{ route('local-contacts.index') }}" class="nav-link {{ (request()->is('admin/local-contacts*')) ? 'active' : '' }}">
                       <i class="nav-icon fa fa-users"></i>
                       <p>
                           Local Contact
@@ -47,48 +47,48 @@
               </li>
               {{-- Features --}}
               <li class="nav-item">
-                  <a href="{{ route('features.index') }}" class="nav-link">
+                  <a href="{{ route('features.index') }}" class="nav-link {{ (request()->is('admin/features*')) ? 'active' : '' }}">
                       <i class="nav-icon fa fa-medal"></i>
                       <p>Features</p>
                   </a>
               </li>
               {{-- Facilities --}}
               <li class="nav-item">
-                  <a href="{{ route('facilities.index') }}" class="nav-link">
+                  <a href="{{ route('facilities.index') }}" class="nav-link {{ (request()->is('admin/facilities*')) ? 'active' : '' }} ">
                       <i class="nav-icon fab fa-accessible-icon"></i>
                       <p>Facilities</p>
                   </a>
               </li>
               {{-- Professions --}}
               <li class="nav-item">
-                  <a href="{{ route('professions.index') }}" class="nav-link">
+                  <a href="{{ route('professions.index') }}" class="nav-link {{ (request()->is('admin/professions*')) ? 'active' : '' }}">
                       <i class="nav-icon fa fa-briefcase"></i>
                       <p>Professions</p>
                   </a>
               </li>
               {{-- Cities --}}
               <li class="nav-item">
-                  <a href="{{ route('cities.index') }}" class="nav-link">
+                  <a href="{{ route('cities.index') }}" class="nav-link {{ (request()->is('admin/cities*')) ? 'active' : '' }}">
                       <i class="nav-icon fa fa-map-marker-alt"></i>
                       <p>Cities</p>
                   </a>
               </li>
                {{-- Users --}}
                <li class="nav-item">
-                <a href="{{ route('users.index') }}" class="nav-link">
+                <a href="{{ route('users.index') }}" class="nav-link {{ (request()->is('admin/users*')) ? 'active' : '' }}">
                     <i class="nav-icon fa fa-user"></i>
                     <p>Users</p>
                 </a>
             </li>
               {{-- contact --}}
               <li class="nav-item">
-                  <a href="{{ route('contact.index') }}" class="nav-link">
+                  <a href="{{ route('contact.index') }}" class="nav-link {{ (request()->is('admin/contact*')) ? 'active' : '' }}">
                       <i class="nav-icon fa fa-rss"></i>
-                      <p>Contact</p>
+                      <p>Contact-us</p>
                   </a>
               </li>
               <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
+                  <a href="#" class="nav-link {{ (request()->is('admin/profile*')) ? 'active' : '' }}">
                       <i class="nav-icon fas fa-copy"></i>
                       <p>
                           System
@@ -98,7 +98,7 @@
                   <ul class="nav nav-treeview">
                        {{-- Profile --}}
                        <li class="nav-item">
-                        <a href="{{route('profile.index')}}" class="nav-link">
+                        <a href="{{route('profile.index')}}" class="nav-link {{ (request()->is('admin/profile*')) ? 'active' : '' }}">
                             <i class="fa  fa-address-card nav-icon"></i>
                             <p>Company Profile</p>
                         </a>
