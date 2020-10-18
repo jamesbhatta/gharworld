@@ -1,12 +1,12 @@
 @extends('theme.client')
 @section('main-content')
     <!-- Contact Section end -->
-    <section class="contact-section">
+    <section class="contact-section spad my-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
-                    <div class="section-title text-left">
-                        <h2>Get in touch</h2>
+                    <div class="section-title text-center">
+                        <h3 class="text-center">Get in touch</h3>
                     </div>
                 </div>
             </div>
