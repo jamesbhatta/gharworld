@@ -1,11 +1,11 @@
 @extends('theme.client')
 @section('main-content')
-    <div class="my-5"></div>
-    <div class="container-fluid">
+    <div class="my-1"></div>
+    <div class="container-fluid spad">
         <!-- Search Result Section end -->
         <section class="search-result-section">
-            <div class="container-fluid py-5">
-                <div class="row my-3 py-5 justify-content-center"
+            <div class="container-fluid">
+                <div class="row justify-content-center"
                     style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);">
 
                     <div class="card shadow" style="width: 70rem;">

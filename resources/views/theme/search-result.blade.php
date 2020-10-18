@@ -1,11 +1,11 @@
 @extends('theme.client')
 @section('main-content')
-<div class="my-5"></div>
-<div class="container-fluid py-5 px-5">
+<div class="my-2"></div>
+<div class="container-fluid spad">
     <!-- Search Result Section end -->
     {{-- <section class="search-result-section "> --}}
     <div class="">
-        <div class="row py-5">
+        <div class="row">
 
             <div class="col-md-2">
                 <form action="{{route('frontend.property.search')}}" method="GET">

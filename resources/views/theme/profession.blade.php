@@ -1,7 +1,7 @@
 @extends('theme.client')
 @section('main-content')
-<div class="my-5"></div>
-<div class="container-fluid py-5 px-5">
+<div class="my-3"></div>
+<div class="container-fluid spad">
     <!-- Search Result Section end -->
     {{-- <section class="search-result-section "> --}}
     <div class="">
