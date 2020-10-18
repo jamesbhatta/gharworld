@@ -12,11 +12,11 @@
     <!-- Hero Section end -->
     <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}">
         <div class=" row justify-content-lg-center py-3 text-center">
-            <a href="{{url('properties/search?type=real-estate&for=all')}}">
+            <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
                 <h2 class="hero-warp py-4 my-5 mx-3 px-5 home-hover"><span class="text-white fa fa-building"> Real
                         Estate</span></h2>
             </a>
-            <a href="{{ url('properties/search?type=room&for=rent') }}">
+            <a href="{{route('frontend.property.search',['type' => 'room', 'for' => 'rent'])}}">
                 <h2 class="hero-warp my-5 mx-3 py-4 px-5 home-hover"><span class="fa fa-home text-white">Room Rent</span>
                 </h2>
             </a>
