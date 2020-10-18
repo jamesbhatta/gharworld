@@ -37,18 +37,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="property-info-bar">
+                        <h4>Features</h4>
+                        <div class="property-info-bar my-3">
+                            
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <div class="pi-metas">
-                                        <div class="pi-meta">3 Bed </div>
+                                    
+                                        {!!'<div class="pi-meta">'. str_replace(',',' </div>
+                                        <div class="pi-meta"> ',$property->features) .'</div>' !!}
+                                            {{-- <div class="pi-meta">3 Bed </div>
                                         <div class="pi-meta">2 Baths</div>
-                                        <div class="pi-meta">1 Garage</div>
-                                    </div>
+                                        <div class="pi-meta">1 Garage</div> --}}
+                                   
                                 </div>
-                                <div class="col-lg-5 text-left text-lg-right d-none">
-                                    <a href="#" class="offer-btn">Make an Offer</a>
-                                </div>
+                             
                             </div>
                         </div>
                         <div class="property-feature">
