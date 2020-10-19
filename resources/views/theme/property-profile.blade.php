@@ -16,29 +16,33 @@
                         <div class="col-lg-8">
                             <div class="property-header">
                                 <h3 class="text-uppercase">{{ $property->type . ' | ' . $property->title }}</h3>
-                                <div class="bg-light">
-                                    <h5 class="py-1"><i class="fa fa-map-marker"></i>
-                                        {{ $property->city->name . ', ' . $property->address_line }} </h5>
-                                    <h5 class="py-1">
-                                        <i class="fa fa-user"></i>
-                                        {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
-                                    </h5>
-                                    <h5 class="py-1 text-white" ><i class=" fa fa-phone p-2 rounded-pill bg-warning"><a
-                                            href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
-                                            {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a></i>
-                                    </h5>
-                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 text-left text-lg-right">
                             <div class="property-header">
-                                <h3 class=" text-warning">Rs.
+                                <h3 class=" text-warning">NRs.
                                     {{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
                                 </h3>
                                 <h5>(Negotiable)</h5>
                             </div>
                         </div>
                     </div>
+
+                    <div class="row bg-light p-3">
+                        <h5>
+                            <div class="py-1"><i class="fa fa-map-marker"></i>
+                                {{ $property->city->name . ', ' . $property->address_line }} </div>
+                            <div class="py-1">
+                                <i class="fa fa-user"></i>
+                                {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
+                            </div>
+                            <div class="py-1 text-white"><i class=" fa fa-phone p-2 rounded-pill bg-warning"><a
+                                        href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
+                                        {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a></i>
+                            </div>
+                        </h5>
+                    </div>
+                    @isset($property->features)
                     <h4>Features</h4>
                     <div class="property-info-bar my-3">
 
@@ -55,8 +59,8 @@
 
                         </div>
                     </div>
-                    <div class="property-feature">
-                    </div>
+                    @endisset
+                    @isset($property->facilities)
                     <h4>Facilities</h4>
                     <div class="row py-3">
                         @foreach ($property->facilities as $facility)
@@ -69,27 +73,27 @@
                         @endforeach
                     </div>
                 </div>
+                @endisset
 
-
-
+                @isset($property->description)
                 <div class="property-text">
                     <h4>Description</h4>
                     <p>{!! $property->description !!}</p>
                 </div>
+                @endisset
+                @isset($property->images)
+
 
                 <h4>Pictures</h4>
                 <!-- Place somewhere in the <body> of your page -->
                 <div id="aniimated-thumbnials">
-
                     @foreach ($property->images as $image)
-
                     <a href="{{ asset('storage/' . $image->link) }}">
                         <img class="row-cols-4 img-responsive p-1" src="{{ asset('storage/' . $image->link) }}"
                             height="155" />
                     </a>
-
                     @endforeach
-
+                    @endisset
                 </div>
                 <!-- jQuery -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -105,6 +109,7 @@
                         });
 
                 </script>
+                @isset($property->location)
                 <h4 class="my-3">Map View</h4>
                 <div class="map-widget">
                     <iframe
@@ -112,11 +117,12 @@
                         style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
+            @endisset
             <div class="col-lg-4 col-md-8 sidebar">
-                <h4 class="text-center">Related Property</h4>
                 <div class="agent-widget">
                     <div class="aw-text">
-                        <div class="row">
+                        <h4 class="text-center">Related Property</h4>
+                        <div class="row justify-content-center">
                             @forelse ($properties as $property)
                             <div class="col-md-10 text-color">
                                 <a href="{{ route('frontend.property.show', $property) }}">
