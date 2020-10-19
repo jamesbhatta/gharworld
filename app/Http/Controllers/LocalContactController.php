@@ -104,7 +104,7 @@ class LocalContactController extends Controller
     public function search(Request $request)
     {
 
-        $localContacts = LocalContact::active();
+        $localContacts = new LocalContact;
 
         if ($request->has('name')) {
             if ($request->name != null)

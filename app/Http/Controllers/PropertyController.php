@@ -129,7 +129,7 @@ class PropertyController extends Controller
         ]);
     }
     public function search(Request $request){
-        $properties=Property::AVAILABLE();
+        $properties = new Property;
         if ($request->has('name')) {
             if ($request->name != null)
                 $properties = $properties->where('name', 'LIKE', ["$request->name%"]);
