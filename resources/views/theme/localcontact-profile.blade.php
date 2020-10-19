@@ -5,9 +5,9 @@
         <!-- Search Result Section end -->
         <section class="search-result-section">
             <div class="container-fluid">
-                <div class="row justify-content-center"
-                    style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);">
-
+                <div class="row justify-content-center">
+                    {{-- <div class="row justify-content-center"
+                    style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);"> --}}
                     <div class="card shadow" style="width: 70rem;">
                         <div class="row">
                             <div class="col-md-6">
