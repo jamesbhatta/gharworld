@@ -16,8 +16,8 @@
                         <div class="col-lg-7">
                             <div class="property-header">
                                 <h4>
-                                <div class="text-uppercase text-white"> <span class=" rounded-pill bg-warning px-3 p-2 my-3">{{ $property->type}}</span></div>
-                                <div class="text-uppercase my-2 text-warning">{{$property->title}}</div>
+                                <div class="text-uppercase text-white"> <span class=" rounded-pill bg-warning px-3 py-1 my-3">{{ $property->type}}</span></div>
+                                <div class="text-uppercase my-2">{{$property->title}}</div>
                                 </h4>
                            
                             </div>
@@ -141,8 +141,7 @@
                                                 {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
                                             </div>
                                             <div class="text-capitalize font-weight-bold text-muted">
-                                                <i
-                                                    class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
+                                                <i class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
                                                 {{ $property->type . ' | ' . $property->title }}
                                             </div>
                                             <div class=" fa fa-map-marker">

@@ -129,12 +129,11 @@
                                         class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
                                         {{ $property->for }}</div>
                                     <div class="px-3 py-2">
-                                        <div class="font-weight-bold">
+                                        <div class="font-weight-bold text-warning ">
                                             {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
                                         </div>
                                         <div class="text-capitalize font-weight-bold text-muted">
-                                            <i
-                                                class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
+                                            <i class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
                                             {{ $property->type . ' | ' . $property->title }}
                                         </div>
                                         <div class=" fa fa-map-marker">
