@@ -7,7 +7,7 @@
                     <x-company-contact-component/>
                 </div>
                 <div class="col-md-9 text-center">
-                    <img src="{{asset('assets/img/gw.png') }}" alt="GharWorld Logo" style="height:70px;">
+                    <h3><a href="{{url('/')}}">Gharworld.com</a></h3>
                     <p><a href="http://gharworld.com"> Gharworld.com</a> is a platform to disseminate real estate
                         industry information. We provide comprehensive detail on real estate properties which are for
                         sale or rent, including current news and information about real estate market.</p>
