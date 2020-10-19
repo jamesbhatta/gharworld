@@ -12,7 +12,7 @@ class ProfessionController extends Controller
 {
     public function index()
     {
-        $professions = Profession::orderBy('name')->paginate(21);
+        $professions = Profession::orderBy('name')->paginate(24);
         return view('theme.profession', compact('professions'));
     }
     public function show(Profession $profession)

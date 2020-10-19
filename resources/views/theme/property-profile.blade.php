@@ -13,22 +13,25 @@
                         <div class="sp-badge new text-capitalize">{{ $property->for }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div class="property-header">
-                                <h3 class="text-uppercase">{{ $property->type . ' | ' . $property->title }}</h3>
+                                <h4>
+                                <div class="text-uppercase text-white"> <span class=" rounded-pill bg-warning px-3 p-2 my-3">{{ $property->type}}</span></div>
+                                <div class="text-uppercase my-2 text-warning">{{$property->title}}</div>
+                                </h4>
+                           
                             </div>
                         </div>
-                        <div class="col-lg-4 text-left text-lg-right">
+                        <div class="col-lg-5 text-left text-lg-right">
                             <div class="property-header">
-                                <h3 class=" text-warning">NRs.
-                                    {{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
-                                </h3>
-                                <h5>(Negotiable)</h5>
+                                <h4 class=" text-warning">NRs.{{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
+                                </h4>
+                                <h6 class="text-secondary">(Negotiable)</h6>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row bg-light p-3">
+                    <h4 class="mb-3 ml-1">Contact Details</h4>
+                    <div class="row bg-light ml-1 p-3">
                         <h5>
                             <div class="py-1"><i class="fa fa-map-marker"></i>
                                 {{ $property->city->name . ', ' . $property->address_line }} </div>
@@ -43,7 +46,7 @@
                         </h5>
                     </div>
                     @isset($property->features)
-                    <h4>Features</h4>
+                    <h4 class="m-2">Features</h4>
                     <div class="property-info-bar my-3">
 
                         <div class="row">
@@ -81,9 +84,8 @@
                     <p>{!! $property->description !!}</p>
                 </div>
                 @endisset
+
                 @isset($property->images)
-
-
                 <h4>Pictures</h4>
                 <!-- Place somewhere in the <body> of your page -->
                 <div id="aniimated-thumbnials">
@@ -93,8 +95,8 @@
                             height="155" />
                     </a>
                     @endforeach
-                    @endisset
                 </div>
+                @endisset
                 <!-- jQuery -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
                 <!-- A jQuery plugin that adds cross-browser mouse wheel support. (Optional) -->
