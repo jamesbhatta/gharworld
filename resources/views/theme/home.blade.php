@@ -25,7 +25,7 @@
             </h2>
         </a>
         <a href="{{ route('frontend.professions') }}">
-            <h2 class="my-md-5 mx-md-3 py-md-4 px-md-5 home-hover" style="background:#f706ad;">
+            <h2 class="my-5 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
                 <span class="mr-2"><i class="fa fa-user"></i></span>Local Contact
             </h2>
         </a>
