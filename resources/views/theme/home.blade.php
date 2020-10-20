@@ -83,7 +83,8 @@
                             <option value="{{ $city->id }}" class="text-capitalize">{{ $city->name }}</option>
                             @endforeach
                         </select>
-                        <select id="select-professions" name="profession_id" class="col-md-3 form-control"
+
+                        <select id="select-professions" name="profession_id" class="col-md-3 form-group form-control"
                             style="display: none;">
                             <option value="">Select Profession</option>
                             @foreach ($professions as $profession)
@@ -91,8 +92,8 @@
                             </option>
                             @endforeach
                         </select>
-                        <div class="col-md-2">
-                            <button class=" form-control border text-white" type="submit"
+                        <div class="col-md-2 form-group">
+                            <button class=" form-control border text-white py-2" type="submit"
                                 style="background-color:#f706ad ">Search</button>
                             <div class="row">
                             </div>
