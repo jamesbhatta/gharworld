@@ -11,23 +11,29 @@
 <!-- Hero Section end -->
 {{-- <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}"> --}}
 <section class="set-bg bg-light spad">
-    <div class=" row justify-content-lg-center py-3 text-center text-white">
-        <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
-            <h2 class="py-4 my-3 mx-3 px-5 home-hover" style="background:#f706ad;">
-                <span class="mr-2"><i class="fa fa-building"></i></span> Real
-                Estate
-            </h2>
-        </a>
-        <a href="{{route('frontend.property.search',['type' => 'room', 'for' => 'rent'])}}">
-            <h2 class=" my-3 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
-                <span class="mr-2"><i class="fa fa-home"></i></span> Room Rent
-            </h2>
-        </a>
-        <a href="{{ route('frontend.professions') }}">
-            <h2 class="my-3 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
-                <span class="mr-2"><i class="fa fa-user"></i></span> Local Contact
-            </h2>
-        </a>
+    <div class=" row justify-content-lg-center py-md-5 text-center text-white">
+        <div class="col-md-3">
+            <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
+                <h3 class="py-4 my-3 mx-3 px-3 home-hover" style="background:#f706ad;">
+                    <span class="mr-2"><i class="fa fa-building"></i></span> Real
+                    Estate
+                </h3>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{{route('frontend.property.search',['type' => 'room', 'for' => 'rent'])}}">
+                <h3 class=" my-3 mx-3 py-4 px-3 home-hover" style="background:#f706ad;">
+                    <span class="mr-2"><i class="fa fa-home"></i></span> Room Rent
+                </h3>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{{ route('frontend.professions') }}">
+                <h3 class="my-3 mx-3 py-4 px-3 home-hover" style="background:#f706ad;">
+                    <span class="mr-2"><i class="fa fa-user"></i></span> Local Contact
+                </h3>
+            </a>
+        </div>
     </div>
     <div class="container">
         <div class="hero-warp col-md-7" style="background-color:#f706ad; margin: 0 auto;">
@@ -77,18 +83,20 @@
                             <option value="{{ $city->id }}" class="text-capitalize">{{ $city->name }}</option>
                             @endforeach
                         </select>
-                        <select id="select-professions" name="profession_id" class="col-md-3 form-control" style="display: none;">
+                        <select id="select-professions" name="profession_id" class="col-md-3 form-control"
+                            style="display: none;">
                             <option value="">Select Profession</option>
                             @foreach ($professions as $profession)
                             <option value="{{ $profession->id }}" class="text-capitalize">{{ $profession->name }}
                             </option>
                             @endforeach
                         </select>
-                    <div class="col-md-2">
-                        <button class=" form-control border text-white" type="submit" style="background-color:#f706ad ">Search</button>
-                        <div class="row">
-                    </div>
-                </div>
+                        <div class="col-md-2">
+                            <button class=" form-control border text-white" type="submit"
+                                style="background-color:#f706ad ">Search</button>
+                            <div class="row">
+                            </div>
+                        </div>
             </form>
         </div>
     </div>
