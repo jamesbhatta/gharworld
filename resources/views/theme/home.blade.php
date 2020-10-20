@@ -25,13 +25,13 @@
             </h2>
         </a>
         <a href="{{ route('frontend.professions') }}">
-            <h2 class=" my-5 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
+            <h2 class="my-md-5 mx-md-3 py-md-4 px-md-5 home-hover" style="background:#f706ad;">
                 <span class="mr-2"><i class="fa fa-user"></i></span>Local Contact
             </h2>
         </a>
     </div>
     <div class="container">
-        <div class="hero-warp col-md-8" style="background-color:#f706ad;">
+        <div class="hero-warp col-md-7" style="background-color:#f706ad; margin: 0 auto;">
             <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
                 <div class="search-type">
                     <div class="st-item">
@@ -65,9 +65,9 @@
                 </style>
 
                 <div class="form-group si-v-2">
-                    <div class="row px-3">
+                    <div class="row pl-3">
                         <select type="text" name="city_id" id="city_id"
-                            class="col-md-5 form-control font-weight-bold @error('city_id') is-invalid @enderror">
+                            class="col-md-7 form-control font-weight-bold @error('city_id') is-invalid @enderror">
                             @error('city_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -78,15 +78,15 @@
                             <option value="{{ $city->id }}" class="text-capitalize">{{ $city->name }}</option>
                             @endforeach
                         </select>
-                        <select id="select-professions" name="profession_id" style="display: none;">
+                        <select id="select-professions" name="profession_id" class="col-md-3 form-control" style="display: none;">
                             <option value="">Select Profession</option>
                             @foreach ($professions as $profession)
                             <option value="{{ $profession->id }}" class="text-capitalize">{{ $profession->name }}
                             </option>
                             @endforeach
                         </select>
-                    <div class="col-md-2 form-group">
-                        <button class=" form-control border" type="submit" style="background-color:#f706ad ">Search</button>
+                    <div class="col-md-2">
+                        <button class=" form-control border text-white" type="submit" style="background-color:#f706ad ">Search</button>
                         <div class="row">
                     </div>
                 </div>

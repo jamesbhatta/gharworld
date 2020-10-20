@@ -83,7 +83,7 @@
                 </div>
                 @endisset
 
-                @isset($property->images)
+                @if($property->images->count())
                 <h5>Pictures</h5>
                 <!-- Place somewhere in the <body> of your page -->
                 <div id="aniimated-thumbnials">
@@ -94,7 +94,7 @@
                     </a>
                     @endforeach
                 </div>
-                @endisset
+                @endif
                 <!-- jQuery -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
                 <!-- A jQuery plugin that adds cross-browser mouse wheel support. (Optional) -->
