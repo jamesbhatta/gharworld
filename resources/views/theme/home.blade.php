@@ -93,7 +93,7 @@
                             @endforeach
                         </select>
                         <div class="col-md-2 form-group">
-                            <button class=" form-control border text-white py-2" type="submit"
+                            <button class=" form-control border text-white" type="submit"
                                 style="background-color:#f706ad ">Search</button>
                             <div class="row">
                             </div>
