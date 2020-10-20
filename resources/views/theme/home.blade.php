@@ -5,15 +5,13 @@
 <style>
     .home-hover:hover {
         background: #ff000a;
-        box-shadow: -2px 5px 16px 8px rgba(0, 0, 0, 0.75);
-        
+        box-shadow: -1px 1px 13px 5px rgba(245, 8, 103, 1);
+
     }
-
-
 </style>
 <!-- Hero Section end -->
 {{-- <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}"> --}}
-<section class="hero-section set-bg bg-light" >
+<section class="hero-section set-bg bg-light">
     <div class=" row justify-content-lg-center py-3 text-center text-white">
         <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
             <h2 class="py-4 my-5 mx-3 px-5 home-hover" style="background:#f706ad;">
@@ -33,8 +31,8 @@
         </a>
     </div>
     <div class="container">
-        <div class="hero-warp" style="background-color:#f706ad;">
-            <form class="main-search-form"  action="{{ route('frontend.property.search') }}" method="get">
+        <div class="hero-warp col-md-8" style="background-color:#f706ad;">
+            <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
                 <div class="search-type">
                     <div class="st-item">
                         <input type="radio" name="type" value="real-estate" id="real-estate" checked>
@@ -47,7 +45,7 @@
 
                     <div class="st-item">
                         <input type="radio" name="type" value="local-contact" id="input-local-contacts">
-                        <label for="input-local-contacts" >Local Contacts</label>
+                        <label for="input-local-contacts">Local Contacts</label>
                     </div>
                 </div>
                 <style>
@@ -64,28 +62,33 @@
                         border: none;
                         border-left: 1px solid #ccc;
                     }
-
                 </style>
-                <div class="search-input si-v-2">
-                    <select type="text" name="city_id" id="city_id" class="col-md-8  form-lg font-weight-bold @error('city_id') is-invalid @enderror">
-                        @error('city_id')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                        <option value="">Select Location</option>
-                        @foreach ($cities as $city)
-                        <option value="{{ $city->id }}" class="text-capitalize">{{ $city->name }}</option>
-                        @endforeach
-                    </select>
-                    <select id="select-professions" name="profession_id" style="display: none;">
-                        <option value="">Select Profession</option>
-                        @foreach ($professions as $profession)
-                        <option value="{{ $profession->id }}" class="text-capitalize">{{ $profession->name }}
-                        </option>
-                        @endforeach
-                    </select>
-                    <button class="site-btn" type="submit">Search</button>
+
+                <div class="form-group si-v-2">
+                    <div class="row px-3">
+                        <select type="text" name="city_id" id="city_id"
+                            class="col-md-5 form-control font-weight-bold @error('city_id') is-invalid @enderror">
+                            @error('city_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                            <option value="">Select Location</option>
+                            @foreach ($cities as $city)
+                            <option value="{{ $city->id }}" class="text-capitalize">{{ $city->name }}</option>
+                            @endforeach
+                        </select>
+                        <select id="select-professions" name="profession_id" style="display: none;">
+                            <option value="">Select Profession</option>
+                            @foreach ($professions as $profession)
+                            <option value="{{ $profession->id }}" class="text-capitalize">{{ $profession->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                    <div class="col-md-2 form-group">
+                        <button class=" form-control border" type="submit" style="background-color:#f706ad ">Search</button>
+                        <div class="row">
+                    </div>
                 </div>
             </form>
         </div>
