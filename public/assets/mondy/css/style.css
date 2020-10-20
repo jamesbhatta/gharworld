@@ -17,6 +17,7 @@ body {
     height: 100%;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
 }
 
 h1,
@@ -250,6 +251,12 @@ Header section
 .header-nav {
     text-align: right;
     padding-top: 35px;
+}
+
+.site-logo {
+    float: left;
+    display: inline-block;
+    padding: 39px 0;
 }
 
 .main-menu {
