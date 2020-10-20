@@ -6,27 +6,26 @@
     .home-hover:hover {
         background: #ff000a;
         box-shadow: -1px 1px 13px 5px rgba(245, 8, 103, 1);
-
     }
 </style>
 <!-- Hero Section end -->
 {{-- <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}"> --}}
-<section class="hero-section set-bg bg-light">
+<section class="set-bg bg-light spad">
     <div class=" row justify-content-lg-center py-3 text-center text-white">
         <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
-            <h2 class="py-4 my-5 mx-3 px-5 home-hover" style="background:#f706ad;">
+            <h2 class="py-4 my-3 mx-3 px-5 home-hover" style="background:#f706ad;">
                 <span class="mr-2"><i class="fa fa-building"></i></span> Real
                 Estate
             </h2>
         </a>
         <a href="{{route('frontend.property.search',['type' => 'room', 'for' => 'rent'])}}">
-            <h2 class=" my-5 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
+            <h2 class=" my-3 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
                 <span class="mr-2"><i class="fa fa-home"></i></span> Room Rent
             </h2>
         </a>
         <a href="{{ route('frontend.professions') }}">
-            <h2 class="my-5 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
-                <span class="mr-2"><i class="fa fa-user"></i></span>Local Contact
+            <h2 class="my-3 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
+                <span class="mr-2"><i class="fa fa-user"></i></span> Local Contact
             </h2>
         </a>
     </div>
