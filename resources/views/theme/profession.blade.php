@@ -12,12 +12,12 @@
                         @forelse ($professions as $profession)
 
                         <div class="col-md-2 py-2">
-                            <div class="card localcontact-item text-center hover">
+                            <div class="card localcontact-item text-center border-0">
                                 <a href="{{route('frontend.professions.show',$profession)}}">
                                     <div class="pi-image">
-                                        <img src="{{ $profession->image != null ? asset('storage/' . $profession->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $profession->name }}" class="image img-fluid" style="width: 200px; height: 150px">
-                                        <div class="px-3 py-2 bg-dark">
-                                            <div class="text-capitalize text-white">
+                                        <img src="{{ $profession->image != null ? asset('storage/' . $profession->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $profession->name }}" class="image img-fluid rounded-circle" style="width: 200px; height: 160px">
+                                        <div class="px-3 py-2 mt-2">
+                                            <div class="text-capitalize text-dark text-bold">
                                                 {{$profession->name}}
                                             </div>
                                         </div>

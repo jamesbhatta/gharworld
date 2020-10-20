@@ -240,7 +240,7 @@ Header section
     left: 0;
     top: 0;
     padding: 0 53px;
-    background: rgba(0, 0, 0, 0.7);
+    background: #f706ad;
     z-index: 999;
 }
 
@@ -408,7 +408,7 @@ Hero section
 
 .search-type .st-item input:checked+label {
     padding: 11px 30px;
-    background: #ff000a;
+    box-shadow: -1px 1px 13px 5px rgba(214, 159, 214, 1);
 }
 
 .search-type .st-item input:checked+label:after {

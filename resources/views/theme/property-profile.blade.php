@@ -15,24 +15,23 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="property-header">
-                                <h4>
-                                <div class="text-uppercase text-white"> <span class=" rounded-pill bg-warning px-3 py-1 my-3">{{ $property->type}}</span></div>
-                                <div class="text-uppercase my-2">{{$property->title}}</div>
-                                </h4>
-                           
+                                <h5>
+                                <div class="text-uppercase text-white"> <span class=" rounded-pill bg-warning px-3 my-2">{{ $property->type}}</span></div>
+                                <div class="text-uppercase my-1">{{$property->title}}</div>
+                                </h5>
                             </div>
                         </div>
                         <div class="col-lg-5 text-left text-lg-right">
                             <div class="property-header">
-                                <h4 class=" text-warning">NRs.{{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
-                                </h4>
-                                <h6 class="text-secondary">(Negotiable)</h6>
+                                <h5 ><span class="bg-danger text-white p-2">NRs.{{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}</span>
+                                </h5>
+                                <small class="text-secondary my-1 py-3">(Negotiable)</small>
                             </div>
                         </div>
                     </div>
-                    <h4 class="mb-3 ml-1">Contact Details</h4>
-                    <div class="row bg-light ml-1 p-3">
-                        <h5>
+                    <h5 class="mb-2 ml-1">Contact Details</h5>
+                    <div class="row bg-light ml-1 p-2">
+                        <h6>
                             <div class="py-1"><i class="fa fa-map-marker"></i>
                                 {{ $property->city->name . ', ' . $property->address_line }} </div>
                             <div class="py-1">
@@ -43,11 +42,11 @@
                                         href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
                                         {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a></i>
                             </div>
-                        </h5>
+                        </h6>
                     </div>
                     @isset($property->features)
-                    <h4 class="m-2">Features</h4>
-                    <div class="property-info-bar my-3">
+                    <h5 class="m-2">Features</h5>
+                    <div class="property-info-bar my-1">
 
                         <div class="row">
                             <div class="col-lg-7">
@@ -57,17 +56,15 @@
                                 {{-- <div class="pi-meta">3 Bed </div>
                                         <div class="pi-meta">2 Baths</div>
                                         <div class="pi-meta">1 Garage</div> --}}
-
                             </div>
-
                         </div>
                     </div>
                     @endisset
-                    @isset($property->facilities)
-                    <h4>Facilities</h4>
-                    <div class="row py-3">
+                    @if($property->facilities->count())
+                    <h5>Facilities</h5>
+                    <div class="row py-2">
                         @foreach ($property->facilities as $facility)
-                        <div class="col-md-3 bg-light mx-3 my-2 py-2">
+                        <div class="col-md-3 bg-light mx-3 my-1 py-1">
                             <span class="text-success mr-1">
                                 <i class="{{ $facility->icon ?? 'fa fa-check-circle' }}"></i>
                             </span>
@@ -75,18 +72,19 @@
                         </div>
                         @endforeach
                     </div>
+                    @endif
                 </div>
-                @endisset
+                
 
                 @isset($property->description)
                 <div class="property-text">
-                    <h4>Description</h4>
+                    <h5>Description</h5>
                     <p>{!! $property->description !!}</p>
                 </div>
                 @endisset
 
                 @isset($property->images)
-                <h4>Pictures</h4>
+                <h5>Pictures</h5>
                 <!-- Place somewhere in the <body> of your page -->
                 <div id="aniimated-thumbnials">
                     @foreach ($property->images as $image)
@@ -112,7 +110,7 @@
 
                 </script>
                 @isset($property->location)
-                <h4 class="my-3">Map View</h4>
+                <h5 class="my-3">Map View</h5>
                 <div class="map-widget">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14376.077865872314!2d-73.879277264103!3d40.757667781624285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1546528920522"

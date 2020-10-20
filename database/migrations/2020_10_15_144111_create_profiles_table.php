@@ -21,9 +21,12 @@ class CreateProfilesTable extends Migration
             $table->string('contact');
             $table->string('logo')->nullable();
             $table->string('whatsapp')->nullable();
+            $table->string('viber')->nullable();
             $table->string('facebook')->nullable();
             $table->string('youtube')->nullable();
             $table->string('linkedin')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamps();
         });
     }

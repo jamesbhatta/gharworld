@@ -6,36 +6,39 @@
     .home-hover:hover {
         background: #ff000a;
         box-shadow: -2px 5px 16px 8px rgba(0, 0, 0, 0.75);
+        
     }
+
 
 </style>
 <!-- Hero Section end -->
-<section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}">
+{{-- <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}"> --}}
+<section class="hero-section set-bg bg-light" >
     <div class=" row justify-content-lg-center py-3 text-center text-white">
         <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
-            <h2 class="hero-warp py-4 my-5 mx-3 px-5 home-hover">
+            <h2 class="py-4 my-5 mx-3 px-5 home-hover" style="background:#f706ad;">
                 <span class="mr-2"><i class="fa fa-building"></i></span> Real
                 Estate
             </h2>
         </a>
         <a href="{{route('frontend.property.search',['type' => 'room', 'for' => 'rent'])}}">
-            <h2 class="hero-warp my-5 mx-3 py-4 px-5 home-hover">
+            <h2 class=" my-5 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
                 <span class="mr-2"><i class="fa fa-home"></i></span> Room Rent
             </h2>
         </a>
         <a href="{{ route('frontend.professions') }}">
-            <h2 class="hero-warp my-5 mx-3 py-4 px-5 home-hover">
+            <h2 class=" my-5 mx-3 py-4 px-5 home-hover" style="background:#f706ad;">
                 <span class="mr-2"><i class="fa fa-user"></i></span>Local Contact
             </h2>
         </a>
     </div>
     <div class="container">
-        <div class="hero-warp">
-            <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
+        <div class="hero-warp" style="background-color:#f706ad;">
+            <form class="main-search-form"  action="{{ route('frontend.property.search') }}" method="get">
                 <div class="search-type">
                     <div class="st-item">
                         <input type="radio" name="type" value="real-estate" id="real-estate" checked>
-                        <label for="real-estate">Real Estate</label>
+                        <label for="real-estate" class="c">Real Estate</label>
                     </div>
                     <div class="st-item">
                         <input type="radio" name="type" value="room" id="room">
@@ -44,7 +47,7 @@
 
                     <div class="st-item">
                         <input type="radio" name="type" value="local-contact" id="input-local-contacts">
-                        <label for="input-local-contacts">Local Contacts</label>
+                        <label for="input-local-contacts" >Local Contacts</label>
                     </div>
                 </div>
                 <style>

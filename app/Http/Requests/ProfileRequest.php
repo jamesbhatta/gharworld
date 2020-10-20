@@ -33,6 +33,9 @@ class ProfileRequest extends FormRequest
             'facebook' => 'nullable|url',
             'linkedin' => 'nullable|url',
             'youtube' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'viber' => 'nullable',
 
         ];
     }

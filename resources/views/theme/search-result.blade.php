@@ -121,7 +121,7 @@
                         @forelse ($properties as $property)
                         <div class="col-md-3 text-color">
                             <a href="{{ route('frontend.property.show', $property) }}">
-                                <div class="card property-item hover text-dark">
+                                <div class="card property-item hover text-dark" style="background-color: #fbf7fb;">
 
                                     <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
                                         alt="{{ $property->title }}" class="image img-fluid" style="width:100%; height:200px">
@@ -129,12 +129,11 @@
                                         class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
                                         {{ $property->for }}</div>
                                     <div class="px-3 py-2">
-                                        <div class="font-weight-bold text-warning ">
+                                        <div class="font-weight-bold text-dark">
                                             {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
                                         </div>
                                         <div class="text-capitalize font-weight-bold text-muted">
-                                            <i class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
-                                            {{ $property->type . ' | ' . $property->title }}
+                                            {{ $property->title }}
                                         </div>
                                         <div class=" fa fa-map-marker">
                                             {{ $property->city->name . ', ' . $property->address_line }}</div>

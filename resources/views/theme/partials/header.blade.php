@@ -22,7 +22,7 @@
                 <a href="{{url('page/about')}}""  class=" {{ request()->is('page/about') ? 'active' : ''}}">About</a>
             </li>
             <li>
-                <a href="{{route('frontend.contact.show')}}" class="{{ request()->is('contact') ? 'active' : ''}}">Contact</a>
+                <a href="{{route('frontend.contact.show')}}" class="{{ request()->is('contact') ? 'active' : ''}}">Contact-Us</a>
             </li>
         </ul>
         <div class="header-right">
@@ -30,15 +30,15 @@
                 @if (Route::has('login'))
                 @auth
                 <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>
-                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="{{ url('login') }}">Dashbord</a>
-                        <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
-                        <a class="dropdown-item" href="{{ route('frontend.change-password.index')}}">Change Password</a>
-                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <div class="dropdown-menu bg-white text-dark" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item text-dark" href="{{ url('login') }}">Dashbord</a>
+                        <a class="dropdown-item text-dark" href="{{ url('profile') }}">Profile</a>
+                        <a class="dropdown-item text-dark" href="{{ route('frontend.change-password.index')}}">Change Password</a>
+                        <a class="dropdown-item text-dark" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form about-text" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                     </div>
