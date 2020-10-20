@@ -69,10 +69,10 @@
                     }
                 </style>
 
-                <div class="form-group si-v-2">
+                <div class=" si-v-2">
                     <div class="row pl-3">
                         <select type="text" name="city_id" id="city_id"
-                            class="col-md-7 form-control font-weight-bold @error('city_id') is-invalid @enderror">
+                            class="col-md-7 form-group form-control font-weight-bold @error('city_id') is-invalid @enderror">
                             @error('city_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
