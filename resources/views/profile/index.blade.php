@@ -31,7 +31,7 @@
                         
                         <li class="list-group-item fa fa-home"> {{$profile->name}}</li>
                         <li class="list-group-item fa fa-map-marker"> {{$profile->address}}</li>
-                        <li class="list-group-item fa fa-envelope "> {{$profile->email}}s</li>
+                        <li class="list-group-item fa fa-envelope "> {{$profile->email}}</li>
                         <li class="list-group-item fa fa-phone"> {{$profile->contact}}</li>
                         <li class="list-group-item fa fa-whatsapp"> {{$profile->whatsapp}}</li>
                         <li class="list-group-item fa fa-facebook"> {{$profile->facebook}}</li>
