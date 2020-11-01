@@ -38,7 +38,7 @@
                         <li class="list-group-item fa fa-twitter"> {{$profile->twitter}}</li>
                         <li class="list-group-item fa fa-instagram"> {{$profile->instagram}}</li>
                         <li class="list-group-item fa fa-linkedin"> {{$profile->linkedin}}</li>
-                        <li class="list-group-item fa fa-youtube"> {{$profile->linkedin}}</li>
+                        <li class="list-group-item fa fa-youtube"> {{$profile->youtube}}</li>
                         
                     </ul>
                 </div>
