@@ -20,7 +20,8 @@ class PropertyController extends Controller
     {
 
         if ($request->type == "local-contact") {
-            return $this->localContactController->search($request);
+            return redirect()->action('Frontend\LocalContactController@search', ['city_id'=>$request->city_id, 'profession_id' => $request->profession_id]);
+            //return $this->localContactController->search($request);
         }
         $properties = Property::with('city')->available();
         if ($request->has('type')) {
