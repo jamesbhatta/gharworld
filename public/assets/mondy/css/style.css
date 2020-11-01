@@ -240,7 +240,7 @@ Header section
     left: 0;
     top: 0;
     padding: 0 53px;
-    background: #f706ad;
+    background: #212529;
     z-index: 999;
 }
 
@@ -380,8 +380,8 @@ Hero section
 }
 
 .hero-warp {
-    padding: 2px 10px 2px;
-    background: rgba(34, 36, 43, 0.83);
+    padding: 8px 10px 2px;
+    background: #212529;
 }
 
 .main-search-form {
@@ -408,7 +408,7 @@ Hero section
 
 .search-type .st-item input:checked+label {
     padding: 11px 30px;
-    box-shadow: -1px 1px 13px 5px rgba(245, 8, 103, 1);
+    background-color: #ff000a;
 }
 
 .search-type .st-item input:checked+label:after {
@@ -1348,11 +1348,11 @@ Responsive
         color: #fff;
     }
     .slicknav_btn {
-        background: #f706ad;
+        background: #212529;
         margin-top: 29px;
     }
     .slicknav_nav {
-        background: #f706ad;
+        background: #212529;
         margin-bottom: 30px;
     }
     .slicknav_nav a {

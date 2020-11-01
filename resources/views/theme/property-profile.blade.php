@@ -141,7 +141,7 @@
                                             </div>
                                             <div class="text-capitalize font-weight-bold text-muted">
                                                 <i class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
-                                                {{ $property->type . ' | ' . $property->title }}
+                                                {{$property->title }}
                                             </div>
                                             <div class=" fa fa-map-marker">
                                                 {{ $property->city->name . ', ' . $property->address_line }}</div>
