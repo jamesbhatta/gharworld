@@ -4,8 +4,8 @@
 <head>
 	<title>GharWorld</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="Real estate HTML Template">
-	<meta name="keywords" content="real estate, html">
+	<meta name="description" content="Gharworld.com is a platform to disseminate real estate industry information. We provide comprehensive detail on real estate properties which are for sale or rent, including current news and information about real estate market.">
+	<meta name="keywords" content="real estate, rrom rent, house rent, house sale, land rent, land sale">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Favicon -->
