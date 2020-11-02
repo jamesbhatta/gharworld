@@ -49,4 +49,7 @@ class User extends Authenticatable
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://www.gravatar.com/avatar/$hash?s=260&d=mp";
     }
+    public function wishList(){
+        return $this->hasMany('App\Wishlist');
+    }
 }

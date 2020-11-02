@@ -7,5 +7,5 @@
 <link rel="stylesheet" href="{{ asset('assets/mondy/css/style.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/mondy/css/style1.css') }}" />
 <link rel="stylesheet" href="{{asset('assets/lightgallery/dist/css/lightgallery.css')}}" type="text/css" media="screen" />
-
+@livewireStyles
 @stack('styles')

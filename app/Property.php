@@ -99,4 +99,7 @@ class Property extends Model
     {
         return $this->belongsToMany('App\Facility');
     }
+    public function wishlists(){
+        return $this->hasMany('App\WishList');
+    }
 }

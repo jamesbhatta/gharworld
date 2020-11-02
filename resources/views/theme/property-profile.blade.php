@@ -1,6 +1,7 @@
 @extends('theme.client')
 @section('main-content')
 <div class="my-4"></div>
+
 <!-- Single Property Section end -->
 <section class="single-property-section spad">
     <div class="container">
@@ -12,18 +13,52 @@
                             alt="{{ $property->title }}" style="width:100%; height:auto">
                         <div class="sp-badge new text-capitalize">{{ $property->for }}</div>
                     </div>
+
+                    <div class="row bg-light m-1 mb-4">
+                        <div class="col-md-6 py-2">
+                            @php
+                            $rate = 2;
+                            @endphp
+                            @for ($i = 0; $i < $rate; $i++) <span class="fa fa-star checked text-warning p-1"></span>
+                                @endfor
+                                @for ($i = 0; $i < 5-$rate; $i++) <span class="fa fa-star checked p-1"></span>
+                                    @endfor
+                                    Ratting
+                        </div>
+
+                        <div class="col-md-6">
+                            
+                            @if (Route::has('login'))
+                            @auth
+                            <livewire:wishlist-button :property="$property" />
+                            @else
+                            <a href="{{route('login')}}" class="login">
+                                <h2 class=" text-right">
+                                    <span wire:click="toggleWishlist" class="change-icon text-warning"
+                                        data-toggle="tooltip" title="Add to Wishlist">
+                                        <i class="fa fa-heart-o"></i>
+                                    </span>
+                                </h2>
+                            </a>
+                            @endauth
+                            @endif
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="property-header">
+
                                 <h5>
-                                <div class="text-uppercase text-white"> <span class=" rounded-pill bg-warning px-3 my-2">{{ $property->type}}</span></div>
-                                <div class="text-uppercase my-1">{{$property->title}}</div>
+                                    <div class="text-uppercase text-white"> <span
+                                            class=" rounded-pill bg-warning py-2 px-3">{{ $property->type}}</span></div>
+                                    <div class="text-uppercase mt-2">{{$property->title}}</div>
                                 </h5>
                             </div>
                         </div>
                         <div class="col-lg-5 text-left text-lg-right">
                             <div class="property-header">
-                                <h5 ><span class="bg-danger text-white p-2">NRs.{{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}</span>
+                                <h5><span
+                                        class="bg-danger text-white p-2">NRs.{{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}</span>
                                 </h5>
                                 <small class="text-secondary my-1 py-3">(Negotiable)</small>
                             </div>
@@ -46,9 +81,8 @@
                     </div>
                     @isset($property->features)
                     <h5 class="m-2">Features</h5>
-                    <div class="property-info-bar my-1">
-
-                        <div class="row">
+                    <div class="my-2">
+                        <div class="row bg-light ml-1 p-2">
                             <div class="col-lg-7">
 
                                 {!!'<div class="pi-meta">'. str_replace(',',' </div>
@@ -74,7 +108,7 @@
                     </div>
                     @endif
                 </div>
-                
+
 
                 @isset($property->description)
                 <div class="property-text">
@@ -118,7 +152,7 @@
                 </div>
                 @endisset --}}
             </div>
-            
+
             <div class="col-lg-4 col-md-8 sidebar">
                 <div class="agent-widget">
                     <div class="aw-text">
@@ -140,7 +174,8 @@
                                                 {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
                                             </div>
                                             <div class="text-capitalize font-weight-bold text-muted">
-                                                <i class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
+                                                <i
+                                                    class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
                                                 {{$property->title }}
                                             </div>
                                             <div class=" fa fa-map-marker">
