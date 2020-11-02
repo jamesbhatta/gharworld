@@ -8,8 +8,10 @@
 <div class="container spad my-2">
 	<div class="card rounded-0 p-4 z-depth-1">
 		@include('partials.alerts')
+		
 		<div class="row">
-			<div class="col-md-4">
+			
+			{{-- <div class="col-md-4">
 				<div class="profile-pic-container text-center" style="width: 100%; height: 300px;">
 					@if (Auth::user()->avatar)
 					<img id="croppieProfilePic" class="img-fluid" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
@@ -17,7 +19,7 @@
 					<img class="img-fluid rounded-circle" src="{{ Auth::user()->gravatar }}" alt="{{ Auth::user()->name }}">
 					@endif
 				</div>
-			</div>
+			</div> --}}
 			<div class="col-md-8 text-muted">
 				<h2 class="h2-responsive font-weight-lighter">User Information</h2>
 				<div class="p-3">
@@ -46,17 +48,17 @@
 								<br>
 								<div class="form-check-inline">
 									<label class="form-check-label">
-										<input type="radio" name="gender" class="form-check-input" value="male">Male
+										<input type="radio" name="gender" class="form-check-input" value="male" {{ Auth::user()->gender == "male" ? 'checked' : '' }}>Male
 									</label>
 								</div>
 								<div class="form-check-inline">
 									<label class="form-check-label">
-										<input type="radio" name="gender" class="form-check-input" value="female">Female
+										<input type="radio" name="gender" class="form-check-input" value="female" {{ Auth::user()->gender == "female" ? 'checked' : '' }}>Female
 									</label>
 								</div>
 								<div class="form-check-inline">
 									<label class="form-check-label">
-										<input type="radio" name="gender" class="form-check-input" value="other">Other
+										<input type="radio" name="gender" class="form-check-input" value="other" {{ Auth::user()->gender == "other" ? 'checked' : '' }}>Other
 									</label>
 								</div>
 							</div>

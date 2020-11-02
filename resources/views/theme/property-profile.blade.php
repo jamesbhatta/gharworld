@@ -8,14 +8,14 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="single-property">
-                    <div class="sp-image">
+                    <div class="sp-image mb-0">
                         <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
                             alt="{{ $property->title }}" style="width:100%; height:auto">
                         <div class="sp-badge new text-capitalize">{{ $property->for }}</div>
                     </div>
 
-                    <div class="row bg-light m-1 mb-4">
-                        <div class="col-md-6 py-2">
+                    <div class="d-flex bg-light py-2 px-4 my-4">
+                        <div class="py-2">
                             @php
                             $rate = 2;
                             @endphp
@@ -23,83 +23,61 @@
                                 @endfor
                                 @for ($i = 0; $i < 5-$rate; $i++) <span class="fa fa-star checked p-1"></span>
                                     @endfor
-                                    Ratting
+                                    Rating
                         </div>
-
-                        <div class="col-md-6">
-                            
-                            @if (Route::has('login'))
-                            @auth
+                        <div class="ml-auto align-self-center">
+                            {{-- @auth --}}
                             <livewire:wishlist-button :property="$property" />
-                            @else
-                            <a href="{{route('login')}}" class="login">
-                                <h2 class=" text-right">
-                                    <span wire:click="toggleWishlist" class="change-icon text-warning"
-                                        data-toggle="tooltip" title="Add to Wishlist">
-                                        <i class="fa fa-heart-o"></i>
-                                    </span>
-                                </h2>
-                            </a>
-                            @endauth
-                            @endif
+                            {{-- @endauth --}}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-7">
-                            <div class="property-header">
-
-                                <h5>
-                                    <div class="text-uppercase text-white"> <span
-                                            class=" rounded-pill bg-warning py-2 px-3">{{ $property->type}}</span></div>
-                                    <div class="text-uppercase mt-2">{{$property->title}}</div>
-                                </h5>
-                            </div>
+                            <h4 class="h4-responsive text-capitalize mb-3"><span
+                                    class="badge badge-warning text-white p-2">{{ $property->type}}</span></h4>
+                            <h5 class="text-uppercase mb-3 mb-md-0">{{$property->title}}</h5>
                         </div>
                         <div class="col-lg-5 text-left text-lg-right">
                             <div class="property-header">
-                                <h5><span
-                                        class="bg-danger text-white p-2">NRs.{{ $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}</span>
+                                <h5 class="d-inline-block bg-danger text-white p-2 mb-3">NRs.
+                                    {{ number_format($property->price) . ($property->for == 'rent' ? " /$property->price_per" : ' /-') }}
                                 </h5>
-                                <small class="text-secondary my-1 py-3">(Negotiable)</small>
+                                <div class="text-secondary">(Negotiable)</div>
                             </div>
                         </div>
                     </div>
-                    <h5 class="mb-2 ml-1">Contact Details</h5>
-                    <div class="row bg-light ml-1 p-2">
-                        <h6>
-                            <div class="py-1"><i class="fa fa-map-marker"></i>
-                                {{ $property->city->name . ', ' . $property->address_line }} </div>
-                            <div class="py-1">
-                                <i class="fa fa-user"></i>
-                                {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
+                    <div class="bg-light p-3">
+                        <div class="d-flex">
+                            <div>
+                                <div class="my-2">
+                                    <span class="mr-2"><i class="fa fa-map-marker"></i></span>
+                                    {{ $property->city->name . ', ' . $property->address_line }}
+                                </div>
+                                <div class="my-2">
+                                    <span class="mr-2"><i class="fa fa-user"></i></span>
+                                    {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
+                                </div>
                             </div>
-                            <div class="py-1 text-white"><i class=" fa fa-phone p-2 rounded-pill bg-warning"><a
-                                        href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
-                                        {{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}</a></i>
+                            <div class="ml-auto text-white">
+                                <a class="badge badge-warning px-3"
+                                    href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
+                                    <i class=" fa fa-phone p-2"></i>
+                                    {{ $property->for == 'sale' ? "$property->contact" : 'BOOK NOW' }}</a>
                             </div>
-                        </h6>
+                        </div>
                     </div>
                     @isset($property->features)
-                    <h5 class="m-2">Features</h5>
-                    <div class="my-2">
-                        <div class="row bg-light ml-1 p-2">
-                            <div class="col-lg-7">
-
-                                {!!'<div class="pi-meta">'. str_replace(',',' </div>
-                                <div class="pi-meta"> ',$property->features) .'</div>' !!}
-                                {{-- <div class="pi-meta">3 Bed </div>
-                                        <div class="pi-meta">2 Baths</div>
-                                        <div class="pi-meta">1 Garage</div> --}}
-                            </div>
-                        </div>
+                    <h5 class="h5-responsive my-3">Features</h5>
+                    <div class="bg-light p-3">
+                        {!! str_replace(',', '<span class="mx-2">|</span>', $property->features) !!}
                     </div>
                     @endisset
                     @if($property->facilities->count())
-                    <h5>Facilities</h5>
-                    <div class="row py-2">
+                    <h5 class="h5-responsive my-3">Facilities</h5>
+                    <div class="row">
                         @foreach ($property->facilities as $facility)
-                        <div class="col-md-3 bg-light mx-3 my-1 py-1">
-                            <span class="text-success mr-1">
+                        <div class="col-md-3 bg-light mx-3 mb-3 py-2 px-3">
+                            <span class="text-success mr-2">
                                 <i class="{{ $facility->icon ?? 'fa fa-check-circle' }}"></i>
                             </span>
                             {{ $facility->name }}
@@ -112,14 +90,13 @@
 
                 @isset($property->description)
                 <div class="property-text">
-                    <h5>Description</h5>
+                    <h5 class="h5-responsive my-3">Description</h5>
                     <p>{!! $property->description !!}</p>
                 </div>
                 @endisset
 
                 @if($property->images->count())
-                <h5>Pictures</h5>
-                <!-- Place somewhere in the <body> of your page -->
+                <h5 class="h5-responsive my-3">Pictures</h5>
                 <div id="aniimated-thumbnials">
                     @foreach ($property->images as $image)
                     <a href="{{ asset('storage/' . $image->link) }}">
@@ -154,9 +131,9 @@
             </div>
 
             <div class="col-lg-4 col-md-8 sidebar">
-                <div class="agent-widget">
+                <div class="bg-light">
                     <div class="aw-text">
-                        <h4 class="text-center">Related Property</h4>
+                        <h5 class="text-center py-3 h5-responsive">Related Property</h5>
                         <div class="row justify-content-center">
                             @forelse ($properties as $property)
                             <div class="col-md-10 text-color">
@@ -189,7 +166,8 @@
                                 </a>
                             </div>
                             @empty
-                            <div class="col-md-12 text-danger text-center justify-content-center">* No data available in
+                            <div class="col-md-12 text-danger text-center justify-content-center">* No data
+                                available in
                                 databale </div>
                             @endforelse
                         </div>
