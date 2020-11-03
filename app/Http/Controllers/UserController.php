@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Contracts\Role;
+use Spatie\Permission\Models\Role as ModelsRole;
 
 class UserController extends Controller
 {
@@ -42,9 +44,10 @@ class UserController extends Controller
 		return back()->with('success', 'Profile updated successfully.');
 	}
 	public function index(){
-		$users=User::paginate(20);
+		$users = User::with('roles')->paginate(20);
 		return view('user.index',compact('users'));
 	}
+
 	public function destroy(User $user){
 	$user->delete();
 		return redirect()->back()->with('success','User deleted');
@@ -59,6 +62,17 @@ class UserController extends Controller
         } else {
             return redirect()->back()->with('error', "Incorrect your current password");
         }
-
-    }
+	}	
+	public function changeRoleShow(User $user){
+		$roles=ModelsRole::get();
+		return view('user.change-role',compact(['user','roles']));
+	}
+	public function changeRole(User $user,Request $request){
+        if (Hash::check($request->current, Auth::user()->password)) {
+                $user->syncRoles($request->roles);
+            return redirect()->back()->with('success', "Role change successfull");
+        } else {
+            return redirect()->back()->with('error', "Incorrect your current password");
+        }
+	}
 }

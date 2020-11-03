@@ -27,9 +27,14 @@
                         <tr>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{ $user->roles}}</td>
+                            <td>{{ ucfirst($user->roles()->first()->name) }}</td>
                             <td>
-                                <a href="{{ route('users.change-password.show', $user) }}" class="fa fa-key btn btn-success" data-toggle="tooltip" title="Password Change"></a>
+                                <a href="{{ route('users.change-password.show', $user) }}" class="fa fa-key btn btn-success" data-toggle="tooltip" title="Password Change"> </a>
+                            </td>
+                            <td>
+                                <a href="{{ route('users.change-role.show', $user) }}" class="fa fa-user btn btn-info" data-toggle="tooltip" title="Change Roles"> </a>
+                            </td>
+                            <td>
                                 <form action="{{ route('users.destroy', $user) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
                                 @csrf
                                 @method('delete')

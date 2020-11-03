@@ -27,6 +27,8 @@ Route::get('users','UserController@index')->name('users.index');
 Route::delete('users/destroy/{user}','UserController@destroy')->name('users.destroy');
 Route::get('users/change-password/{user}','UserController@changePasswordShow')->name('users.change-password.show');
 Route::post('users/change-password/{user}','UserController@changePassword')->name('users.change-password');
+Route::get('users/change-role/{user}','UserController@changeRoleShow')->name('users.change-role.show');
+Route::post('users/change-role/{user}','UserController@changeRole')->name('users.change-role');
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('system.logs');
