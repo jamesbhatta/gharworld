@@ -39,6 +39,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('contact', 'ContactController@index')->name('frontend.contact.show');
     Route::get('change-password', 'ChangePasswordController@index')->name('frontend.change-password.index')->middleware('auth');
     Route::post('change-password', 'ChangePasswordController@change')->name('frontend.change-password.change')->middleware('auth');
+    Route::get('wishlist', 'WishlistController@index')->name('frontend.wishlist-index')->middleware('auth');
     Route::post('contact', 'ContactController@store')->name('forntend.contact.store');
 });
 

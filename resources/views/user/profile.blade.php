@@ -1,11 +1,11 @@
-@extends('theme.client')
+@extends('theme.user-profile')
 
 @push('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.css">
 @endpush
 
-@section('main-content')
-<div class="container spad my-2">
+@section('user-content')
+<div class="container">
 	<div class="card rounded-0 p-4 z-depth-1">
 		@include('partials.alerts')
 		
@@ -32,7 +32,7 @@
 								<input type="text" name="name" class="form-control border-top-0 border-right-0 border-left-0" value="{{ Auth::user()->name }}">
 							</div>
 							<div class="col-md-6 form-group">
-								<label for="">Name</label>
+								<label for="">Email</label>
 								<input type="email" name="email" class="form-control border-top-0 border-right-0 border-left-0" value="{{ Auth::user()->email }}" readonly="readonly">
 							</div>
 							<div class="col-md-6 form-group">
