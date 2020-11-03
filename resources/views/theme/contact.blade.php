@@ -7,7 +7,8 @@
         <div class="row">
             <div class="col-md-4 text-center my-5 py-3">
                 @isset($profile)
-                <h4>
+                <x-company-contact-component/>
+                {{-- <h4>
                     <div class="text-center"><img src="{{asset('storage/'.$profile->logo) }}" alt="GharWorld Logo"
                             style="height:90px;"></div>
                     <div class="py-2 text-center">{{$profile->name}}</div>
@@ -25,7 +26,7 @@
                         <span class="text-center "><a href="{{$profile->linkedin}}"> <i class="fa fa-linkedin btn btn-primary"></i></a> </span>
                         <span class="py-2"><a href="{{$profile->youtube}}"><i class="fa fa fa-youtube btn btn-danger"></i></a> </span>
                     </div>
-                </h4>
+                </h4> --}}
                 @endisset
             </div>
             <div class="col-md-8">

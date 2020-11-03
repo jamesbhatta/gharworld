@@ -3,10 +3,10 @@
     <div class="container">
         <div class="row text-white ">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <x-company-contact-component/>
                 </div>
-                <div class="col-md-9 text-center">
+                <div class="col-md-8 text-center">
                     <h3><a href="{{url('/')}}">Gharworld.com</a></h3>
                     <p><a href="http://gharworld.com"> Gharworld.com</a> is a platform to disseminate real estate
                         industry information. We provide comprehensive detail on real estate properties which are for
