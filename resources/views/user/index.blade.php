@@ -27,7 +27,7 @@
                         <tr>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->role}}</td>
+                            <td>{{ $user->roles}}</td>
                             <td>
                                 <a href="{{ route('users.change-password.show', $user) }}" class="fa fa-key btn btn-success" data-toggle="tooltip" title="Password Change"></a>
                                 <form action="{{ route('users.destroy', $user) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">

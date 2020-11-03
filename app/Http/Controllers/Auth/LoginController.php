@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Socialite;
 use App\User;
-use Auth;
+use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Laravel\Socialite\Facades\Socialite;
+use PhpParser\Node\Stmt\TryCatch;
 
 class LoginController extends Controller
 {
@@ -70,18 +73,27 @@ class LoginController extends Controller
 
         $user = User::where(['email' => $socialUser->getEmail()])->first();
 
-        if ($user) {
-            Auth::login($user, true);
-        } else {
-            $user = User::create([
-                'name'          => $socialUser->getName(),
-                'email'         => $socialUser->getEmail(),
-                'avatar'         => $socialUser->getAvatar(),
-                'provider_id'   => $socialUser->getId(),
-                'provider'      => $provider,
-            ]);
-            Auth::login($user, true);
+        if (!$user) {
+            DB::beginTransaction();
+            try {
+                //code...
+                $user = User::create([
+                    'name'          => $socialUser->getName(),
+                    'email'         => $socialUser->getEmail(),
+                    'avatar'         => $socialUser->getAvatar(),
+                    'provider_id'   => $socialUser->getId(),
+                    'provider'      => $provider,
+                ]);
+
+                $user->syncRoles('user');
+                DB::commit();
+            } catch (\Throwable $th) {
+                DB::rollBack();
+                return redirect()->route('register')->with('registrationError', 'An unknown error occured');
+            }
         }
+
+        Auth::login($user, true);
 
         return redirect($this->redirectTo());
     }
