@@ -1,10 +1,4 @@
 @extends('theme.client')
-<style>
-    .side-nav:hover,
-    .side-nav-active {
-        border-bottom: 2px solid #ff000a;
-    }
-</style>
 <div class="container spad my-4">
     <div class="row">
         <div class="col-md-2">
