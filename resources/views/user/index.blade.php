@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="p-4">
     <x-section-title>User List</x-section-title>
 
@@ -29,10 +29,10 @@
                             <td>{{$user->email}}</td>
                             <td>{{ ucfirst($user->roles()->first()->name) }}</td>
                             <td>
-                                <a href="{{ route('users.change-password.show', $user) }}" class="fa fa-key btn btn-success" data-toggle="tooltip" title="Password Change"> </a>
+                                <a href="{{ route('users.change-password.show', $user) }}" class="fa fa-edit text-white btn-sm btn-success" data-toggle="tooltip" title="Password Change"> </a>
                             </td>
                             <td>
-                                <a href="{{ route('users.change-role.show', $user) }}" class="fa fa-user btn btn-info" data-toggle="tooltip" title="Change Roles"> </a>
+                                <a href="{{ route('users.change-role.show', $user) }}" class="fa fa-user text-white btn-sm btn-info" data-toggle="tooltip" title="Change Roles"> </a>
                             </td>
                             <td>
                                 <form action="{{ route('users.destroy', $user) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">

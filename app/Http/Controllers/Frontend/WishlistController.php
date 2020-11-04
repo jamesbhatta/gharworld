@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class WishlistController extends Controller
 {
     public function index(){
-        $wishlists=WishList::with('property')->where('user_id',Auth::user()->id)->paginate(20);
+        $wishlists=WishList::with('property')->where('user_id',Auth::user()->id)->latest()->paginate(20);
         return view('user.wishlist',compact('wishlists'));
     }
 }

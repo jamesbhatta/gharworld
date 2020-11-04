@@ -10,7 +10,7 @@
                     <div class="card property-item hover text-dark" style="background-color: #fbf7fb;">
 
                         <img src="{{ $wishlist->property->image != null ? asset('storage/' . $wishlist->property->image) : asset('assets/img/real-estate.jpg') }}"
-                            alt="{{ $wishlist->property->title }}" class="image img-fluid" style="width:100%; height:200px">
+                            alt="{{ $wishlist->property->title }}" class="image img-fluid" style="width:100%; height:150px">
                         <div
                             class="pi-badge text-capitalize {{ $wishlist->property->for == 'sale' ? 'new' : 'offer' }}">
                             {{ $wishlist->property->for }}</div>
