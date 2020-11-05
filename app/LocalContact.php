@@ -50,4 +50,8 @@ class LocalContact extends Model
     {
         return $this->belongsTo('App\Profession');
     }
+    public function rate()
+    {
+        return $this->morphMany('App\Rate', 'rateable');
+    }
 }

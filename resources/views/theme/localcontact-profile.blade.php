@@ -53,6 +53,8 @@
                     @endisset
                 </div>
 
+                <livewire:rating-review :model="$localContact" />
+
             </div>
         </div>
     </section>

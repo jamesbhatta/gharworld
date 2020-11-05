@@ -128,7 +128,13 @@
                         style="border:0" allowfullscreen></iframe>
                 </div>
                 @endisset --}}
+                <div class="col-md-12">
+                    @auth
+                    <livewire:rating-review :model="$property"/>
+                    @endauth
+                </div>
             </div>
+            
 
             <div class="col-lg-4 col-md-8 sidebar">
                 <div class="bg-light">
@@ -174,6 +180,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </section>

@@ -74,8 +74,8 @@ class Property extends Model
     public function getFacilitiesIdArrayAttribute()
     {
         $facilitiesIdArray = [];
-        foreach($this->facilities as $facility){
-        array_push($facilitiesIdArray, $facility->id);
+        foreach ($this->facilities as $facility) {
+            array_push($facilitiesIdArray, $facility->id);
         }
         return $facilitiesIdArray;
     }
@@ -99,7 +99,12 @@ class Property extends Model
     {
         return $this->belongsToMany('App\Facility');
     }
-    public function wishlists(){
+    public function wishlists()
+    {
         return $this->hasMany('App\WishList');
+    }
+    public function rate()
+    {
+        return $this->morphMany('App\Rate', 'rateable');
     }
 }
