@@ -52,9 +52,12 @@
                     </div>
                     @endisset
                 </div>
-
-                <livewire:rating-review :model="$localContact" />
-
+                
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="col-md-7">
+                    <livewire:rating-review :model="$localContact" />
+                </div>
             </div>
         </div>
     </section>

@@ -79,7 +79,7 @@ class RatingReview extends Component
             }
         )->first();
         return view('livewire.rating-review', [
-            'rates' => $rates
+            'rates' => $rates,
         ]);
     }
     public function delete(){
