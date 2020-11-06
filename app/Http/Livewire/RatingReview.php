@@ -13,10 +13,22 @@ class RatingReview extends Component
     public $model;
     public $value = 0;
     public $review;
-    public $review1;
     public $rate;
-    public $name;
-
+   
+public function rating(){
+    $rates =Rate::where('status',"verified")->whereHasMorph(
+        'rateable',get_class($this->model),
+        function (Builder $query) {
+          $query->where(['rateable_id' => $this->model->id]);
+        }
+    )->get('rate');
+    $rating = 0;
+    foreach ($rates as $rate ) {
+        $rating =$rating + $rate->rate;
+    }
+    $overAllRating=round($rating/$rates->count());
+ $this->model->update(['overall_rating'=>$overAllRating ]);
+}
 
     public function mount($model)
     {
@@ -45,7 +57,6 @@ class RatingReview extends Component
     // }
     public function submit()
     { 
-
         $rates = Rate::whereHasMorph(
             'rateable',get_class($this->model),
             function (Builder $query) {
@@ -60,17 +71,19 @@ class RatingReview extends Component
                 'status' => "verified",
             ]);
             $this->model->rate()->save($rate);
-        } else {
-            $rates = Rate::whereHasMorph(
-                'rateable',get_class($this->model),
-                function (Builder $query) {
-                  $query->where(['user_id' => auth()->user()->id, 'rateable_id' => $this->model->id]);
-                }
-            )->update([
-                'rate' => $this->value,
-                'review' => $this->review,
-            ]);
-        }
+        } 
+        // else {
+        //     $rates = Rate::whereHasMorph(
+        //         'rateable',get_class($this->model),
+        //         function (Builder $query) {
+        //           $query->where(['user_id' => auth()->user()->id, 'rateable_id' => $this->model->id]);
+        //         }
+        //     )->update([
+        //         'rate' => $this->value,
+        //         'review' => $this->review,
+        //     ]);
+        // }
+        $this->rating();
     }
     public function render()
     {
@@ -93,5 +106,6 @@ class RatingReview extends Component
               $query->where(['user_id' => auth()->user()->id, 'rateable_id' => $this->model->id]);
             }
         )->delete();
+        $this->rating();
     }
 }
