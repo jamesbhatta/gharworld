@@ -11,7 +11,7 @@ use Livewire\Component;
 class RatingReview extends Component
 {
     public $model;
-    public $msg = 0;
+    public $value = 0;
     public $review;
     public $review1;
     public $rate;
@@ -25,26 +25,27 @@ class RatingReview extends Component
     }
     // public function rate1()
     // {
-    //     $this->msg = "1";
+    //     $this->value = "1";
     // }
     // public function rate2()
     // {
-    //     $this->msg = "2";
+    //     $this->value = "2";
     // }
     // public function rate3()
     // {
-    //     $this->msg = "3";
+    //     $this->value = "3";
     // }
     // public function rate4()
     // {
-    //     $this->msg = "4";
+    //     $this->value = "4";
     // }
     // public function rate5()
     // {
-    //     $this->msg = "5";
+    //     $this->value = "5";
     // }
     public function submit()
     { 
+
         $rates = Rate::whereHasMorph(
             'rateable',get_class($this->model),
             function (Builder $query) {
@@ -53,7 +54,7 @@ class RatingReview extends Component
         )->get();
         if (!count($rates)) {
             $rate = new Rate([
-                'rate' => $this->msg,
+                'rate' => $this->value,
                 'review' => $this->review,
                 'user_id' => Auth::user()->id,
                 'status' => "verified",
@@ -66,7 +67,7 @@ class RatingReview extends Component
                   $query->where(['user_id' => auth()->user()->id, 'rateable_id' => $this->model->id]);
                 }
             )->update([
-                'rate' => $this->msg,
+                'rate' => $this->value,
                 'review' => $this->review,
             ]);
         }

@@ -44,10 +44,7 @@
                     <div class="row p-3">
                         <div class="col-md-12">
                             <h4 class="pb-3">Discription</h4>
-                            <div class="p-3 text-left bg-light"
-                            style="height:180px; solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-                            {!! $localContact->about !!}
-                        </div>
+                          {!! $localContact->about !!}
                         </div>
                     </div>
                     @endisset

@@ -1,30 +1,32 @@
-<div class="bg-light pt-2 px-3 py-2">
+<div class="bg-light pt-2 px-3 py-3">
     @if ($rates==null)
     {{-- <h5 class="h5-responsive ">Rate this</h5> --}}
 
-    <h5>{{$msg}}/5 Rating</h5>
+    <h5>{{$value}}/5 Rating</h5>
     <h3 class="">
-        @for ($i = 1; $i <= 5; $i++) <span wire:click="$set('msg', {{$i}})">
-            @if($msg >= $i)
+        @for ($i = 1; $i <= 5; $i++) <span wire:click="$set('value', {{$i}})">
+            @if($value >= $i)
             <span class="fa fa-star text-warning"></span>
             @else
             <span class="fa fa-star-o "></span>
             @endif
             </span>
             @endfor
-            {{-- @for ($i = 1; $i <= $msg; $i++) <span wire:click="rate{{$i}}" class="fa fa-star text-warning"></span>
+            {{-- @for ($i = 1; $i <= $value; $i++) <span wire:click="rate{{$i}}" class="fa fa-star text-warning"></span>
             @endfor
-            @for ($j =++$msg; $j <= 5; $j++) <span wire:click="rate{{$j}}" class="fa fa-star-o "></span>
+            @for ($j =++$value; $j <= 5; $j++) <span wire:click="rate{{$j}}" class="fa fa-star-o "></span>
                 @endfor --}}
     </h3>
-    {{$rate}}
+   @if ($value>0) 
     <div class="py-2">
         <textarea wire:model="review" name="review" id="" cols="" rows="4" placeholder="Review"
             style="width: 100%"></textarea>
     </div>
-    <div class="ml-auto">
+    
+    <div class="">
         <button wire:click="submit" class="btn btn-success">Post</button>
     </div>
+    @endif
     @else
     {{-- <h5 class="h5-responsive">Your Review</h5> --}}
     <div class="">
