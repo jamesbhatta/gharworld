@@ -54,9 +54,13 @@
                 </div>
                 
             </div>
-            <div class="d-flex justify-content-center">
-                <div class="col-md-7">
+            <div class="d-flex justify-content-center mt-5">
+                <div class="col-md-8">
+                    <h5 class="h5-responsive mb-2">Rating and Review</h5>
+                    @auth  
                     <livewire:rating-review :model="$localContact" />
+                    @endauth
+                    <livewire:review-list :model="$localContact"/>
                 </div>
             </div>
         </div>

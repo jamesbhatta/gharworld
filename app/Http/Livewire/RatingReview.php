@@ -17,31 +17,32 @@ class RatingReview extends Component
     public $rate;
     public $name;
 
+
     public function mount($model)
     {
         // if(get_class($property)){}
         $this->model = $model;
     }
-    public function rate1()
-    {
-        $this->msg = "1";
-    }
-    public function rate2()
-    {
-        $this->msg = "2";
-    }
-    public function rate3()
-    {
-        $this->msg = "3";
-    }
-    public function rate4()
-    {
-        $this->msg = "4";
-    }
-    public function rate5()
-    {
-        $this->msg = "5";
-    }
+    // public function rate1()
+    // {
+    //     $this->msg = "1";
+    // }
+    // public function rate2()
+    // {
+    //     $this->msg = "2";
+    // }
+    // public function rate3()
+    // {
+    //     $this->msg = "3";
+    // }
+    // public function rate4()
+    // {
+    //     $this->msg = "4";
+    // }
+    // public function rate5()
+    // {
+    //     $this->msg = "5";
+    // }
     public function submit()
     { 
         $rates = Rate::whereHasMorph(
@@ -72,12 +73,14 @@ class RatingReview extends Component
     }
     public function render()
     {
-        $rates = Rate::whereHasMorph(
-            'rateable',get_class($this->model),
-            function (Builder $query) {
-              $query->where(['user_id' => auth()->user()->id, 'rateable_id' => $this->model->id]);
-            }
-        )->first();
+    
+            $rates = Rate::whereHasMorph(
+                'rateable',get_class($this->model),
+                function (Builder $query) {
+                    $query->where(['user_id' => auth()->user()->id, 'rateable_id' => $this->model->id]);
+                }
+                )->first();
+            
         return view('livewire.rating-review', [
             'rates' => $rates,
         ]);

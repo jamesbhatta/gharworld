@@ -128,13 +128,17 @@
                         style="border:0" allowfullscreen></iframe>
                 </div>
                 @endisset --}}
-                <div class="col-md-12">
+                @if ($property->for=='rent')
+                <div>
+                    <h5 class="h5-responsive my-3">Rating and Review</h5>
                     @auth
-                    <livewire:rating-review :model="$property"/>
+                    <livewire:rating-review :model="$property" />
                     @endauth
+                    <livewire:review-list :model="$property" />
                 </div>
+                @endif
             </div>
-            
+
 
             <div class="col-lg-4 col-md-8 sidebar">
                 <div class="bg-light">
@@ -180,7 +184,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </section>

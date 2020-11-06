@@ -16,7 +16,7 @@ class CreateRatesTable extends Migration
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
             $table->integer('rate');
-            $table->text('review');
+            $table->text('review')->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->unsignedBigInteger('rateable_id')->nullable();
             $table->string('rateable_type')->nullable();

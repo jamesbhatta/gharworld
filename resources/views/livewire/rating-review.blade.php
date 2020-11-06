@@ -1,12 +1,21 @@
-<div>
+<div class="bg-light pt-2 px-3 py-2">
     @if ($rates==null)
-    <h5 class="h5-responsive my-3">Rate this</h5>
+    {{-- <h5 class="h5-responsive ">Rate this</h5> --}}
+
     <h5>{{$msg}}/5 Rating</h5>
-    <h3 class="py-2">
-        @for ($i = 1; $i <= $msg; $i++) <span wire:click="rate{{$i}}" class="fa fa-star text-warning"></span>
+    <h3 class="">
+        @for ($i = 1; $i <= 5; $i++) <span wire:click="$set('msg', {{$i}})">
+            @if($msg >= $i)
+            <span class="fa fa-star text-warning"></span>
+            @else
+            <span class="fa fa-star-o "></span>
+            @endif
+            </span>
+            @endfor
+            {{-- @for ($i = 1; $i <= $msg; $i++) <span wire:click="rate{{$i}}" class="fa fa-star text-warning"></span>
             @endfor
             @for ($j =++$msg; $j <= 5; $j++) <span wire:click="rate{{$j}}" class="fa fa-star-o "></span>
-                @endfor
+                @endfor --}}
     </h3>
     {{$rate}}
     <div class="py-2">
@@ -17,8 +26,8 @@
         <button wire:click="submit" class="btn btn-success">Post</button>
     </div>
     @else
-    <h5 class="h5-responsive my-3">Your Review</h5>
-    <div class="p-md-2 my-3">
+    {{-- <h5 class="h5-responsive">Your Review</h5> --}}
+    <div class="">
         <div>
             <div class="fa fa-user-circle-o">
                 {{$rates->user->name}}
