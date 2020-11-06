@@ -28,10 +28,15 @@
                                             </div>
                                             <div class="fa fa-map-marker">
                                                 {{ $localContact->city->name . ', ' . $localContact->address_line }}</div>
-                                            <div class=" text-warning">
-                                                @for ($i = 0; $i < 5; $i++) <span class="fa fa-star checked"></span>
-                                                    @endfor
-                                            </div>
+                                                <div>
+                                                    @for ($i = 1; $i <= 5; $i++) @if($localContact->overall_rating >= $i)
+                                                        <span class="fa fa-star text-warning"></span>
+                                                        @else
+                                                        <span class="fa fa-star-o "></span>
+                                                        @endif
+                                                        </span>
+                                                        @endfor
+                                                </div>
                                         </div>
                                     </div>
                                 </a>

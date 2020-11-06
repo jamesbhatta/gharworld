@@ -15,6 +15,15 @@
                                 class="img-thumbnail rounded-circle img-fluid" alt="{{ $localContact->name }}"
                                 style="width:35rem; height:auto">
                             <h4 class="m-2">{{ $localContact->name }}</h4>
+                            <div>
+                                @for ($i = 1; $i <= 5; $i++) @if($localContact->overall_rating >= $i)
+                                    <span class="fa fa-star text-warning"></span>
+                                    @else
+                                    <span class="fa fa-star-o "></span>
+                                    @endif
+                                    </span>
+                                    @endfor
+                            </div>
                             <h6 class="text-capitalize text-warning">{{ $localContact->profession->name}} </h6>
                         </div>
                         <div class="col-md-7 mt-2 ml-3 pt-5 font-weight-bold text-black">
@@ -24,7 +33,8 @@
                                     {{ $localContact->city->name.", ".$localContact->address_line }}
                                 </div>
                                 <div>
-                                    <i class="fa fa-phone p-2 bg-warning rounded-pill text-white"><a href="tel:{{ $localContact->contact}}"> {{ $localContact->contact}}</a>
+                                    <i class="fa fa-phone p-2 bg-warning rounded-pill text-white"><a
+                                            href="tel:{{ $localContact->contact}}"> {{ $localContact->contact}}</a>
                                     </i>
                                 </div>
                                 <div>
@@ -38,28 +48,32 @@
                             </h5>
                         </div>
                     </div>
-                    
+
                     @isset($localContact->about)
                     <hr>
                     <div class="row p-3">
                         <div class="col-md-12">
                             <h4 class="pb-3">Discription</h4>
-                          {!! $localContact->about !!}
+                            {!! $localContact->about !!}
                         </div>
                     </div>
                     @endisset
                 </div>
-                
+
             </div>
+            
             <div class="d-flex justify-content-center mt-5">
                 <div class="col-md-8">
+                    @if ($localContact->overall_rating!=null OR Auth::check())
                     <h5 class="h5-responsive mb-2">Rating and Review</h5>
-                    @auth  
+                    @endif
+                    @auth
                     <livewire:rating-review :model="$localContact" />
                     @endauth
-                    <livewire:review-list :model="$localContact"/>
+                    <livewire:review-list :model="$localContact" />
                 </div>
             </div>
+            
         </div>
     </section>
     <!-- Search Result Section end -->

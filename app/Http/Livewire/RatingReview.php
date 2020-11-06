@@ -15,20 +15,7 @@ class RatingReview extends Component
     public $review;
     public $rate;
    
-public function rating(){
-    $rates =Rate::where('status',"verified")->whereHasMorph(
-        'rateable',get_class($this->model),
-        function (Builder $query) {
-          $query->where(['rateable_id' => $this->model->id]);
-        }
-    )->get('rate');
-    $rating = 0;
-    foreach ($rates as $rate ) {
-        $rating =$rating + $rate->rate;
-    }
-    $overAllRating=round($rating/$rates->count());
- $this->model->update(['overall_rating'=>$overAllRating ]);
-}
+
 
     public function mount($model)
     {
@@ -107,5 +94,25 @@ public function rating(){
             }
         )->delete();
         $this->rating();
+    }
+    public function rating(){
+        $rates =Rate::where('status',"verified")->whereHasMorph(
+            'rateable',get_class($this->model),
+            function (Builder $query) {
+              $query->where(['rateable_id' => $this->model->id]);
+            }
+        )->get('rate');
+        $rating = 0;
+        $count=$rates->count();
+        if($count>0){
+            foreach ($rates as $rate ) {
+                $rating =$rating + $rate->rate;
+            }
+            $overAllRating=round($rating/$count);
+        }else{
+            $overAllRating=null;
+        }
+        
+     $this->model->update(['overall_rating'=>$overAllRating ]);
     }
 }

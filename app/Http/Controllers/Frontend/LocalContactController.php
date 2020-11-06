@@ -12,7 +12,7 @@ class LocalContactController extends Controller
 {
     public function search(Request $request)
     {
-        $localContacts = localContact::with('profession')->active();
+        $localContacts = localContact::with(['profession','city'])->active();
 
         if ($request->has('city_id')) {
             $localContacts = $localContacts->whereCityId($request->city_id);

@@ -16,14 +16,13 @@
 
                     <div class="d-flex bg-light py-2 px-4 my-4">
                         <div class="py-2">
-                            @php
-                            $rate = 2;
-                            @endphp
-                            @for ($i = 0; $i < $rate; $i++) <span class="fa fa-star checked text-warning p-1"></span>
+                            @for ($i = 1; $i <= 5; $i++) @if($property->overall_rating >= $i)
+                                <span class="fa fa-star text-warning"></span>
+                                @else
+                                <span class="fa fa-star-o "></span>
+                                @endif
+                                </span>
                                 @endfor
-                                @for ($i = 0; $i < 5-$rate; $i++) <span class="fa fa-star checked p-1"></span>
-                                    @endfor
-                                    Rating
                         </div>
                         <div class="ml-auto align-self-center">
                             {{-- @auth --}}
@@ -130,7 +129,9 @@
                 @endisset --}}
                 @if ($property->for=='rent')
                 <div>
-                    <h5 class="h5-responsive my-3">Rating and Review</h5>
+                    @if ($property->overall_rating!=null OR Auth::check())
+                    <h5 class="h5-responsive mb-2">Rating and Review</h5>
+                    @endif
                     @auth
                     <livewire:rating-review :model="$property" />
                     @endauth
@@ -167,10 +168,17 @@
                                             </div>
                                             <div class=" fa fa-map-marker">
                                                 {{ $property->city->name . ', ' . $property->address_line }}</div>
-                                            <div class=" text-warning">
-                                                @for ($i = 0; $i < 5; $i++) <span class="fa fa-star checked"></span>
+                                            @if ($property->for=='rent')
+                                            <div>
+                                                @for ($i = 1; $i <= 5; $i++) @if($property->overall_rating >= $i)
+                                                    <span class="fa fa-star text-warning"></span>
+                                                    @else
+                                                    <span class="fa fa-star-o "></span>
+                                                    @endif
+                                                    </span>
                                                     @endfor
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </a>

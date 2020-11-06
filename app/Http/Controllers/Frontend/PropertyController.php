@@ -61,7 +61,7 @@ class PropertyController extends Controller
 
     public function show(Property $property)
     {
-        $properties = Property::where('type', $property->type)->where('city_id', $property->city_id)->paginate(4);
+        $properties = Property::with('city')->where('type', $property->type)->where('city_id', $property->city_id)->paginate(4);
         $property->load(['city', 'facilities', 'images']);
         return view('theme.property-profile', compact('property', 'properties'));
     }

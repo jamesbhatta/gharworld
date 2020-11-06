@@ -19,7 +19,7 @@
     </h3>
    @if ($value>0) 
     <div class="py-2">
-        <textarea wire:model="review" name="review" id="" cols="" rows="4" placeholder="Review"
+        <textarea wire:model="review" name="review" id="" cols="" rows="4" placeholder="Describe your experience"
             style="width: 100%"></textarea>
     </div>
     

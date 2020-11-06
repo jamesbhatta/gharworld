@@ -14,7 +14,7 @@
                         <select name="city_id" id="city" class="form-control" onchange='this.form.submit()'>
                             <option value="">Select Location</option>
                             @foreach ($cities as $city)
-                            <option value="{{ $city->id}}" {{"$city->id"==request()->city_id ? 'selected' : '' }} >
+                            <option value="{{ $city->id}}" {{"$city->id"==request()->city_id ? 'selected' : '' }}>
                                 {{ $city->name}}
                             </option>
                             @endforeach
@@ -47,11 +47,11 @@
                     <div class="px-3 py-2">
                         <div><input type="radio" name="for" id="all" value="all"
                                 {{request()->for=="all" ? 'checked' : ''}} onchange='this.form.submit()'>
-                            <label for="all" >Sale/Rent</label>
+                            <label for="all">Sale/Rent</label>
                         </div>
                         <div><input type="radio" name="for" id="rent" value="rent"
                                 {{request()->for=="rent" ? 'checked' : ''}} onchange='this.form.submit()'>
-                            <label for="rent" >Rent</label>
+                            <label for="rent">Rent</label>
                         </div>
                         <div><input type="radio" name="for" id="sale" value="sale"
                                 {{request()->for=="sale" ? 'checked' : ''}} onchange='this.form.submit()'>
@@ -68,9 +68,11 @@
                         </div>
                     </div>
                     <hr> --}}
+                    @if (request()->for=="rent")
+                        
+                    
                     <div class="font-weight-bold text-decoration">Rating</div>
                     <div class="px-2 py-2">
-
                         <div class="row">
                             <span class="fa fa-star checked text-warning p-1"></span>
                             <span class="fa fa-star checked text-warning p-1"></span>
@@ -111,6 +113,7 @@
                         </div>
 
                     </div>
+                    @endif
                 </form>
             </div>
 
@@ -124,7 +127,8 @@
                                 <div class="card property-item hover text-dark" style="background-color: #fbf7fb;">
 
                                     <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                        alt="{{ $property->title }}" class="image img-fluid" style="width:100%; height:200px">
+                                        alt="{{ $property->title }}" class="image img-fluid"
+                                        style="width:100%; height:200px">
                                     <div
                                         class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
                                         {{ $property->for }}</div>
@@ -137,10 +141,17 @@
                                         </div>
                                         <div class=" fa fa-map-marker">
                                             {{ $property->city->name . ', ' . $property->address_line }}</div>
-                                        <div class=" text-warning">
-                                            @for ($i = 0; $i < 5; $i++) <span class="fa fa-star checked"></span>
+                                        @if ($property->for=='rent')
+                                        <div>
+                                            @for ($i = 1; $i <= 5; $i++) @if($property->overall_rating >= $i)
+                                                <span class="fa fa-star text-warning"></span>
+                                                @else
+                                                <span class="fa fa-star-o "></span>
+                                                @endif
+                                                </span>
                                                 @endfor
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </a>
