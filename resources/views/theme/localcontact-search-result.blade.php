@@ -9,15 +9,14 @@
                 <div class="col-md-2 ">
                     <x-local-contact-filter />
                 </div>
-                <div class="col-md-10">
-                    <div class="search-results">
+                <div class="col-md-10 p-2">
+                    <div class="">
                         <div class="row">
 
                             @forelse ($localContacts as $localContact)
-
-                            <div class="col-md-3">
+                            <div class="col-md-2 ml-4 mt-2">
                                 <a href="{{route('frontend.localcontact.show',$localContact)}}">
-                                    <div class="card localcontact-item text-center hover">
+                                    <div class="card localcontact-item text-center hover" style="width: 12rem">
                                         <div class="pi-image">
                                             <img src="{{ $localContact->image != null ? asset('storage/' . $localContact->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $localContact->name }}" class="image img-fluid" style="width:100%; height:160px;">
                                         </div>

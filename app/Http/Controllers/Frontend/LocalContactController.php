@@ -15,11 +15,18 @@ class LocalContactController extends Controller
         $localContacts = localContact::with(['profession','city'])->active();
 
         if ($request->has('city_id')) {
-            $localContacts = $localContacts->whereCityId($request->city_id);
+            if ($request->city_id == null) {
+            }else{
+                $localContacts = $localContacts->whereCityId($request->city_id);
+            }
         }
 
         if ($request->has('profession_id')) {
             $localContacts = $localContacts->whereProfessionId($request->profession_id);
+        }
+        if ($request->has('overall_rating')) {
+           
+            $localContacts = $localContacts->where('overall_rating','>=',$request->overall_rating);
         }
 
 

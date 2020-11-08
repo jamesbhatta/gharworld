@@ -16,7 +16,8 @@
 
                     <div class="d-flex bg-light py-2 px-4 my-4">
                         <div class="py-2">
-                            @for ($i = 1; $i <= 5; $i++) @if($property->overall_rating >= $i)
+                            @for ($i = 1; $i <= 5; $i++) 
+                            @if($property->overall_rating >= $i)
                                 <span class="fa fa-star text-warning"></span>
                                 @else
                                 <span class="fa fa-star-o "></span>

@@ -27,7 +27,8 @@ class PropertyController extends Controller
         if ($request->has('type')) {
             if ($request->type == 'real-estate') {
                 $properties = $properties->whereIn('type', ['land', 'house']);
-            } else {
+            }
+             else {
                 $properties = $properties->whereType($request->type);
             }
         }
@@ -44,6 +45,10 @@ class PropertyController extends Controller
             } else {
                 $properties = $properties->whereCityId($request->city_id);
             }
+        }
+        if ($request->has('overall_rating')) {
+           
+            $properties = $properties->where('overall_rating','>=',$request->overall_rating);
         }
 
         // price
