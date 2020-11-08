@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row text-white ">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 text-xl-left text-center">
                     <x-company-contact-component/>
                 </div>
                 <div class="col-md-8 text-center">

@@ -1,16 +1,15 @@
 <div>
     @isset($profile)
     <div class="d-md-flex">
-        <div class="mx-3">
+        <div class="">
             <img src="{{asset('storage/'.$profile->logo) }}" alt="GharWorld Logo" style="width:100px;">
         </div>
         <div class="ml-auto">
-            <h6>
-                <div class="py-1">{{$profile->name}}</div>
-                <div class="py-1 fa fa-map-marker"> {{$profile->address}}</div>
-                <div class="py-1 fa fa-phone"><a href="tel:{{$profile->contact}}"> {{$profile->contact}}</a> </div>
-                <div class="py-1 fa fa-envelope"><a href="mailto:{{$profile->email}}"> {{$profile->email}}</a> </div>
-            </h6>
+                <div class="">{{$profile->name}}</div>
+                <div class="fa fa-map-marker"> {{$profile->address}}</div>
+                <div><i class="class="fa fa-phone""></i> {{$profile->contact}}</div>
+                <div class="fa fa-envelope"><a href="mailto:{{$profile->email}}"> {{$profile->email}}</a> </div>
+           
             <div class="py-2 text-info">
                 <span class="" {{$profile->facebook ==null ? 'hidden' : '' }}><a
                         href="{{$profile->facebook}}"> <i class="fa fa-facebook btn btn-primary"></i></a> </span>
