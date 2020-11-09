@@ -11,7 +11,7 @@
                 <div class="card shadow mt-3" style="width: 50rem;">
                     <div class="row p-3">
                         <div class="col-md-4 text-center">
-                            
+
                             <img src="{{$localContact->image!=null ? asset('storage/' . $localContact->image) : asset('assets/img/person-avatar.png')}}"
                                 class="img-thumbnail rounded-circle img-fluid" alt="{{ $localContact->name }}"
                                 style="width:35rem; height:14rem;">
@@ -43,13 +43,18 @@
                                             href="tel:{{ $localContact->contact}}"> {{ $localContact->contact}}</a>
                                     </i>
                                 </div>
+                                @if ($localContact->email!=null)
+
                                 <div>
                                     <i class="fa fa-envelope-o py-2 "> </i><a href="mailto:{{ $localContact->email}}"
                                         class="text-dark"> {{ $localContact->email}}</a>
                                 </div>
+                                @endif
+                                @if ($localContact->qualification != null)
                                 <div>
                                     <i class="fa fa-graduation-cap py-2"> </i>{{ $localContact->qualification}}</a>
                                 </div>
+                                @endif
                                 <div>
                             </h5>
                         </div>
