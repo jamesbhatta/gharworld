@@ -11,12 +11,13 @@
                 <div class="card shadow mt-3" style="width: 50rem;">
                     <div class="row p-3">
                         <div class="col-md-4 text-center">
+                            
                             <img src="{{$localContact->image!=null ? asset('storage/' . $localContact->image) : asset('assets/img/person-avatar.png')}}"
                                 class="img-thumbnail rounded-circle img-fluid" alt="{{ $localContact->name }}"
-                                style="width:35rem; height:auto">
+                                style="width:35rem; height:14rem">
                             <h6 class="text-capitalize m-2">
                                 <span class="badge-pill badge-info px-3  py-1">
-                                    {{ $localContact->profession->name}} 
+                                    {{ $localContact->profession->name}}
                                 </span>
                             </h6>
 
@@ -66,7 +67,7 @@
                 </div>
 
             </div>
-            
+
             <div class="d-flex justify-content-center mt-5">
                 <div class="col-md-8">
                     @if ($localContact->overall_rating!=null OR Auth::check())
@@ -78,7 +79,7 @@
                     <livewire:review-list :model="$localContact" />
                 </div>
             </div>
-            
+
         </div>
     </section>
     <!-- Search Result Section end -->
