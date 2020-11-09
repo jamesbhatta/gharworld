@@ -27,7 +27,11 @@
                         <tr>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{ ucfirst($user->roles()->first()->name) }}</td>
+                            <td>
+                                @if(count($user->roles))
+                                {{ ucfirst($user->roles()->first()->name) }}
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('users.change-password.show', $user) }}" class="fa fa-edit text-white btn-sm btn-success" data-toggle="tooltip" title="Password Change"> </a>
                             </td>
