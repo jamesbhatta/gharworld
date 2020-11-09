@@ -14,7 +14,13 @@
                             <img src="{{$localContact->image!=null ? asset('storage/' . $localContact->image) : asset('assets/img/person-avatar.png')}}"
                                 class="img-thumbnail rounded-circle img-fluid" alt="{{ $localContact->name }}"
                                 style="width:35rem; height:auto">
-                            <h4 class="m-2">{{ $localContact->name }}</h4>
+                            <h6 class="text-capitalize m-2">
+                                <span class="badge-pill badge-info px-3 py-1">
+                                    {{ $localContact->profession->name}} 
+                                </span>
+                            </h6>
+
+                            <h4 class="">{{ $localContact->name }}</h4>
                             <div>
                                 @for ($i = 1; $i <= 5; $i++) @if($localContact->overall_rating >= $i)
                                     <span class="fa fa-star text-warning"></span>
@@ -24,7 +30,6 @@
                                     </span>
                                     @endfor
                             </div>
-                            <h6 class="text-capitalize text-warning">{{ $localContact->profession->name}} </h6>
                         </div>
                         <div class="col-md-7 mt-2 ml-3 pt-5 font-weight-bold text-black">
                             <h4 class="py-3">Contact Details</h4>
