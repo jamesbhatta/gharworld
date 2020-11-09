@@ -1,4 +1,4 @@
-<span wire:click="toggleWishlist" class="change-icon text-warning" data-toggle="tooltip" title="{{$msg}}">
+<span wire:click="toggleWishlist" class="change-icon text-danger" data-toggle="tooltip" title="{{$msg}}">
     @if($hasInWishlist)
     <i class="fa fa-heart fa-lg"></i>
     @else

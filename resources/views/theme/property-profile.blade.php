@@ -16,14 +16,16 @@
 
                     <div class="d-flex bg-light py-2 px-4 my-4">
                         <div class="py-2">
-                            @for ($i = 1; $i <= 5; $i++) 
-                            @if($property->overall_rating >= $i)
-                                <span class="fa fa-star text-warning"></span>
+                            @if ($property->for=='rent')
+                            <span >
+                                @if ($property->overall_rating !=null)
+                                <span class="badge badge-warning text-white p-2">{{$property->overall_rating}} <i
+                                        class="fa fa-star"></i></span>
                                 @else
-                                <span class="fa fa-star-o "></span>
+                                {{-- <span class="fa fa-star-o text-success"></span> --}}
                                 @endif
-                                </span>
-                                @endfor
+                            </span>
+                            @endif
                         </div>
                         <div class="ml-auto align-self-center">
                             {{-- @auth --}}

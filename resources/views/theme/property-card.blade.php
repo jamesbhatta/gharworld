@@ -9,15 +9,15 @@
                 @if ($property->for=='rent')
                 <span class="font-small">
                     @if ($property->overall_rating !=null)
-                    <span class="text-success">{{$property->overall_rating}} <i
-                            class="fa fa-star text-success"></i></span>
+                    <span class="badge-warning badge text-white">{{$property->overall_rating}} <i
+                            class="fa fa-star"></i></span>
                     @else
-                    <span class="fa fa-star-o text-success"></span>
+                    {{-- <span class="fa fa-star-o text-success"></span> --}}
                     @endif
                 </span>
                 @endif
                 <span
-                    class="ml-auto text-warning ">{{ 'NRs.'. $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}</span>
+                    class="ml-auto text-danger ">{{ 'NRs.'. $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}</span>
 
             </div>
             <div class="text-capitalize font-weight-bold text-muted">
