@@ -15,18 +15,26 @@
                             class="pi-badge text-capitalize {{ $wishlist->property->for == 'sale' ? 'new' : 'offer' }}">
                             {{ $wishlist->property->for }}</div>
                         <div class="px-3 py-2">
-                            <div class="font-weight-bold text-dark">
-                                {{ 'NRs. ' . $wishlist->property->price ." /". ($wishlist->property->for == 'rent' ? $wishlist->property->price_per : '-') }}
+                            <div class="font-weight-bold d-flex">
+                                @if ($wishlist->property->for=='rent')
+                                <span class="font-small">
+                                    @if ($wishlist->property->overall_rating !=null)
+                                    <span class="text-success">{{$wishlist->property->overall_rating}} <i
+                                            class="fa fa-star text-success"></i></span>
+                                    @else
+                                    <span class="fa fa-star-o text-success"></span>
+                                    @endif
+                                </span>
+                                @endif
+                                <span class="ml-auto text-warning ">{{ 'NRs.'. $wishlist->property->price ."/". ($wishlist->property->for == 'rent' ? $wishlist->property->price_per : '-') }}</span>
+                
                             </div>
                             <div class="text-capitalize font-weight-bold text-muted">
                                 {{ $wishlist->property->title }}
                             </div>
                             <div class=" fa fa-map-marker">
                                 {{ $wishlist->property->city->name . ', ' . $wishlist->property->address_line }}</div>
-                            <div class=" text-warning">
-                                @for ($i = 0; $i < 5; $i++) <span class="fa fa-star checked"></span>
-                                    @endfor
-                            </div>
+                            
                         </div>
                     </div>
                 </a>

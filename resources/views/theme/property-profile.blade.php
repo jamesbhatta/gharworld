@@ -149,40 +149,7 @@
                         <div class="row justify-content-center">
                             @forelse ($properties as $property)
                             <div class="col-md-10 text-color">
-                                <a href="{{ route('frontend.property.show', $property) }}">
-                                    <div class="card property-item hover text-dark">
-
-                                        <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                            alt="{{ $property->title }}" class="image img-fluid"
-                                            style="width:100%; height:200px">
-                                        <div
-                                            class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
-                                            {{ $property->for }}</div>
-                                        <div class="px-3 py-2">
-                                            <div class="font-weight-bold">
-                                                {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
-                                            </div>
-                                            <div class="text-capitalize font-weight-bold text-muted">
-                                                <i
-                                                    class="{{$property->type == "house" ? 'fa fa-home': ''}}{{$property->type=="land" ? 'fa fa-map': ''}}{{$property->type=="room" ? 'fa fa-object-group': ''}}"></i>
-                                                {{$property->title }}
-                                            </div>
-                                            <div class=" fa fa-map-marker">
-                                                {{ $property->city->name . ', ' . $property->address_line }}</div>
-                                            @if ($property->for=='rent')
-                                            <div>
-                                                @for ($i = 1; $i <= 5; $i++) @if($property->overall_rating >= $i)
-                                                    <span class="fa fa-star text-warning"></span>
-                                                    @else
-                                                    <span class="fa fa-star-o "></span>
-                                                    @endif
-                                                    </span>
-                                                    @endfor
-                                            </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
+                                @include('theme.property-card')
                             </div>
                             @empty
                             <div class="col-md-12 text-danger text-center justify-content-center">* No data

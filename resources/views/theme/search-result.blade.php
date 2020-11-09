@@ -74,7 +74,8 @@
                     <div class="font-weight-bold text-decoration">Rating</div>
                     <div class="px-2 py-2">
                         <div>
-                            <input type="radio" name="overall_rating" value="5" id="5" onchange='this.form.submit()' style="display: none">
+                            <input type="radio" name="overall_rating" value="5" id="5" onchange='this.form.submit()'
+                                style="display: none">
 
                             <label for="5">
                                 @for ($i = 1; $i <= 5; $i++) @if(5>= $i)
@@ -87,55 +88,59 @@
                             </label>
                         </div>
                         <div>
-                            <input type="radio" name="overall_rating" value="4" id="4" onchange='this.form.submit()' style="display: none">
+                            <input type="radio" name="overall_rating" value="4" id="4" onchange='this.form.submit()'
+                                style="display: none">
                             <label for="4">
-                            @for ($i = 1; $i <= 5; $i++) @if(4>= $i)
-                                <span class="fa fa-star text-warning"></span>
-                                @else
-                                <span class="fa fa-star-o "></span>
-                                @endif
-                                </span>
-                                @endfor
-                                And Up
+                                @for ($i = 1; $i <= 5; $i++) @if(4>= $i)
+                                    <span class="fa fa-star text-warning"></span>
+                                    @else
+                                    <span class="fa fa-star-o "></span>
+                                    @endif
+                                    </span>
+                                    @endfor
+                                    And Up
                             </label>
                         </div>
                         <div>
-                            <input type="radio" name="overall_rating" value="3" id="3"  onchange='this.form.submit()' style="display: none">
+                            <input type="radio" name="overall_rating" value="3" id="3" onchange='this.form.submit()'
+                                style="display: none">
                             <label for="3">
-                            @for ($i = 1; $i <= 5; $i++) @if(3>= $i)
-                                <span class="fa fa-star text-warning"></span>
-                                @else
-                                <span class="fa fa-star-o "></span>
-                                @endif
-                                </span>
-                                @endfor
-                                And Up
+                                @for ($i = 1; $i <= 5; $i++) @if(3>= $i)
+                                    <span class="fa fa-star text-warning"></span>
+                                    @else
+                                    <span class="fa fa-star-o "></span>
+                                    @endif
+                                    </span>
+                                    @endfor
+                                    And Up
                             </label>
                         </div>
                         <div>
-                            <input type="radio" name="overall_rating" value="2" id="2" onchange='this.form.submit()' style="display: none">
+                            <input type="radio" name="overall_rating" value="2" id="2" onchange='this.form.submit()'
+                                style="display: none">
                             <label for="2">
-                            @for ($i = 1; $i <= 5; $i++) @if(2>= $i)
-                                <span class="fa fa-star text-warning"></span>
-                                @else
-                                <span class="fa fa-star-o "></span>
-                                @endif
-                                </span>
-                                @endfor
-                                And Up
+                                @for ($i = 1; $i <= 5; $i++) @if(2>= $i)
+                                    <span class="fa fa-star text-warning"></span>
+                                    @else
+                                    <span class="fa fa-star-o "></span>
+                                    @endif
+                                    </span>
+                                    @endfor
+                                    And Up
                             </label>
                         </div>
                         <div>
-                            <input type="radio" name="overall_rating" value="1" id="1" onchange='this.form.submit()' style="display: none">
+                            <input type="radio" name="overall_rating" value="1" id="1" onchange='this.form.submit()'
+                                style="display: none">
                             <label for="1">
-                            @for ($i = 1; $i <= 5; $i++) @if(1>= $i)
-                                <span class="fa fa-star text-warning"></span>
-                                @else
-                                <span class="fa fa-star-o "></span>
-                                @endif
-                                </span>
-                                @endfor
-                                And Up
+                                @for ($i = 1; $i <= 5; $i++) @if(1>= $i)
+                                    <span class="fa fa-star text-warning"></span>
+                                    @else
+                                    <span class="fa fa-star-o "></span>
+                                    @endif
+                                    </span>
+                                    @endfor
+                                    And Up
                             </label>
                         </div>
 
@@ -146,50 +151,17 @@
 
 
             <div class="col-md-10 p-2">
-                <div class="">
-                    <div class="row">
-                        @forelse ($properties as $property)
+                <div class="row">
+                    @forelse ($properties as $property)
                         <div class="col-md-3 text-color">
-                            <a href="{{ route('frontend.property.show', $property) }}">
-                                <div class="card property-item hover text-dark" style="background-color: #fbf7fb;">
-
-                                    <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                        alt="{{ $property->title }}" class="image img-fluid"
-                                        style="width:100%; height:200px">
-                                    <div
-                                        class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">
-                                        {{ $property->for }}</div>
-                                    <div class="px-3 py-2">
-                                        <div class="font-weight-bold text-dark">
-                                            {{ 'NRs. ' . $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}
-                                        </div>
-                                        <div class="text-capitalize font-weight-bold text-muted">
-                                            {{ $property->title }}
-                                        </div>
-                                        <div class=" fa fa-map-marker">
-                                            {{ $property->city->name . ', ' . $property->address_line }}</div>
-                                        @if ($property->for=='rent')
-                                        <div>
-                                            @for ($i = 1; $i <= 5; $i++) @if($property->overall_rating >= $i)
-                                                <span class="fa fa-star text-warning"></span>
-                                                @else
-                                                <span class="fa fa-star-o "></span>
-                                                @endif
-                                                </span>
-                                                @endfor
-                                        </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        @empty
-                        <div class="col-md-12 text-danger text-center justify-content-center">* No data available in
-                            databale </div>
-                        @endforelse
-                    </div>
-                    {{ $properties->links() }}
+                            @include('theme.property-card')
+                         </div>
+                    @empty
+                    <div class="col-md-12 text-danger text-center justify-content-center">* No data available in
+                        databale </div>
+                    @endforelse
                 </div>
+                {{ $properties->links() }}
             </div>
         </div>
     </div>
