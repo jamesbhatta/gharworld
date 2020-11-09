@@ -15,7 +15,7 @@
                                 class="img-thumbnail rounded-circle img-fluid" alt="{{ $localContact->name }}"
                                 style="width:35rem; height:auto">
                             <h6 class="text-capitalize m-2">
-                                <span class="badge-pill badge-info px-3 py-1">
+                                <span class="badge-pill badge-info px-3  py-1">
                                     {{ $localContact->profession->name}} 
                                 </span>
                             </h6>
