@@ -17,7 +17,7 @@
                     <div class="d-flex bg-light py-2 px-4 my-4">
                         <div class="py-2">
                             @if ($property->for=='rent')
-                            <span >
+                            <span>
                                 @if ($property->overall_rating !=null)
                                 <span class="badge badge-warning text-white p-2">{{$property->overall_rating}} <i
                                         class="fa fa-star"></i></span>
@@ -42,7 +42,7 @@
                         <div class="col-lg-5 text-left text-lg-right">
                             <div class="property-header">
                                 <h5 class="d-inline-block bg-danger text-white p-2 mb-3">NRs.
-                                    {{ number_format($property->price) . ($property->for == 'rent' ? " /$property->price_per" : ' /-') }}
+                                    {{ number_format($property->price) ."/". ($property->for == 'rent' ? ucfirst($property->price_per) : '-') }}
                                 </h5>
                                 <div class="text-secondary">(Negotiable)</div>
                             </div>
@@ -57,14 +57,20 @@
                                 </div>
                                 <div class="my-2">
                                     <span class="mr-2"><i class="fa fa-user"></i></span>
-                                    {{ $property->for == 'sale' ? "$property->name" : config('app.name') }}
+                                    {{ $property->for == 'sale' ? "$property->name" : $profile->name }}
                                 </div>
                             </div>
                             <div class="ml-auto text-white">
-                                <a class="badge badge-warning px-3"
-                                    href="tel:{{ $property->for == 'sale' ? "$property->contact" : 'Contact to gharworld ' }}">
+                                @if ($property->for == 'sale')
+                                <a class="badge badge-warning px-3" href="tel:{{ $property->contact}}">
+                                    <i class=" fa fa-phone p-2"></i>{{ $property->contact}}</a>
+                                @else
+                                <a class="badge badge-warning px-3" href="tel:{{ $profile->contact}}">
                                     <i class=" fa fa-phone p-2"></i>
-                                    {{ $property->for == 'sale' ? "$property->contact" : 'BOOK NOW' }}</a>
+                                    {{ $profile->contact}}
+                                </a>
+                                @endif
+
                             </div>
                         </div>
                     </div>

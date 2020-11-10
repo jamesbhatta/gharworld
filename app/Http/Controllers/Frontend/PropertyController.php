@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\City;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LocationRequest;
+use App\Profile;
 use App\Property;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -68,7 +69,8 @@ class PropertyController extends Controller
     {
         $properties = Property::with('city')->where('type', $property->type)->where('city_id', $property->city_id)->paginate(4);
         $property->load(['city', 'facilities', 'images']);
-        return view('theme.property-profile', compact('property', 'properties'));
+        $profile = Profile::first();
+        return view('theme.property-profile', compact('property', 'properties','profile'));
     }
 
     public function realEstate()
