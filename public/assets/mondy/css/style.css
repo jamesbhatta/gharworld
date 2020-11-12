@@ -531,6 +531,33 @@ Hero section
     margin-bottom: 35px;
 }
 
+.property-item .wishlist {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 87px;
+    padding-left: 88%;
+    padding-top: 3px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.property-item .rating {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 87px;
+    padding-right: 63px;
+    padding-top: 176px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
 .property-item .pi-badge {
     position: absolute;
     left: 0;

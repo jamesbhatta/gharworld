@@ -11,9 +11,9 @@
 
                         <img src="{{ $wishlist->property->image != null ? asset('storage/' . $wishlist->property->image) : asset('assets/img/real-estate.jpg') }}"
                             alt="{{ $wishlist->property->title }}" class="image img-fluid" style="width:100%; height:150px">
-                        <div
+                        {{-- <div
                             class="pi-badge text-capitalize {{ $wishlist->property->for == 'sale' ? 'new' : 'offer' }}">
-                            {{ $wishlist->property->for }}</div>
+                            {{ $wishlist->property->for }}</div> --}}
                         <div class="px-3 py-2">
                             <div class="font-weight-bold d-flex">
                                 @if ($wishlist->property->for=='rent')

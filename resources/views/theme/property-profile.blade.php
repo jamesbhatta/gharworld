@@ -11,10 +11,10 @@
                     <div class="sp-image mb-0">
                         <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
                             alt="{{ $property->title }}" style="width:100%; height:auto">
-                        <div class="sp-badge new text-capitalize">{{ $property->for }}</div>
+                        {{-- <div class="sp-badge new text-capitalize">{{ $property->for }}</div> --}}  
                     </div>
 
-                    <div class="d-flex bg-light py-2 px-4 my-4">
+                    <div class="d-flex bg-light py-2 px-4 my-2">
                         <div class="py-2">
                             @if ($property->for=='rent')
                             <span>
@@ -35,13 +35,13 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-7">
-                            <h4 class="h4-responsive text-capitalize mb-3"><span
-                                    class="badge badge-warning text-white p-2">{{ $property->type}}</span></h4>
-                            <h5 class="text-uppercase mb-3 mb-md-0">{{$property->title}}</h5>
+                            {{-- <h4 class="h4-responsive text-capitalize mb-3"><span
+                                    class="badge badge-warning text-white p-2">{{ $property->type}}</span></h4> --}}
+                            <h5 class="text-uppercase mb-1 mb-md-0">{{$property->title}}</h5>
                         </div>
                         <div class="col-lg-5 text-left text-lg-right">
                             <div class="property-header">
-                                <h5 class="d-inline-block bg-danger text-white p-2 mb-3">NRs.
+                                <h5 class="d-inline-block bg-danger text-white p-2">NRs.
                                     {{ number_format($property->price) ."/". ($property->for == 'rent' ? ucfirst($property->price_per) : '-') }}
                                 </h5>
                                 <div class="text-secondary">(Negotiable)</div>
@@ -156,7 +156,7 @@
                         <h5 class="text-center py-3 h5-responsive">Related Property</h5>
                         <div class="row justify-content-center">
                             @forelse ($properties as $property)
-                            <div class="col-md-10 text-color">
+                            <div class="col-6 col-lg-10 text-color">
                                 @include('theme.property-card')
                             </div>
                             @empty

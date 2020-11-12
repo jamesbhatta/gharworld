@@ -150,10 +150,10 @@
             </div>
 
 
-            <div class="col-md-10 p-2">
+            <div class="col-md-10 pt-2 px-3">
                 <div class="row">
                     @forelse ($properties as $property)
-                        <div class="col-md-3 text-color">
+                        <div class="col-6 col-lg-3 text-color">
                             @include('theme.property-card')
                          </div>
                     @empty
