@@ -106,12 +106,16 @@
                 @if($property->images->count())
                 <h5 class="h5-responsive my-3">Pictures</h5>
                 <div id="aniimated-thumbnials">
-                    @foreach ($property->images as $image)
-                    <a href="{{ asset('storage/' . $image->link) }}">
-                        <img class="row-cols-4 img-responsive p-1" src="{{ asset('storage/' . $image->link) }}"
-                            height="155" />
-                    </a>
-                    @endforeach
+                    <div class="row">
+                        @foreach ($property->images as $image)
+                        <div class=" col-lg-4 col-6 p-2">
+                            <a href="{{ asset('storage/' . $image->link) }}">
+                                <img src="{{ asset('storage/' . $image->link) }}"
+                                height="155" />
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
                 @endif
                 <!-- jQuery -->

@@ -11,7 +11,7 @@
                     <div class="row">
                         @forelse ($professions as $profession)
 
-                        <div class="col-md-2 py-2">
+                        <div class="col-lg-2 col-6 py-2">
                             <div class="card localcontact-item text-center border-0">
                                 <a href="{{route('frontend.professions.show',$profession)}}">
                                     
