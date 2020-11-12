@@ -19,7 +19,7 @@
                         <div class="rating">
                             @if ($property->for=='rent')
                             @if ($property->overall_rating !=null)
-                            <span class="bg-warning p-2 text-white">{{$property->overall_rating}} <i
+                            <span class="bg-success p-2 text-white">{{$property->overall_rating}} <i
                                     class="fa fa-star-o"></i></span>
                             @endif
                             @endif
