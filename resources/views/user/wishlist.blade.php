@@ -22,6 +22,7 @@
                                     <span class="text-success">{{$wishlist->property->overall_rating}} <i
                                             class="fa fa-star text-success"></i></span>
                                     @else
+                                    
                                     <span class="fa fa-star-o text-success"></span>
                                     @endif
                                 </span>
