@@ -1,4 +1,4 @@
-<span wire:click="toggleWishlist" class="change-icon">
+<span wire:click="toggleWishlist" class="change-icon text-danger">
     @if($hasInWishlist)
     <i class="fa fa-heart fa-lg"></i>
     @else
