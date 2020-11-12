@@ -19,6 +19,7 @@
                                         <img src="{{ $localContact->image != null ? asset('storage/' . $localContact->image) : asset('assets/img/real-estate.jpg') }}"
                                             alt="{{ $localContact->name }}" class="image img-fluid"
                                             style="width:100%; height:200px;">
+                                        
                                     </div>
                                     <div class="px-3 text-dark">
                                         <div class="font-weight-bold badge-info badge">

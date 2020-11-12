@@ -527,35 +527,30 @@ Hero section
 }
 
 .property-item .pi-image {
-    position: relative;
     margin-bottom: 35px;
 }
 
-.property-item .wishlist {
-    position: absolute;
-    left: 0;
-    top: 0;
-    min-width: 87px;
-    padding-left: 88%;
-    padding-top: 3px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
+.p-img-wrapper {
+    position: relative;
 }
 
-.property-item .rating {
+.p-img-wrapper .wishlist {
     position: absolute;
-    left: 0;
     top: 0;
-    min-width: 87px;
-    padding-right: 63px;
-    padding-top: 176px;
-    height: 50px;
-    text-align: center;
-    font-size: 18px;
+    right: 0;
     font-weight: 700;
     color: #fff;
+    background-color: rgb(255 193 7);
+    z-index: 99;
+    padding: 5px;
+}
+
+.p-img-wrapper .rating {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    z-index: 99;
 }
 
 .property-item .pi-badge {
@@ -590,6 +585,8 @@ Hero section
 .property-item p {
     margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 600px) {}
 
 
 /* ----------------
