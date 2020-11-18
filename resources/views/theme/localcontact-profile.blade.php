@@ -13,7 +13,7 @@
                         <div class="col-md-4 text-center">
 
                             <img src="{{$localContact->image!=null ? asset('storage/' . $localContact->image) : asset('assets/img/person-avatar.png')}}"
-                                class="img-thumbnail rounded-circle img-fluid" alt="{{ $localContact->name }}"
+                                class="img-thumbnail img-fluid" alt="{{ $localContact->name }}"
                                 style="width:35rem; height:14rem;">
                             <h6 class="text-capitalize m-2">
                                 <span class="badge-pill badge-info px-3  py-1">
