@@ -1,8 +1,21 @@
+<style>
+    .img-property-result {
+        width: 100%;
+        height: 200px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .img-property-result {
+            width: 100%;
+            height: 100px;
+        }
+    }
+</style>
 <div class="card property-item hover text-dark rounded-0" style="background-color: #fbf7fb;">
     <div class="p-img-wrapper">
         <a href="{{ route('frontend.property.show', $property) }}">
             <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                alt="{{ $property->title }}" class="image img-fluid" style="width:100%; height:200px">
+                alt="{{ $property->title }}" class="img-property-result">
         </a>
         {{-- <div class="pi-badge text-capitalize {{ $property->for == 'sale' ? 'new' : 'offer' }}">{{ $property->for }}
     </div> --}}

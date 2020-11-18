@@ -6,7 +6,6 @@
     {{-- <section class="search-result-section "> --}}
     <div class="">
         <div class="row">
-
             <div class="col-md-2">
                 <form action="{{route('frontend.property.search')}}" method="GET">
                     <div class="font-weight-bold text-decoration">Location</div>
@@ -153,7 +152,7 @@
             <div class="col-md-10 pt-2 px-3">
                 <div class="row">
                     @forelse ($properties as $property)
-                        <div class="col-6 col-lg-3 text-color">
+                        <div class="col-6 col-lg-3 text-color px-1 px-lg-2" style="font-size: 90%">
                             @include('theme.property-card')
                          </div>
                     @empty

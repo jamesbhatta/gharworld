@@ -1,5 +1,18 @@
 @extends('theme.client')
 @section('main-content')
+<style>
+    .img-local-result {
+        width: 100%;
+        height: 220px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .img-local-result {
+            width: 100%;
+            height: 140px;
+        }
+    }
+</style>
 <div class="my-2"></div>
 <div class="container-fluid">
     <!-- Search Result Section end -->
@@ -12,14 +25,13 @@
                 <div class="col-md-10 p-2">
                     <div class="row">
                         @forelse ($localContacts as $localContact)
-                        <div class="col-lg-3 col-6 mb-3" style="font-size: 80%">
+                        <div class="col-md-3 col-6 mb-3 px-1 px-lg-2" style="font-size: 80%">
                             <a href="{{route('frontend.localcontact.show',$localContact)}}">
                                 <div class="card localcontact-item text-center hover">
                                     <div class="pi-image">
                                         <img src="{{ $localContact->image != null ? asset('storage/' . $localContact->image) : asset('assets/img/real-estate.jpg') }}"
-                                            alt="{{ $localContact->name }}" class="image img-fluid"
-                                            style="width:100%; height:200px;">
-                                        
+                                            alt="{{ $localContact->name }}" class=" img-local-result">
+
                                     </div>
                                     <div class="px-3 text-dark">
                                         <div class="font-weight-bold badge-info badge">
