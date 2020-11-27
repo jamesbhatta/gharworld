@@ -152,7 +152,7 @@
             <div class="col-md-10 pt-2 px-3">
                 <div class="row">
                     @forelse ($properties as $property)
-                        <div class="col-6 col-lg-3 text-color px-1 px-lg-2" style="font-size: 90%">
+                        <div class="col-6 col-lg-3 text-color px-1 px-lg-2" >
                             @include('theme.property-card')
                          </div>
                     @empty

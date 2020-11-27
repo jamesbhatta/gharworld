@@ -77,7 +77,7 @@
                 <h5 class="h5-responsive my-3">Facilities</h5>
                 <div class="row">
                     @foreach ($property->facilities as $facility)
-                    <div class="col-md-3 bg-light mx-3 mb-3 py-2 px-3">
+                    <div class="col-lg-3 col-5 bg-light mx-lg-4 mx-3 mb-3 py-2 px-2">
                         <span class="text-success mr-2">
                             <i class="{{ $facility->icon ?? 'fa fa-check-circle' }}"></i>
                         </span>
@@ -103,7 +103,7 @@
                 @foreach ($property->images as $image)
                 {{-- <div class=" col-lg-4 col-6 p-2"> --}}
                 <a href="{{ asset('storage/' . $image->link) }}">
-                    <img class="p-2" src="{{ asset('storage/' . $image->link) }}" height="155" />
+                    <img class="py-1 px-1 p-lg-2 col-5 col-lg-3" src="{{ asset('storage/' . $image->link) }}" height="155" />
                 </a>
                 {{-- </div> --}}
                 @endforeach
@@ -152,7 +152,7 @@
                     <h5 class="text-center py-3 h5-responsive">Related Property</h5>
                     <div class="row justify-content-center">
                         @forelse ($properties as $property)
-                        <div class="col-6 col-lg-10 text-color">
+                        <div class="col-6 col-lg-10 text-color m-0">
                             @include('theme.property-card')
                         </div>
                         @empty
