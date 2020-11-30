@@ -28,14 +28,23 @@
             overflow-y: scroll;
             scroll-behavior: smooth;
 
-            -webkit-box-shadow: 3px 0px 20px -3px rgba(155,157,163,1);
-            -moz-box-shadow: 3px 0px 20px -3px rgba(155,157,163,1);
-            box-shadow: 3px 0px 20px -3px rgba(155,157,163,1);
+            -webkit-box-shadow: 1px 4px 8px -1px #8B8B8B;
+            box-shadow: 1px 4px 8px -1px #8B8B8B;
 
             transition: all .5s ease;
         }
-        * {
-            border: 1px solid red;
+
+        #filter-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(192, 192, 192, 0.13);
+            z-index: 1000;
         }
 
         #filter-panel-closer {
@@ -44,6 +53,7 @@
             right: 10px;
             height: 50px;
             width: 50px;
+            border: none;
             background-color: #fff;
             color: #1e88e5;
             border-radius: 50%;
@@ -51,10 +61,11 @@
             justify-content: center;
             font-size: 25px;
             overflow: hidden;
+            z-index: 1000;
 
-            -webkit-box-shadow: 3px 3px 22px -4px rgba(155,157,163,1);
--moz-box-shadow: 3px 3px 22px -4px rgba(155,157,163,1);
-box-shadow: 3px 3px 22px -4px rgba(155,157,163,1);
+            -webkit-box-shadow: 3px 3px 22px -8px rgba(155, 157, 163, 1);
+            -moz-box-shadow: 3px 3px 22px -8px rgba(155, 157, 163, 1);
+            box-shadow: 3px 3px 22px -8px rgba(155, 157, 163, 1);
 
             transition: all .5s ease;
         }
@@ -78,7 +89,9 @@ box-shadow: 3px 3px 22px -4px rgba(155,157,163,1);
                     </svg>
                     </span>Filter
                 </button>
-                <div id="filter-panel-closer" onclick="closeFilterPanel()"><i class="fa fa-close"></i></div>
+
+                <button id="filter-overlay" onclick="closeFilterPanel()"></button>
+                <button id="filter-panel-closer" onclick="closeFilterPanel()"><i class="fa fa-close"></i></button>
 
                 <nav id="filter-panel">
                     <form action="{{route('frontend.property.search')}}" method="GET">
@@ -214,6 +227,7 @@ box-shadow: 3px 3px 22px -4px rgba(155,157,163,1);
 
             <div class="col-md-10 pt-2 px-3">
                 <div class="row">
+                    <div style="height: 400px;"></div>
                     @forelse ($properties as $property)
                     <div class="col-6 col-lg-3 text-color px-1 px-lg-2">
                         @include('theme.property-card')
@@ -239,11 +253,13 @@ box-shadow: 3px 3px 22px -4px rgba(155,157,163,1);
     function openFilterPanel() {
         document.getElementById('filter-panel').style.marginLeft = 0;
         document.getElementById('filter-panel-closer').style.display = 'flex';
+        document.getElementById('filter-overlay').style.display = 'block';
     }
 
     function closeFilterPanel() {
         document.getElementById('filter-panel').style.marginLeft = "-250px";
         document.getElementById('filter-panel-closer').style.display = 'none';
+        document.getElementById('filter-overlay').style.display = 'none';
     }
 
 </script>
