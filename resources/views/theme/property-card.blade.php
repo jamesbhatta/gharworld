@@ -25,7 +25,7 @@
             font-size: 12px;
         }
         .str {
-        max-width: 160px;
+        max-width: 165px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

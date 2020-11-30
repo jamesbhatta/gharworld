@@ -8,5 +8,6 @@
 <script src="{{asset('assets/mondy/js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{asset('assets/mondy/js/main.js')}}"></script>
 <script src="{{asset('assets/lightgallery/dist/js/lightgallery.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 @livewireScripts
 @stack('scripts')
