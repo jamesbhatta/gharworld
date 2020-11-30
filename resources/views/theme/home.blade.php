@@ -21,7 +21,7 @@
 <!-- Hero Section end -->
 {{-- <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}"> --}}
 <section class="spad">
-    <div class="container-fluid">
+    <div class="container-fluid d-flex flex-column-reverse flex-lg-column">
         <div class="row justify-content-lg-center pt-lg-5 pb-lg-4 py-4 text-center text-white txt">
             <div class="col-md-3">
                 <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
@@ -46,7 +46,7 @@
                 </a>
             </div>
         </div>
-        <div class="hero-warp col-md-5 pb-3 px-3" style="margin: 0 auto;">
+        <div class="hero-warp col-md-5 pb-3 px-3 mt-lg-0 mt-5" style="margin: 0 auto;">
             <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
                 <div class="search-type search-text">
                     <div class="st-item">

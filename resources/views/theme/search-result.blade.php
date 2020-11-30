@@ -90,7 +90,7 @@
                     </span>Filter
                 </button>
 
-                <button id="filter-overlay" onclick="closeFilterPanel()"></button>
+                <button id="filter-overlay" onclick="closeFilterPanel()" style="display: none;"></button>
                 <button id="filter-panel-closer" onclick="closeFilterPanel()"><i class="fa fa-close"></i></button>
 
                 <nav id="filter-panel">
