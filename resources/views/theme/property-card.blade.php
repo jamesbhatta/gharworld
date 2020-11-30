@@ -32,7 +32,7 @@
     }
     }
 </style>
-<div class="card property-item hover text-dark rounded-0 property-result-text" style="background-color: #fbf7fb;">
+<div class="card property-item hover text-dark rounded-0 property-result-text my-lg-2 my-1" style="background-color: #fbf7fb;">
     <div class="p-img-wrapper">
         <a href="{{ route('frontend.property.show', $property) }}">
             <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
@@ -54,7 +54,7 @@
 <div class="px-2 py-2" \>
     <div class="font-weight-bold">
         <span
-            class="ml-auto text-danger">{{ 'NRs.'. $property->price . ($property->for == 'rent' ? "/$property->price_per" : '/-') }}</span>
+            class="ml-auto text-danger">{{ 'NRs.'. $property->price ."/". ($property->for == 'rent' ? "$property->price_per" : '-') }}</span>
     </div>
     <div class="text-capitalize str">
         {{ $property->title }}

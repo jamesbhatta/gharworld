@@ -97,7 +97,7 @@
                     <form action="{{route('frontend.property.search')}}" method="GET">
                         <div class="font-weight-bold text-decoration">Location</div>
                         <div class="px-2 py-2">
-                            <select name="city_id" id="city" class="form-control" onchange='this.form.submit()'>
+                            <select name="city_id" id="city" class="form-control js-example-theme-single" onchange='this.form.submit()'>
                                 <option value="">Select Location</option>
                                 @foreach ($cities as $city)
                                 <option value="{{ $city->id}}" {{"$city->id"==request()->city_id ? 'selected' : '' }}>
@@ -261,5 +261,10 @@
         document.getElementById('filter-overlay').style.display = 'none';
     }
 
+</script>
+<script>
+    $(".js-example-theme-single").select2({
+  theme: "classic"
+});
 </script>
 @endpush

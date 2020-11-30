@@ -37,7 +37,9 @@
                             <h5 class="d-inline-block bg-danger text-white p-2">NRs.
                                 {{ number_format($property->price) ."/". ($property->for == 'rent' ? ucfirst($property->price_per) : '-') }}
                             </h5>
+                            @if ($property->for == 'sale')
                             <div class="text-secondary">(Negotiable)</div>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <form action="{{route('frontend.local-contacts.search')}}" method="GET" class="form">
     <div class="form-group">
         <label for="select-city" class="font-weight-bold text-decoration">Location</label>
-        <select name="city_id" id="select-city" class="custom-select rounded-0" onchange='this.form.submit()'>
+        <select name="city_id" id="select-city" class="custom-select rounded-0 js-example-theme-single" onchange='this.form.submit()'>
             <option value="">Select Location</option>
             @foreach ($cities as $city)
             <option value="{{ $city->id }}" {{"$city->id" == request()->city_id ? 'selected' : '' }}>
@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label class="font-weight-bold text-decoration">Profession</label>
-        <select name="profession_id" id="profession" class="custom-select rounded-0" onchange='this.form.submit()'>
+        <select name="profession_id" id="profession" class="custom-select rounded-0 js-example-theme-single" onchange='this.form.submit()'>
             @foreach ($professions as $profession)
             <option value="{{ $profession->id }}" {{"$profession->id" == request()->profession_id ? 'selected' : '' }}>
                 {{ $profession->name }}
@@ -90,3 +90,10 @@
 
     </div>
 </form>
+@push('scripts')
+<script>
+    $(".js-example-theme-single").select2({
+  theme: "classic"
+});
+</script>
+@endpush
