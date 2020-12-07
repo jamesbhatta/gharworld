@@ -9,7 +9,7 @@
             <div class="col-lg-8">
                 <div class="single-property">
                     <div class="sp-image mb-0">
-                        <div class="p-img-wrapper">
+                        <div class="p-img-wrapper bg-secondary">
                             <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
                                 <!--Indicators-->
                                 <ol class="carousel-indicators">
@@ -23,16 +23,20 @@
                                 <div class="carousel-inner" role="listbox">
                                     <!--First slide-->
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100"
+                                        <div class="text-center" style="max-height: 500px;">
+                                            <img
                                             src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                            alt="{{ $property->title }}">
+                                            alt="{{ $property->title }}" style="max-height: 500px; object-fit:cover;">
+                                        </div>
                                     </div>
                              
                                     @foreach ($property->images as $image)
+
                                     <div class="carousel-item">
-                                       
-                                            <img class="d-block w-100" src="{{ asset('storage/' . $image->link) }}"
-                                                alt="image">
+                                       <div class="text-center" style="max-height: 500px;">
+                                           <img src="{{ asset('storage/' . $image->link) }}"
+                                           alt="image" style="max-height: 500px; object-fit:cover;">
+                                        </div>
                             
                                     </div>
                                     @endforeach
