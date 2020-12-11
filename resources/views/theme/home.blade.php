@@ -3,9 +3,9 @@
 
 
 <style>
-    body {
+    /* body {
         background-image: url('{{ asset('assets/mondy/img/hero-bg.jpg')}}');
-    }
+    } */
 
     .home-hover:hover {
 
@@ -23,8 +23,8 @@
     }
 </style>
 <!-- Hero Section end -->
-{{-- <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}"> --}}
-<section class="spad">
+<section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}">
+{{-- <section class="spad"> --}}
     <div class="container-fluid d-flex flex-column-reverse flex-lg-column">
         <div class="row justify-content-lg-center pt-lg-5 pb-lg-4 py-4 mt-2 text-center text-white txt">
             <div class="col-md-3">

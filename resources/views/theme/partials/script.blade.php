@@ -6,7 +6,7 @@
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
 @else
-{{-- <script src="{{asset('assets/mondy/js/jquery-3.2.1.min.js')}}"></script> --}}
+<script src="{{asset('assets/mondy/js/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('assets/mondy/js/bootstrap.min.js')}}">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
