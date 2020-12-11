@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Favicon -->
-	<link href="favicon.ico" rel="shortcut icon" />
+	<link href="{{ asset('/favicon.ico') }}" rel="shortcut icon" />
 
 	<!-- Google font -->
 	<link
