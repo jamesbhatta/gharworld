@@ -50,7 +50,7 @@
                 </a>
             </div>
         </div>
-        <div class="hero-warp col-md-5 pb-3 px-3 mt-lg-5 mt-5" style="margin: 0 auto; background: rgba(0, 0, 0, 0.7);"">
+        <div class="hero-warp col-md-5 pb-3 px-3 mt-lg-5 " style="margin: 0 auto; background: rgba(0, 0, 0, 0.7);"">
             <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
                 <div class="search-type search-text">
                     <div class="st-item">
