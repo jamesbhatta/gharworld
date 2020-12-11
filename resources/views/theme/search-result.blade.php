@@ -70,25 +70,43 @@
             transition: all .5s ease;
         }
     }
-
 </style>
 @endpush
 
 @section('main-content')
 <div class="my-0 my-md-2"></div>
+
 <div class="container-fluid spad">
     <!-- Search Result Section end -->
     {{-- <section class="search-result-section "> --}}
     <div class="">
+        {{-- filter panel --}}
         <div class="row">
-            {{-- filter panel --}}
             <div class="col-md-2">
-                <button id="filter-panel-opener" class="btn btn-primary rounded-0" onclick="openFilterPanel()">
-                    <svg style="display: inline-flex; height: 1em;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                    </svg>
-                    </span>Filter
-                </button>
+                <div id="filter-panel-opener" class="py-2 px-3"
+                    style="top:0; width: 100%; z-index: 100; background-color: #f4f5f6;">
+                    <button class="btn btn-primary rounded-0" onclick="openFilterPanel()">
+                        <svg style="display: inline-flex; height: 1em;" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                        </svg>
+                        </span>Filter
+                    </button>
+                    <script>
+                        window.onscroll = function () {
+                            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                                document.getElementById("filter-panel-opener").style.position = "fixed";
+                                document.getElementById("filter-panel-opener").classList.add("shadow-sm");
+                                document.getElementById("filter-panel-opener").classList.add("ml-n2");
+                            } else {
+                                document.getElementById("filter-panel-opener").style.position = "static";
+                                document.getElementById("filter-panel-opener").classList.remove("shadow-sm");
+                                document.getElementById("filter-panel-opener").classList.remove("ml-n2");
+                            }
+                        };
+                    </script>
+                </div>
 
                 <button id="filter-overlay" onclick="closeFilterPanel()" style="display: none;"></button>
                 <button id="filter-panel-closer" onclick="closeFilterPanel()"><i class="fa fa-close"></i></button>
@@ -97,7 +115,8 @@
                     <form action="{{route('frontend.property.search')}}" method="GET">
                         <div class="font-weight-bold text-decoration">Location</div>
                         <div class="px-2 py-2">
-                            <select name="city_id" id="city" class="form-control js-example-theme-single" onchange='this.form.submit()'>
+                            <select name="city_id" id="city" class="form-control js-example-theme-single"
+                                onchange='this.form.submit()'>
                                 <option value="">Select Location</option>
                                 @foreach ($cities as $city)
                                 <option value="{{ $city->id}}" {{"$city->id"==request()->city_id ? 'selected' : '' }}>
@@ -111,29 +130,36 @@
                         <hr>
                         <div class="font-weight-bold text-decoration">Property type</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="type" id="real-estate" value="real-estate" {{request()->type=="real-estate" ? 'checked' : ''}} onchange='this.form.submit()'>
+                            <div><input type="radio" name="type" id="real-estate" value="real-estate"
+                                    {{request()->type=="real-estate" ? 'checked' : ''}} onchange='this.form.submit()'>
                                 <label for="real-estate">Land/House</label>
                             </div>
-                            <div><input type="radio" name="type" id="house" value="house" {{request()->type=="house" ? 'checked' : ''}} onchange='this.form.submit()'>
+                            <div><input type="radio" name="type" id="house" value="house"
+                                    {{request()->type=="house" ? 'checked' : ''}} onchange='this.form.submit()'>
                                 <label for="house">House</label>
                             </div>
-                            <div><input type="radio" name="type" id="land" value="land" {{request()->type=="land" ? 'checked' : ''}} onchange='this.form.submit()'>
+                            <div><input type="radio" name="type" id="land" value="land"
+                                    {{request()->type=="land" ? 'checked' : ''}} onchange='this.form.submit()'>
                                 <label for="land">Land</label>
                             </div>
-                            <div><input type="radio" name="type" id="room" value="room" {{request()->type=="room" ? 'checked' : ''}} onchange='this.form.submit()'>
+                            <div><input type="radio" name="type" id="room" value="room"
+                                    {{request()->type=="room" ? 'checked' : ''}} onchange='this.form.submit()'>
                                 <label for="room">Room</label>
                             </div>
                         </div>
                         <hr>
                         <div class="font-weight-bold text-decoration">Property For</div>
                         <div class="px-3 py-2">
-                            <div><input type="radio" name="for" id="all" value="all" {{request()->for=="all" ? 'checked' : ''}} onchange='this.form.submit()'>
+                            <div><input type="radio" name="for" id="all" value="all"
+                                    {{request()->for=="all" ? 'checked' : ''}} onchange='this.form.submit()'>
                                 <label for="all">Sale/Rent</label>
                             </div>
-                            <div><input type="radio" name="for" id="rent" value="rent" {{request()->for=="rent" ? 'checked' : ''}} onchange='this.form.submit()'>
+                            <div><input type="radio" name="for" id="rent" value="rent"
+                                    {{request()->for=="rent" ? 'checked' : ''}} onchange='this.form.submit()'>
                                 <label for="rent">Rent</label>
                             </div>
-                            <div><input type="radio" name="for" id="sale" value="sale" {{request()->for=="sale" ? 'checked' : ''}} onchange='this.form.submit()'>
+                            <div><input type="radio" name="for" id="sale" value="sale"
+                                    {{request()->for=="sale" ? 'checked' : ''}} onchange='this.form.submit()'>
                                 <label for="sale">Sale</label></div>
                         </div>
                         <hr>
@@ -153,7 +179,8 @@
                         <div class="font-weight-bold text-decoration">Rating</div>
                         <div class="px-2 py-2">
                             <div>
-                                <input type="radio" name="overall_rating" value="5" id="5" onchange='this.form.submit()' style="display: none">
+                                <input type="radio" name="overall_rating" value="5" id="5" onchange='this.form.submit()'
+                                    style="display: none">
 
                                 <label for="5">
                                     @for ($i = 1; $i <= 5; $i++) @if(5>= $i)
@@ -166,7 +193,8 @@
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" name="overall_rating" value="4" id="4" onchange='this.form.submit()' style="display: none">
+                                <input type="radio" name="overall_rating" value="4" id="4" onchange='this.form.submit()'
+                                    style="display: none">
                                 <label for="4">
                                     @for ($i = 1; $i <= 5; $i++) @if(4>= $i)
                                         <span class="fa fa-star text-warning"></span>
@@ -179,7 +207,8 @@
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" name="overall_rating" value="3" id="3" onchange='this.form.submit()' style="display: none">
+                                <input type="radio" name="overall_rating" value="3" id="3" onchange='this.form.submit()'
+                                    style="display: none">
                                 <label for="3">
                                     @for ($i = 1; $i <= 5; $i++) @if(3>= $i)
                                         <span class="fa fa-star text-warning"></span>
@@ -192,7 +221,8 @@
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" name="overall_rating" value="2" id="2" onchange='this.form.submit()' style="display: none">
+                                <input type="radio" name="overall_rating" value="2" id="2" onchange='this.form.submit()'
+                                    style="display: none">
                                 <label for="2">
                                     @for ($i = 1; $i <= 5; $i++) @if(2>= $i)
                                         <span class="fa fa-star text-warning"></span>
@@ -205,7 +235,8 @@
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" name="overall_rating" value="1" id="1" onchange='this.form.submit()' style="display: none">
+                                <input type="radio" name="overall_rating" value="1" id="1" onchange='this.form.submit()'
+                                    style="display: none">
                                 <label for="1">
                                     @for ($i = 1; $i <= 5; $i++) @if(1>= $i)
                                         <span class="fa fa-star text-warning"></span>
@@ -224,19 +255,20 @@
                 </nav>
             </div>
 
-
-            <div class="col-md-10 pt-2 px-3">
-                <div class="row">
-                    @forelse ($properties as $property)
-                    <div class="col-6 col-lg-3 text-color px-1 px-lg-2">
-                        @include('theme.property-card')
+            <div class="col-md-10 pt-2">
+                <div class="container-fluid">
+                    <div class="row">
+                        @forelse ($properties as $property)
+                        <div class="col-6 col-lg-3 text-color px-1 px-lg-2">
+                            @include('theme.property-card')
+                        </div>
+                        @empty
+                        <div class="col-md-12 text-danger text-center justify-content-center">* No data available in
+                            databale </div>
+                        @endforelse
                     </div>
-                    @empty
-                    <div class="col-md-12 text-danger text-center justify-content-center">* No data available in
-                        databale </div>
-                    @endforelse
+                    {{ $properties->links() }}
                 </div>
-                {{ $properties->links() }}
             </div>
         </div>
     </div>

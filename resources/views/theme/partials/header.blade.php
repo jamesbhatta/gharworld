@@ -1,5 +1,5 @@
 <!-- Header Section -->
-<header class="header-section">
+<header class="header-section" style="background: rgba(0, 0, 0, 0.7);">
     <a href="{{ route('frontend.home') }}" class="site-logo">
         <h3 class=" text-white">GharWorld</h3>
     </a>

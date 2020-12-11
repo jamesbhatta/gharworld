@@ -3,6 +3,10 @@
 
 
 <style>
+    body {
+        background-image: url('{{ asset('assets/mondy/img/hero-bg.jpg')}}');
+    }
+
     .home-hover:hover {
 
         box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -22,10 +26,10 @@
 {{-- <section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}"> --}}
 <section class="spad">
     <div class="container-fluid d-flex flex-column-reverse flex-lg-column">
-        <div class="row justify-content-lg-center pt-lg-5 pb-lg-4 py-4 text-center text-white txt">
+        <div class="row justify-content-lg-center pt-lg-5 pb-lg-4 py-4 mt-2 text-center text-white txt">
             <div class="col-md-3">
                 <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
-                    <h5 class="py-4 h5-responsive my-2 mx-3 px-3 home-hover rounded-0" style="background:#10304c;">
+                    <h5 class="py-4 h5-responsive my-2 mx-3 px-3 home-hover rounded-0" style="background:#10304c; opacity:0.9;">
                         <span class="mr-2"><i class="fa fa-building"></i></span> Real
                         Estate
                     </h5>
@@ -33,20 +37,20 @@
             </div>
             <div class="col-md-3">
                 <a href="{{route('frontend.property.search',['type' => 'room', 'for' => 'rent'])}}">
-                    <h5 class="h5-responsive my-2 mx-3 py-4 px-3 home-hover" style="background:#10304c;">
+                    <h5 class="h5-responsive my-2 mx-3 py-4 px-3 home-hover" style="background:#10304c; opacity:0.9;">
                         <span class="mr-2"><i class="fa fa-home"></i></span> Room Rent
                     </h5>
                 </a>
             </div>
             <div class="col-md-3">
                 <a href="{{ route('frontend.professions') }}">
-                    <h5 class="my-2 mx-3 h5-responsive py-4 px-3 home-hover" style="background:#10304c;">
-                        <span class="mr-2"><i class="fa fa-user"></i></span> Local Contact
+                    <h5 class="my-2 mx-3 h5-responsive py-4 px-3 home-hover" style="background:#10304c; opacity:0.9;">
+                        <span class="mr-2"><i class="fa fa-users"></i></span> Local Contact
                     </h5>
                 </a>
             </div>
         </div>
-        <div class="hero-warp col-md-5 pb-3 px-3 mt-lg-0 mt-5" style="margin: 0 auto;">
+        <div class="hero-warp col-md-5 pb-3 px-3 mt-lg-5 mt-5" style="margin: 0 auto; background: rgba(0, 0, 0, 0.7);"">
             <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
                 <div class="search-type search-text">
                     <div class="st-item">
