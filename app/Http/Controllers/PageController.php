@@ -10,5 +10,8 @@ class PageController extends Controller
     {
         return view('theme.' . $page);
     }
+    public function page(){
+        return view('theme.page.privacy-policy');
+    }
  
 }

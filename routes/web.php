@@ -45,3 +45,5 @@ Route::group(['namespace' => 'Frontend'], function () {
 
 
 Route::get('page/{page}', 'PageController@index');
+
+Route::get('privacy-policy', 'PageController@page');
