@@ -1,6 +1,8 @@
 <!-- Footer Section -->
+@include('theme.partials.messenger-chat')
 <footer class="footer-section pt-4  {{ request()->is('/') ? 'd-none' : '' }}">
     <div class="container">
+        
         <div class="row text-white ">
             <div class="col-md-4 text-xl-left text-center">
                 <x-company-contact-component />
