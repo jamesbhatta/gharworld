@@ -102,10 +102,10 @@
                     <div class="social-login">
                         <div class="d-flex justify-content-center">
                             <div class="flex-shrink-0">
-                                <a href="{{ route('login.social', 'facebook') }}" class="social-login-btn facebook rounded-0 z-depth-0"><i class="fab fa-facebook-f mr-3"></i>Log in with Facebook</a>
+                                <a href="{{ route('login.social', 'facebook') }}" class="social-login-btn facebook rounded-0 z-depth-0"><i class="fab fa-facebook-f mr-3"></i>Facebook</a>
                             </div>
                             <div class="flex-shrink-0">
-                                <a href="{{ route('login.social', 'google') }}" class="social-login-btn google rounded-0 z-depth-0"><i class="fab fa-google mr-3"></i>Log in with Google</a>
+                                <a href="{{ route('login.social', 'google') }}" class="social-login-btn google rounded-0 z-depth-0"><i class="fab fa-google mr-3"></i>Google</a>
                             </div>
                         </div>
                     </div>
