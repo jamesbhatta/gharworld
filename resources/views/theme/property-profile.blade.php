@@ -24,20 +24,24 @@
                                     <!--First slide-->
                                     <div class="carousel-item active">
                                         <div class="text-center" style="max-height: 500px;">
-                                            <img
-                                            src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                            alt="{{ $property->title }}" style="max-height: 500px; object-fit:cover;">
+                                            <a href="{{url('storage/' . $property->image)}}" target="_blank">
+                                                <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
+                                                    alt="{{ $property->title }}"
+                                                    style="max-height: 500px; object-fit:cover;">
+                                            </a>
                                         </div>
                                     </div>
-                             
+
                                     @foreach ($property->images as $image)
 
                                     <div class="carousel-item">
-                                       <div class="text-center" style="max-height: 500px;">
-                                           <img src="{{ asset('storage/' . $image->link) }}"
-                                           alt="image" style="max-height: 500px; object-fit:cover;">
+                                        <div class="text-center" style="max-height: 500px;">
+                                            <a href="{{url('storage/' . $image->link)}}" target="_blank">
+                                                <img src="{{ asset('storage/' . $image->link) }}" alt="image"
+                                                    style="max-height: 500px; object-fit:cover;">
+                                            </a>
                                         </div>
-                            
+
                                     </div>
                                     @endforeach
                                 </div>
@@ -197,14 +201,14 @@
                     <h5 class="text-center py-3 h5-responsive">Related Property</h5>
                     <div class="row justify-content-center">
                         @php
-                            $propertyId = $property->id;
+                        $propertyId = $property->id;
                         @endphp
                         @forelse ($properties as $property)
-                            @php
-                            if ($propertyId == $property->id)
-                                continue;
-                            @endphp
-                     
+                        @php
+                        if ($propertyId == $property->id)
+                        continue;
+                        @endphp
+
                         <div class="col-6 col-lg-10 text-color m-0">
                             @include('theme.property-card')
                         </div>

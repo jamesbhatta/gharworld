@@ -23,10 +23,10 @@
     }
 </style>
 <!-- Hero Section end -->
-<section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}">
+<section class="hero-section set-bg" data-setbg="{{ asset('assets/mondy/img/hero-bg.jpg') }}" style="height: 100%">
 {{-- <section class="spad"> --}}
-    <div class="container-fluid d-flex flex-column-reverse flex-lg-column">
-        <div class="row justify-content-lg-center pt-lg-5 pb-lg-4 py-4 mt-2 text-center text-white txt">
+    <div class="container-fluid d-flex flex-column-reverse  flex-lg-column mt-lg-5 pt-lg-5">
+        <div class="row justify-content-lg-center  pb-lg-4 mt-lg-5 pt-lg-5 text-center text-white txt">
             <div class="col-md-3">
                 <a href="{{route('frontend.property.search',['type' => 'real-estate', 'for' => 'all'])}}">
                     <h5 class="py-4 h5-responsive my-2 mx-3 px-3 home-hover rounded-0" style="background:#10304c; opacity:0.9;">
@@ -50,7 +50,7 @@
                 </a>
             </div>
         </div>
-        <div class="hero-warp col-md-5 pb-3 px-3 mt-lg-5 " style="margin: 0 auto; background: rgba(0, 0, 0, 0.7);"">
+        {{-- <div class="hero-warp col-md-5 pb-3 px-3 mt-lg-5 " style="margin: 0 auto; background: rgba(0, 0, 0, 0.7);"">
             <form class="main-search-form" action="{{ route('frontend.property.search') }}" method="get">
                 <div class="search-type search-text">
                     <div class="st-item">
@@ -124,7 +124,7 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </div> --}}
     </div>
 </section>
 

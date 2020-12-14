@@ -1,6 +1,6 @@
 <!-- Footer Section -->
 @include('theme.partials.messenger-chat')
-<footer class="footer-section pt-4  {{ request()->is('/') ? 'd-none' : '' }}">
+<footer class="footer-section pt-4  ">
     <div class="container">
         
         <div class="row text-white ">
