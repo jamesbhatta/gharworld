@@ -15,12 +15,9 @@
         <div class="col-md-12 mx-auto">
             <div class="card z-depth-0 sticky-top">
                 <div class="card-body">
-                    <a href="{{ route('properties.create') }}" class="btn btn-info rounded-0 mb-3 mx-0"> <span
-                            class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
-                    <button onclick="myFunction()" class="btn-info btn rounded-0 mb-3 mx-0"> <i class="fa fa-filter"
-                            aria-hidden="true"></i> Filter</button>
-                    <form action="{{route('property-search')}}" method="POST" class="form" id="myDIV"
-                        style="display:none;">
+                    <a href="{{ route('properties.create') }}" class="btn btn-info rounded-0 mb-3 mx-0"> <span class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
+                    <button onclick="myFunction()" class="btn-info btn rounded-0 mb-3 mx-0"> <i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+                    <form action="{{route('property-search')}}" method="POST" class="form" id="myDIV" style="display:none;">
                         @csrf
                         @method('put')
                         <div class="row">
@@ -32,7 +29,7 @@
                                 <label for="contact">Contact</label>
                                 <input type="text" name="contact" id="contact" class="form-control" placeholder="Contact No.">
                             </div>
-                           
+
                             <div class="col-md-4 form-group">
                                 <label for="">Title</label>
                                 <input type="text" name="title" class="form-control" placeholder="Title">
@@ -67,7 +64,7 @@
                                 <label for="address">Address</label>
                                 <input type="text" name="address_line" class="form-control" placeholder="Address">
                             </div>
-                            
+
                             <div class="col-md-4 form-group">
                                 <label for="address">Expiry</label>
                                 <div class="row">
@@ -96,8 +93,7 @@
                     </form>
                     {{-- <div class="row">
                         <div class="col-md-3">
-                            <a href="{{ route('properties.create') }}" class="btn btn-info rounded-0 mb-3 mx-0"> <span
-                        class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
+                            <a href="{{ route('properties.create') }}" class="btn btn-info rounded-0 mb-3 mx-0"> <span class="mr-2"><i class="fa fa-plus"></i></span> New Property</a>
                 </div>
                 <div class="col-md-9">
                     <form action="{{route('property-search')}}" method="post" class="form">
@@ -116,8 +112,7 @@
                                 </select>
                             </div>
                             <div class="col-md-9 input-group">
-                                <input type="search" name="search" value="{{old('search')}}" class="form-control"
-                                    placeholder="Search...">
+                                <input type="search" name="search" value="{{old('search')}}" class="form-control" placeholder="Search...">
                                 <div class="input-group-append">
                                     <button type="submit" class="form-control"><i class="fa fa-search"></i></button>
                                 </div>
@@ -142,7 +137,7 @@
                     </tr>
                 </thead>
 
-                @foreach ($properties as $property)
+                @forelse ($properties as $property)
                 <tr>
                     <td class="text-capitalize">{{ $property->name }}</td>
                     <td class="text-capitalize">{{ $property->contact }}</td>
@@ -153,7 +148,7 @@
                     <td>{{ $property->price }}{{ $property->price_per==null ? '' : "/$property->price_per" }}
                     </td>
                     <td>@php
-                       $date1=date_create(date('yy-m-d'));
+                        $date1=date_create(date('yy-m-d'));
                         $date2=date_create("$property->expiry");
                         $diff=date_diff($date1,$date2);
                         echo $diff->format("%R%a Remaining days");
@@ -161,19 +156,20 @@
                     <td class="text-capitalize">{{ $property->status}}</td>
                     <td>
 
-                        <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i
-                                class="fa fa-edit text-info"></i></a>
+                        <a href="{{ route('properties.edit', $property) }}" class="text-muted"><i class="fa fa-edit text-info"></i></a>
                         <span class="mx-1">|</span>
-                        <form action="{{ route('properties.destroy', $property) }}"
-                            onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
+                        <form action="{{ route('properties.destroy', $property) }}" onsubmit="return confirm('Are you sure to delete?')" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="border-0 my-0 p-0 text-danger bg-transparent"><i
-                                    class="fa fa-trash-alt"></i></button>
+                            <button type="submit" class="border-0 my-0 p-0 text-danger bg-transparent"><i class="fa fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="42" class="text-center font-italic">No records found !!</td>
+                </tr>
+                @endforelse
 
             </table>
             {{$properties->links()}}
@@ -185,11 +181,12 @@
 @endsection
 <script>
     function myFunction() {
-      var x = document.getElementById("myDIV");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
     }
+
 </script>

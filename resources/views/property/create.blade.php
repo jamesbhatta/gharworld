@@ -13,7 +13,15 @@
         <div class="col-md-12 mx-auto">
             <div class="card z-depth-0 sticky-top">
                 <div class="card-body">
-                    <h3>{{ $property->exists ? 'Edit Property' : 'New Property' }}</h3>
+                    <div class="d-flex align-items-center">
+                        <h3>{{ $property->exists ? 'Edit Property' : 'New Property' }}</h3>
+                        
+                        @if($property->exists)
+                        <a class="btn btn-primary btn-sm ml-3" href="{{ route('frontend.property.show', $property) }}" target="_blank">View</a>
+                        @endif
+                        
+                    </div>
+
                     <form action="{{ $property->exists ? route('properties.update', $property) : route('properties.store') }}" method="POST" class="form" enctype="multipart/form-data">
                         @csrf
                         @if($property->exists)
@@ -165,5 +173,6 @@
             height: 250
         });
     });
+
 </script>
 @endpush

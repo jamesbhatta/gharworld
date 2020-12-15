@@ -25,9 +25,7 @@
                                     <div class="carousel-item active">
                                         <div class="text-center" style="max-height: 500px;">
                                             <a href="{{url('storage/' . $property->image)}}" target="_blank">
-                                                <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}"
-                                                    alt="{{ $property->title }}"
-                                                    style="max-height: 500px; object-fit:cover;">
+                                                <img src="{{ $property->image != null ? asset('storage/' . $property->image) : asset('assets/img/real-estate.jpg') }}" alt="{{ $property->title }}" style="max-height: 500px; object-fit:cover;">
                                             </a>
                                         </div>
                                     </div>
@@ -37,8 +35,7 @@
                                     <div class="carousel-item">
                                         <div class="text-center" style="max-height: 500px;">
                                             <a href="{{url('storage/' . $image->link)}}" target="_blank">
-                                                <img src="{{ asset('storage/' . $image->link) }}" alt="image"
-                                                    style="max-height: 500px; object-fit:cover;">
+                                                <img src="{{ asset('storage/' . $image->link) }}" alt="image" style="max-height: 500px; object-fit:cover;">
                                             </a>
                                         </div>
 
@@ -47,13 +44,11 @@
                                 </div>
                                 <!--/.Slides-->
                                 <!--Controls-->
-                                <a class="carousel-control-prev" href="#carousel-example-1z" role="button"
-                                    data-slide="prev">
+                                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
-                                <a class="carousel-control-next" href="#carousel-example-1z" role="button"
-                                    data-slide="next">
+                                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
@@ -65,8 +60,7 @@
                             <div class="rating">
                                 @if ($property->for=='rent')
                                 @if ($property->overall_rating !=null)
-                                <span class="bg-success p-2 text-white">{{$property->overall_rating}} <i
-                                        class="fa fa-star-o"></i></span>
+                                <span class="bg-success p-2 text-white">{{$property->overall_rating}} <i class="fa fa-star-o"></i></span>
                                 @endif
                                 @endif
                             </div>
@@ -77,6 +71,9 @@
                             {{-- <h4 class="h4-responsive text-capitalize mb-3"><span
                                     class="badge badge-warning text-white p-2">{{ $property->type}}</span></h4> --}}
                             <h5 class="text-uppercase mb-1 mb-md-0">{{$property->title}}</h5>
+                            @hasanyrole('admin')
+                            <a href="{{ route('properties.edit', $property) }}">Edit</a>
+                            @endhasanyrole
                         </div>
                         <div class="col-lg-5 text-left text-lg-right">
                             <div class="property-header">
@@ -123,15 +120,19 @@
                     @endisset
                     @if($property->facilities->count())
                     <h5 class="h5-responsive my-3">Facilities</h5>
-                    <div class="row">
-                        @foreach ($property->facilities as $facility)
-                        <div class="col-lg-3 col-5 bg-light mx-lg-4 mx-3 mb-3 py-2 px-2">
-                            <span class="text-success mr-2">
-                                <i class="{{ $facility->icon ?? 'fa fa-check-circle' }}"></i>
-                            </span>
-                            {{ $facility->name }}
+                    <div class="container-fluid border">
+                        <div class="row border">
+                            @foreach ($property->facilities as $facility)
+                            <div class="col-6 col-sm-4 col-md-3 pl-0">
+                                <div class="bg-light text-success  py-2 px-2 mb-3">
+                                    <span class="mr-2">
+                                        <i class="{{ $facility->icon ?? 'fa fa-check-circle' }}"></i>
+                                    </span>
+                                    {{ $facility->name }}
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
                     @endif
                 </div>
@@ -151,8 +152,7 @@
                 @foreach ($property->images as $image)
               
                 <a href="{{ asset('storage/' . $image->link) }}">
-                <img class="py-1 px-1 p-lg-2 col-5 col-lg-3" src="{{ asset('storage/' . $image->link) }}"
-                    height="155" />
+                <img class="py-1 px-1 p-lg-2 col-5 col-lg-3" src="{{ asset('storage/' . $image->link) }}" height="155" />
                 </a>
 
                 @endforeach
