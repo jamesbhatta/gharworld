@@ -120,8 +120,8 @@
                     @endisset
                     @if($property->facilities->count())
                     <h5 class="h5-responsive my-3">Facilities</h5>
-                    <div class="container-fluid border">
-                        <div class="row border">
+                    <div class="container-fluid">
+                        <div class="row">
                             @foreach ($property->facilities as $facility)
                             <div class="col-6 col-sm-4 col-md-3 pl-0">
                                 <div class="bg-light text-success  py-2 px-2 mb-3">
