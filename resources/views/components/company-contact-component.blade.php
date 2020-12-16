@@ -6,7 +6,7 @@
         </div>
         <div class="ml-auto">
                 <div class="">{{$profile->name}}</div>
-                <div class="fa fa-map-marker"> {{$profile->address}}</div>
+                <div class="fa fa-map-marker-alt"> {{$profile->address}}</div>
                 <div><i class="class="fa fa-phone""></i> {{$profile->contact}}</div>
                 <div class="fa fa-envelope"><a href="mailto:{{$profile->email}}"> {{$profile->email}}</a> </div>
            
